@@ -14,7 +14,11 @@ class DenseMatrix
 {
 protected:
   // member
-  static emscripten::val callback; // TODO: clear
+  // static emscripten::val callback; // TODO: clear
+  void assertVector() const
+  {
+    assert((rows() == 1 || cols() == 1) && "The matrix must be a vector");
+  }
 
 public:
   Matrix<T, Dynamic, Dynamic> data;
@@ -89,9 +93,9 @@ public:
     return data.sum();
   }
 
-  DenseMatrix<T> subMatrix(int r0, int r1, int c0, int c1) const
+  DenseMatrix<T> block(int i, int j, int di, int dj) const
   {
-    return DenseMatrix<T>(data.block(r0, c0, r1 - r0, c1 - c0));
+    return DenseMatrix<T>(data.block(i, j, di, dj));
   }
 
   Matrix<T, Dynamic, Dynamic> copy() const
@@ -109,17 +113,22 @@ public:
     return DenseMatrix<T>(data * s);
   }
 
-  DenseMatrix<T> operator+(DenseMatrix<T> *B)
+  DenseMatrix<T> operator/(const T &s)
+  {
+    return DenseMatrix<T>(data / s);
+  }
+
+  DenseMatrix<T> operator+(const DenseMatrix<T> *B)
   {
     return DenseMatrix<T>(data + B->data);
   }
 
-  DenseMatrix<T> operator-(DenseMatrix<T> *B)
+  DenseMatrix<T> operator-(const DenseMatrix<T> *B)
   {
     return DenseMatrix<T>(data - B->data);
   }
 
-  DenseMatrix<T> operator*(DenseMatrix<T> *B)
+  DenseMatrix<T> operator*(const DenseMatrix<T> *B)
   {
     return DenseMatrix<T>(data * B->data);
   }
@@ -129,20 +138,20 @@ public:
     return DenseMatrix<T>(data * T(-1.0));
   }
 
-  void operator*=(const T &s)
-  {
-    data *= s;
-  }
+  // void operator*=(const T &s)
+  // {
+  //   data *= s;
+  // }
 
-  void operator+=(DenseMatrix<T> *B)
-  {
-    data += B->data;
-  }
+  // void operator+=(DenseMatrix<T> *B)
+  // {
+  //   data += B->data;
+  // }
 
-  void operator-=(DenseMatrix<T> *B)
-  {
-    data -= B->data;
-  }
+  // void operator-=(DenseMatrix<T> *B)
+  // {
+  //   data -= B->data;
+  // }
 
   T get(int r, int c) const
   {
@@ -152,6 +161,28 @@ public:
   void set(int r, int c, const T &s)
   {
     data(r, c) = s;
+  }
+
+  /**
+   * Vector ops
+   */
+
+  T vGet(int r) const
+  {
+    assertVector();
+    return cols() == 1 ? data(r, 0) : data(0, r);
+  }
+
+  void vSet(int r, const T &s)
+  {
+    assertVector();
+    *(cols() == 1 ? &data(r, 0) : &data(0, r)) = s;
+  }
+
+  T dot(const DenseMatrix<T> &B) const
+  {
+    assertVector();
+    return (cols() == 1 ? B.data * data : data * B.data)(0, 0);
   }
 
   DenseMatrix<T> hcat(DenseMatrix<T> *B)
@@ -200,8 +231,12 @@ public:
     return C;
   }
 
-  void print() const
+  void print(const string title = "") const
   {
+    if (title.length())
+    {
+      cout << title << endl;
+    }
     const int rows = data.rows();
     const int cols = data.cols();
     for (int i = 0; i < rows; i++)
@@ -224,10 +259,10 @@ public:
     }
   }
 
-  static void setCallback(emscripten::val cb)
-  {
-    DenseMatrix::callback = cb;
-  }
+  // static void setCallback(emscripten::val cb)
+  // {
+  //   DenseMatrix::callback = cb;
+  // }
 
   static DenseMatrix<T> identity(int m, int n)
   {
@@ -266,7 +301,7 @@ public:
   }
 };
 
-template <typename T>
-emscripten::val DenseMatrix<T>::callback = emscripten::val::null();
+// template <typename T>
+// emscripten::val DenseMatrix<T>::callback = emscripten::val::null();
 
 #endif // DENSE_MATRIX

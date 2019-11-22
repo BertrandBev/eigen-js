@@ -26,5 +26,5 @@ lib/Eigen
 Now to compile the wasm binary, run the following command
 
 ```bash
-emcc -I lib --bind -o eigen-js/eigen_gen.js src/embind.cc
+emcc -I lib --pre-js src/pre.js --bind -o eigen-js/eigen_gen.js src/embind.cc
 ```
