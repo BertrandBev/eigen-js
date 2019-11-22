@@ -7,14 +7,11 @@
 
 using namespace Eigen;
 using namespace std;
-// using emscripten::val = void (*)(void);
 
 template <typename T>
 class DenseMatrix
 {
 protected:
-  // member
-  // static emscripten::val callback; // TODO: clear
   void assertVector() const
   {
     assert((rows() == 1 || cols() == 1) && "The matrix must be a vector");
@@ -56,6 +53,11 @@ public:
   DenseMatrix<T> transpose() const
   {
     return DenseMatrix<T>(data.transpose());
+  }
+
+  DenseMatrix<T> inverse() const
+  {
+    return DenseMatrix<T>(data.inverse());
   }
 
   DenseMatrix<T> conjugate() const
@@ -231,6 +233,19 @@ public:
     return C;
   }
 
+  DenseMatrix<T> clip(T lo, T hi)
+  {
+    DenseMatrix<T> clipped = DenseMatrix<T>(data);
+    for (int i = 0; i < rows(); i++)
+    {
+      for (int j = 0; j < cols(); j++)
+      {
+        clipped.data(i, j) = std::max(lo, std::min(hi, clipped.data(i, j)));
+      }
+    }
+    return clipped;
+  }
+
   void print(const string title = "") const
   {
     if (title.length())
@@ -258,11 +273,6 @@ public:
       printf("\n");
     }
   }
-
-  // static void setCallback(emscripten::val cb)
-  // {
-  //   DenseMatrix::callback = cb;
-  // }
 
   static DenseMatrix<T> identity(int m, int n)
   {
@@ -300,8 +310,5 @@ public:
     return mat;
   }
 };
-
-// template <typename T>
-// emscripten::val DenseMatrix<T>::callback = emscripten::val::null();
 
 #endif // DENSE_MATRIX
