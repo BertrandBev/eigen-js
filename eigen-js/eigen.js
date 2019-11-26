@@ -10,6 +10,7 @@ if (BROWSER) {
 } else {
   Module = require('./eigen_gen.js')
 }
+const HashMap = require('./hashmap.js')
 
 
 function getStaticMethods(Class) {
@@ -18,30 +19,50 @@ function getStaticMethods(Class) {
 
 class GarbageCollector {
   static objects = new Set()
+  static whitelist = new HashMap() // Reference count
 
-  static add(...objects) {
-    objects.forEach(obj => GarbageCollector.objects.add(obj))
+  static add(...addList) {
+    addList.flat(Infinity).forEach(obj => {
+      GarbageCollector.objects.add(obj)
+    })
   }
 
-  static ignore(...exceptionList) {
-    exceptionList.forEach(obj => GarbageCollector.objects.delete(obj))
+  static pushException(...exceptionList) {
+    exceptionList.flat(Infinity).forEach(obj => {
+      const val = GarbageCollector.whitelist.get(obj) || 0
+      GarbageCollector.whitelist.set(obj, val + 1)
+    })
   }
 
-  static flush(addList = [], exceptList = []) {
-    GarbageCollector.add(...addList)
-    GarbageCollector.ignore(...exceptList)
-    // console.log(`${GarbageCollector.objects.size} object flushed!`)
-    GarbageCollector.objects.forEach(obj => obj.delete())
-    GarbageCollector.objects.clear()
+  static popException(...exceptionList) {
+    exceptionList.flat(Infinity).forEach(obj => {
+      const val = GarbageCollector.whitelist.get(obj) || 0
+      GarbageCollector.whitelist.set(obj, val - 1)
+      if (GarbageCollector.whitelist.get(obj) <= 0) {
+        GarbageCollector.whitelist.remove(obj)
+      }
+    })
+  }
+
+  static flush() {
+    const flushed = [...GarbageCollector.objects].filter(
+      obj => !GarbageCollector.whitelist.has(obj)
+    )
+    flushed.forEach(obj => {
+      obj.delete()
+      GarbageCollector.objects.delete(obj)
+    })
+    return flushed.length
   }
 
   /**
    * Smart reference bookkeeping
    */
   static set(ref, name, newObj) {
-    const addList = ((ref[name] || {}).delete) ? [ref[name]] : []
-    GarbageCollector.add(...addList)
-    GarbageCollector.ignore(newObj)
+    if (ref[name]) {
+      GarbageCollector.popException(ref[name])
+    }
+    GarbageCollector.pushException(newObj)
     ref[name] = newObj
   }
 }

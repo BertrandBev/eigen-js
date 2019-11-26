@@ -233,17 +233,17 @@ public:
     return C;
   }
 
-  DenseMatrix<T> clip(T lo, T hi)
+  DenseMatrix<T> clamp(T lo, T hi)
   {
-    DenseMatrix<T> clipped = DenseMatrix<T>(data);
+    DenseMatrix<T> clamped = DenseMatrix<T>(data);
     for (int i = 0; i < rows(); i++)
     {
       for (int j = 0; j < cols(); j++)
       {
-        clipped.data(i, j) = std::max(lo, std::min(hi, clipped.data(i, j)));
+        clamped.data(i, j) = std::max(lo, std::min(hi, clamped.data(i, j)));
       }
     }
-    return clipped;
+    return clamped;
   }
 
   void print(const string title = "") const
