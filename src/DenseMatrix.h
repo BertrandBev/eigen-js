@@ -117,34 +117,64 @@ public:
     return data;
   }
 
-  DenseMatrix<T> operator*(const T &s)
+  DenseMatrix<T> mul(const T &s)
   {
     return DenseMatrix<T>(data * s);
   }
 
-  DenseMatrix<T> operator/(const T &s)
+  void mulSelf(const T &s)
+  {
+    data *= s;
+  }
+
+  DenseMatrix<T> div(const T &s)
   {
     return DenseMatrix<T>(data / s);
   }
 
-  DenseMatrix<T> operator+(const DenseMatrix<T> *B)
+  void divSelf(const T &s)
+  {
+    data /= s;
+  }
+
+  DenseMatrix<T> matAdd(const DenseMatrix<T> *B)
   {
     return DenseMatrix<T>(data + B->data);
   }
 
-  DenseMatrix<T> operator-(const DenseMatrix<T> *B)
+  void matAddSelf(const DenseMatrix<T> *B)
+  {
+    data += B->data;
+  }
+
+  DenseMatrix<T> matSub(const DenseMatrix<T> *B)
   {
     return DenseMatrix<T>(data - B->data);
   }
 
-  DenseMatrix<T> operator*(const DenseMatrix<T> *B)
+  void matSubSelf(const DenseMatrix<T> *B)
+  {
+    data -= B->data;
+  }
+
+  DenseMatrix<T> matMul(const DenseMatrix<T> *B)
   {
     return DenseMatrix<T>(data * B->data);
   }
 
-  DenseMatrix<T> operator-()
+  void matMulSelf(const DenseMatrix<T> *B)
+  {
+    data *= B->data;
+  }
+
+  DenseMatrix<T> negated()
   {
     return DenseMatrix<T>(data * T(-1.0));
+  }
+
+  void negatedSelf()
+  {
+    data *= T(-1.0);
   }
 
   T get(int r, int c) const

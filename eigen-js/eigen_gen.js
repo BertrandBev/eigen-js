@@ -626,8 +626,8 @@ var wasmMemory;
 // In the wasm backend, we polyfill the WebAssembly object,
 // so this creates a (non-native-wasm) table for us.
 var wasmTable = new WebAssembly.Table({
-  'initial': 519,
-  'maximum': 519 + 0,
+  'initial': 528,
+  'maximum': 528 + 0,
   'element': 'anyfunc'
 });
 
@@ -1231,11 +1231,11 @@ function updateGlobalBufferAndViews(buf) {
 }
 
 var STATIC_BASE = 1024,
-    STACK_BASE = 5277616,
+    STACK_BASE = 5277712,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 34736,
-    DYNAMIC_BASE = 5277616,
-    DYNAMICTOP_PTR = 34576;
+    STACK_MAX = 34832,
+    DYNAMIC_BASE = 5277712,
+    DYNAMICTOP_PTR = 34672;
 
 assert(STACK_BASE % 16 === 0, 'stack must start aligned');
 assert(DYNAMIC_BASE % 16 === 0, 'heap must start aligned');
@@ -1752,7 +1752,7 @@ var ASM_CONSTS = {
 
 
 
-// STATICTOP = STATIC_BASE + 33712;
+// STATICTOP = STATIC_BASE + 33808;
 /* global initializers */  __ATINIT__.push({ func: function() { ___wasm_call_ctors() } });
 
 
@@ -6076,7 +6076,7 @@ var ASM_CONSTS = {
     }
 
   function _emscripten_get_sbrk_ptr() {
-      return 34576;
+      return 34672;
     }
 
   function _emscripten_memcpy_big(dest, src, num) {
@@ -6945,6 +6945,13 @@ asm["dynCall_iiid"] = function() {
   return real_dynCall_iiid.apply(null, arguments);
 };
 
+var real_dynCall_viid = asm["dynCall_viid"];
+asm["dynCall_viid"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return real_dynCall_viid.apply(null, arguments);
+};
+
 var real_dynCall_diiii = asm["dynCall_diiii"];
 asm["dynCall_diiii"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
@@ -6985,13 +6992,6 @@ asm["dynCall_iiiiii"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
   return real_dynCall_iiiiii.apply(null, arguments);
-};
-
-var real_dynCall_viid = asm["dynCall_viid"];
-asm["dynCall_viid"] = function() {
-  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-  return real_dynCall_viid.apply(null, arguments);
 };
 
 var real_dynCall_jiji = asm["dynCall_jiji"];
@@ -7251,6 +7251,12 @@ var dynCall_iiid = Module["dynCall_iiid"] = function() {
   return Module["asm"]["dynCall_iiid"].apply(null, arguments)
 };
 
+var dynCall_viid = Module["dynCall_viid"] = function() {
+  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
+  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
+  return Module["asm"]["dynCall_viid"].apply(null, arguments)
+};
+
 var dynCall_diiii = Module["dynCall_diiii"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
@@ -7285,12 +7291,6 @@ var dynCall_iiiiii = Module["dynCall_iiiiii"] = function() {
   assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
   assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
   return Module["asm"]["dynCall_iiiiii"].apply(null, arguments)
-};
-
-var dynCall_viid = Module["dynCall_viid"] = function() {
-  assert(runtimeInitialized, 'you need to wait for the runtime to be ready (e.g. wait for main() to be called)');
-  assert(!runtimeExited, 'the runtime was exited (use NO_EXIT_RUNTIME to keep it alive after main() exits)');
-  return Module["asm"]["dynCall_viid"].apply(null, arguments)
 };
 
 var dynCall_jiji = Module["dynCall_jiji"] = function() {

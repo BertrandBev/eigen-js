@@ -128,6 +128,25 @@ function addHelpers(Module) {
     })
     return new DenseMatrix.fromVector(v2d);
   }
+
+  /**
+   * Return pointer on self methods
+   */
+  const methods = [
+    "mulSelf",
+    "divSelf",
+    "matAddSelf",
+    "matSubSelf",
+    "matMulSelf",
+    "negatedSelf"
+  ]
+  methods.forEach(method => {
+    const fun = DenseMatrix.prototype[method]
+    DenseMatrix.prototype[method] = function (...args) {
+      fun.call(this, ...args)
+      return this
+    }
+  })
 }
 
 
