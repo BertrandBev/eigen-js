@@ -1,8 +1,8 @@
 # Eigen-js
 
-Eigen-js is a port of the great [Eigen](https://eigen.tuxfamily.org/) C++ linear algebra library
+Eigen-js is a port of the [Eigen](https://eigen.tuxfamily.org/) C++ linear algebra library
 
-It uses a WebAssembly compiled subset of the [Eigen](https://eigen.tuxfamily.org/) library, and implements a simple garbage collection mechanism to manage memory
+It uses a WebAssembly compiled subset of the [Eigen](https://eigen.tuxfamily.org/) library, and implements a garbage collection mechanism to manage memory
 
 ## Installation
 

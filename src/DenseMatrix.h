@@ -55,6 +55,13 @@ public:
     return DenseMatrix<T>(data.transpose());
   }
 
+  DenseMatrix<T> & sTranspose()
+  {
+    cout << "working on: " << this << " data: " <<  &data << endl;
+    data.transposeInPlace();
+    return *this;
+  }
+
   DenseMatrix<T> inverse() const
   {
     return DenseMatrix<T>(data.inverse());
@@ -139,21 +146,6 @@ public:
   {
     return DenseMatrix<T>(data * T(-1.0));
   }
-
-  // void operator*=(const T &s)
-  // {
-  //   data *= s;
-  // }
-
-  // void operator+=(DenseMatrix<T> *B)
-  // {
-  //   data += B->data;
-  // }
-
-  // void operator-=(DenseMatrix<T> *B)
-  // {
-  //   data -= B->data;
-  // }
 
   T get(int r, int c) const
   {
