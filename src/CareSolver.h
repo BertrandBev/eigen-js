@@ -4,22 +4,22 @@
 #include <Eigen/Dense>
 #include "DenseMatrix.h"
 
-using namespace std;
-using namespace Eigen;
-
 template <typename T1, typename T2>
-bool isEqual(const MatrixBase<T1> &m1,
-             const MatrixBase<T2> &m2,
+bool isEqual(const Eigen::MatrixBase<T1> &m1,
+             const Eigen::MatrixBase<T2> &m2,
              double tolerance)
 {
   return (
       (m1.rows() == m2.rows()) &&
       (m1.cols() == m2.cols()) &&
-      ((m1 - m2).template lpNorm<Infinity>() <= tolerance));
+      ((m1 - m2).template lpNorm<Eigen::Infinity>() <= tolerance));
 }
 
 class CareSolver
 {
+  using MatrixXd = Eigen::MatrixXd;
+  using ComputationInfo = Eigen::ComputationInfo;
+
 protected:
   DenseMatrix<double> _S = DenseMatrix<double>(0, 0);
   DenseMatrix<double> _K = DenseMatrix<double>(0, 0);
@@ -54,9 +54,9 @@ private:
       const MatrixXd &A,
       const MatrixXd &B,
       const MatrixXd &Q,
-      const LLT<MatrixXd> &R_cholesky)
+      const Eigen::LLT<MatrixXd> &R_cholesky)
   {
-    const Index n = B.rows(), m = B.cols();
+    const Eigen::Index n = B.rows(), m = B.cols();
     assert(A.rows() == n && A.cols() == n);
     assert(Q.rows() == n && Q.cols() == n);
     assert(R_cholesky.matrixL().rows() == m &&
@@ -106,8 +106,8 @@ private:
     lhs << W12, W22 + eye;
     rhs << W11 + eye, W21;
 
-    JacobiSVD<MatrixXd> svd(
-        lhs, ComputeThinU | ComputeThinV);
+    Eigen::JacobiSVD<MatrixXd> svd(
+        lhs, Eigen::ComputeThinU | Eigen::ComputeThinV);
 
     MatrixXd sol = svd.solve(rhs);
     _S = DenseMatrix<double>(sol);
@@ -122,8 +122,8 @@ private:
   {
     assert(isEqual(R, R.transpose(), 1e-10));
 
-    LLT<MatrixXd> R_cholesky(R);
-    if (R_cholesky.info() != Success)
+    Eigen::LLT<MatrixXd> R_cholesky(R);
+    if (R_cholesky.info() != Eigen::Success)
       throw std::runtime_error("R must be positive definite");
     solve(A, B, Q, R_cholesky);
   }

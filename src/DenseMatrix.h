@@ -5,12 +5,12 @@
 #include <vector>
 #include <Eigen/Dense>
 
-using namespace Eigen;
-using namespace std;
-
 template <typename T>
 class DenseMatrix
 {
+  using Mat = Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>;
+  using Vector2d = std::vector<std::vector<T>>;
+
 protected:
   void assertVector() const
   {
@@ -18,15 +18,14 @@ protected:
   }
 
 public:
-  Matrix<T, Dynamic, Dynamic> data;
-  typedef vector<vector<double>> Vector2d;
+  Mat data;
 
   DenseMatrix(int m, int n)
   {
-    data = Matrix<T, Dynamic, Dynamic>::Zero(m, n);
+    data = Mat::Zero(m, n);
   }
 
-  DenseMatrix(const Matrix<T, Dynamic, Dynamic> &data_) : data(data_)
+  DenseMatrix(const Mat &data_) : data(data_)
   {
   }
 
@@ -34,7 +33,7 @@ public:
   {
   }
 
-  DenseMatrix<T> &operator=(const Matrix<T, Dynamic, Dynamic> &data_)
+  DenseMatrix<T> &operator=(const Mat &data_)
   {
     if (&data != &data_)
       data = data_;
@@ -55,9 +54,9 @@ public:
     return DenseMatrix<T>(data.transpose());
   }
 
-  DenseMatrix<T> & sTranspose()
+  DenseMatrix<T> & transposeInPlace()
   {
-    cout << "working on: " << this << " data: " <<  &data << endl;
+    std::cout << "working on: " << this << " data: " <<  &data << std::endl;
     data.transposeInPlace();
     return *this;
   }
@@ -85,7 +84,7 @@ public:
   double norm(int n) const
   {
     if (n == 0)
-      return data.template lpNorm<Infinity>();
+      return data.template lpNorm<Eigen::Infinity>();
     else if (n == 1)
       return data.template lpNorm<1>();
     return data.norm();
@@ -93,7 +92,7 @@ public:
 
   double rank() const
   {
-    ColPivHouseholderQR<Matrix<T, Dynamic, Dynamic>> qr(data);
+    Eigen::ColPivHouseholderQR<Mat> qr(data);
     return qr.rank();
   }
 
@@ -107,12 +106,21 @@ public:
     return DenseMatrix<T>(data.block(i, j, di, dj));
   }
 
-  Matrix<T, Dynamic, Dynamic> copy() const
+  void setBlock(int i, int j, DenseMatrix<T> & block) {
+    assert(rows() >= i + block.rows() && cols() >= j + block.cols() && "The matrix doens't fit");
+    for (int ii = 0; ii < block.rows(); ii++) {
+      for (int jj = 0; jj < block.cols(); jj++) {
+        data(i + ii, j + jj) = block.data(ii, jj);
+      }
+    }
+  }
+
+  Mat copy() const
   {
     return data;
   }
 
-  Matrix<T, Dynamic, Dynamic> &toEigen()
+  Mat &toEigen()
   {
     return data;
   }
@@ -167,40 +175,36 @@ public:
     data *= B->data;
   }
 
-  DenseMatrix<T> negated()
+  T get(int i, int j) const
   {
-    return DenseMatrix<T>(data * T(-1.0));
+    return data(i, j);
   }
 
-  void negatedSelf()
+  void set(int i, int j, const T &s)
   {
-    data *= T(-1.0);
-  }
-
-  T get(int r, int c) const
-  {
-    return data(r, c);
-  }
-
-  void set(int r, int c, const T &s)
-  {
-    data(r, c) = s;
+    data(i, j) = s;
   }
 
   /**
    * Vector ops
    */
 
-  T vGet(int r) const
+  int length() const
   {
     assertVector();
-    return cols() == 1 ? data(r, 0) : data(0, r);
+    return std::max(rows(), cols());
+  } 
+
+  T vGet(int i) const
+  {
+    assertVector();
+    return cols() == 1 ? data(i, 0) : data(0, i);
   }
 
-  void vSet(int r, const T &s)
+  void vSet(int i, const T &s)
   {
     assertVector();
-    *(cols() == 1 ? &data(r, 0) : &data(0, r)) = s;
+    *(cols() == 1 ? &data(i, 0) : &data(0, i)) = s;
   }
 
   T dot(const DenseMatrix<T> &B) const
@@ -268,11 +272,11 @@ public:
     return clamped;
   }
 
-  void print(const string title = "") const
+  void print(const std::string title = "") const
   {
     if (title.length())
     {
-      cout << title << endl;
+      std::cout << title << std::endl;
     }
     const int rows = data.rows();
     const int cols = data.cols();
@@ -281,13 +285,13 @@ public:
       printf(i == 0 ? "[[" : " [");
       for (int j = 0; j < cols; j++)
       {
-        if (std::is_same<T, complex<double>>::value)
+        if (std::is_same<T, std::complex<double>>::value)
         {
-          printf("%.2f + %.2fi", real(get(i, j)), imag(get(i, j)));
+          printf("%.2f + %.2fi", std::real(get(i, j)), std::imag(get(i, j)));
         }
         else
         {
-          printf("%.2f", real(get(i, j)));
+          printf("%.2f", std::real(get(i, j)));
         }
         printf(j < cols - 1 ? ", " : "");
       }
@@ -298,29 +302,29 @@ public:
 
   static DenseMatrix<T> identity(int m, int n)
   {
-    return DenseMatrix<T>(Matrix<T, Dynamic, Dynamic>::Identity(m, n));
+    return DenseMatrix<T>(Mat::Identity(m, n));
   }
 
   static DenseMatrix<T> ones(int m, int n)
   {
-    return DenseMatrix<T>(Matrix<T, Dynamic, Dynamic>::Ones(m, n));
+    return DenseMatrix<T>(Mat::Ones(m, n));
   }
 
   static DenseMatrix<T> constant(int m, int n, const T &x)
   {
-    return DenseMatrix<T>(Matrix<T, Dynamic, Dynamic>::Constant(m, n, x));
+    return DenseMatrix<T>(Mat::Constant(m, n, x));
   }
 
   static DenseMatrix<T> random(int m, int n)
   {
-    return DenseMatrix<T>(Matrix<T, Dynamic, Dynamic>::Random(m, n));
+    return DenseMatrix<T>(Mat::Random(m, n));
   }
 
   static DenseMatrix<T> fromVector(const Vector2d &v)
   {
     const size_t m = v.size();
     const size_t n = m > 0 ? v[0].size() : 0;
-    Matrix<T, Dynamic, Dynamic> mat(m, n);
+    Mat mat(m, n);
     for (size_t i = 0; i < m; i++)
     {
       assert(v[i].size() == n && "All the rows must have the same size");

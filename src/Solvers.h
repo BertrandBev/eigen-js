@@ -4,45 +4,33 @@
 #include <Eigen/Dense>
 #include "DenseMatrix.h"
 
-using namespace std;
-using namespace Eigen;
-
-class EigenSolver2
+class EigenSolver
 {
+  using Matrix = Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic>;
+
 protected:
-  EigenSolver<Matrix<double, Dynamic, Dynamic>> data;
+  Eigen::EigenSolver<Matrix> data;
 
 public:
-  explicit EigenSolver2(const DenseMatrix<double> &matrix, bool computeEigenvectors = true)
+  explicit EigenSolver(const DenseMatrix<double> &matrix, bool computeEigenvectors = true)
   {
     // const EigenBase<InputType> &matrix
-    data = EigenSolver<Matrix<double, Dynamic, Dynamic>>(matrix.data, computeEigenvectors);
+    data = Eigen::EigenSolver<Matrix>(matrix.data, computeEigenvectors);
   }
 
-  ComputationInfo info() const
+  Eigen::ComputationInfo info() const
   {
     return data.info();
   }
 
-
-  // typename EigenSolver<Matrix<double, Dynamic, Dynamic>>::EigenvectorsType eigenvectorsOld()
-  // {
-  //   return data.eigenvectors();
-  // }
-
-  // const typename EigenSolver<Matrix<double, Dynamic, Dynamic>>::EigenvalueType &eigenvaluesOld() const
-  // {
-  //   return data.eigenvalues();
-  // }
-
-  const DenseMatrix<complex<double>> eigenvalues() const
+  const DenseMatrix<std::complex<double>> eigenvalues() const
   {
-    return DenseMatrix<complex<double>>(data.eigenvalues());
+    return DenseMatrix<std::complex<double>>(data.eigenvalues());
   }
 
-  const DenseMatrix<complex<double>> eigenvectors() const
+  const DenseMatrix<std::complex<double>> eigenvectors() const
   {
-    return DenseMatrix<complex<double>>(data.eigenvectors());
+    return DenseMatrix<std::complex<double>>(data.eigenvectors());
   }
 };
 

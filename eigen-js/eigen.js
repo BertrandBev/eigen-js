@@ -69,10 +69,11 @@ class GarbageCollector {
 
 /**
  * Equip class to add constructor feedback
+ * @param  {Set} classes Set of all the classes names
  * @param  {object} Class class to wrap
  * @returns {object} wrapped class
  */
-function initClass(Class) {
+function initClass(classes, Class) {
   const NewClass = function (...args) {
     const instance = new Class(...args)
     GarbageCollector.add(instance)
@@ -82,10 +83,11 @@ function initClass(Class) {
   for (let idx in arr) {
     let obj = arr[idx]
     getStaticMethods(obj).forEach(method => {
+      // console.log(`Wrapping reg method ${method} of ${Class}`)
       const fun = obj[method]
       obj[method] = function (...args) {
         const rtn = fun.call(this, ...args)
-        if (rtn instanceof Class) {
+        if (rtn && classes.has(rtn.constructor.name)) {
           GarbageCollector.add(rtn)
         }
         return rtn
@@ -94,7 +96,9 @@ function initClass(Class) {
   }
 
   // Class.prototype.constructor = NewClass TODO: control
-  getStaticMethods(Class).forEach(method => { NewClass[method] = Class[method]; })
+  getStaticMethods(Class).forEach(method => {
+    NewClass[method] = Class[method];
+  })
   NewClass.prototype = Class.prototype
   return NewClass
 }
@@ -156,15 +160,18 @@ const defExport = {
 }
 
 Module.onRuntimeInitialized = _ => {
-  const classes = ["Vector",
+  const classes = new Set(["Vector",
     "Vector2d",
     "Complex",
     "DenseMatrix",
+    "SparseMatrix",
+    "TripletVector",
     "ComplexDenseMatrix",
     "EigenSolver",
-    "CareSolver"]
+    "CareSolver",
+    "QuadProgSolver"])
   classes.forEach(className => {
-    defExport[className] = initClass(Module[className])
+    defExport[className] = initClass(classes, Module[className])
   })
   addHelpers(defExport);
   defExport.ready()
