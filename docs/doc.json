@@ -1,0 +1,1817 @@
+[
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "This function adds one to its input.",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 37,
+                  "offset": 36
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 37,
+              "offset": 36
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 37,
+          "offset": 36
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "param",
+        "description": "any number",
+        "lineNumber": 2,
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        },
+        "name": "string"
+      },
+      {
+        "title": "returns",
+        "description": "that number, plus one.",
+        "lineNumber": 3,
+        "type": {
+          "type": "NameExpression",
+          "name": "Number"
+        }
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 5,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 1
+        }
+      },
+      "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/eigen-js/doctest.js"
+    },
+    "augments": [],
+    "examples": [],
+    "implements": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "input",
+        "lineNumber": 6
+      },
+      {
+        "title": "param",
+        "name": "string",
+        "lineNumber": 2,
+        "description": {
+          "type": "root",
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "any number",
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 11,
+                      "offset": 10
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 11,
+                  "offset": 10
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 11,
+              "offset": 10
+            }
+          }
+        },
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [
+      {
+        "description": {
+          "type": "root",
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "that number, plus one.",
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 23,
+                      "offset": 22
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 23,
+                  "offset": 22
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 23,
+              "offset": 22
+            }
+          }
+        },
+        "title": "returns",
+        "type": {
+          "type": "NameExpression",
+          "name": "Number"
+        }
+      }
+    ],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "yields": [],
+    "name": "addOne",
+    "kind": "function",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "addOne",
+        "kind": "function"
+      }
+    ],
+    "namespace": "addOne"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "A Dense matrix object",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 22,
+                  "offset": 21
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 22,
+              "offset": 21
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 22,
+          "offset": 21
+        }
+      }
+    },
+    "tags": [],
+    "loc": {
+      "start": {
+        "line": 10,
+        "column": 0
+      },
+      "end": {
+        "line": 12,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 78,
+          "column": 1
+        }
+      },
+      "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/eigen-js/doctest.js"
+    },
+    "augments": [],
+    "examples": [],
+    "implements": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "name",
+        "lineNumber": 2,
+        "description": {
+          "type": "root",
+          "children": [
+            {
+              "type": "paragraph",
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Matrix name (BIS)",
+                  "position": {
+                    "start": {
+                      "line": 1,
+                      "column": 1,
+                      "offset": 0
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 18,
+                      "offset": 17
+                    },
+                    "indent": []
+                  }
+                }
+              ],
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 18,
+                  "offset": 17
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 18,
+              "offset": 17
+            }
+          }
+        },
+        "type": {
+          "type": "NameExpression",
+          "name": "String"
+        }
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "yields": [],
+    "constructorComment": {
+      "description": {
+        "type": "root",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "value": "Builds a matrix",
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 16,
+                    "offset": 15
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 16,
+                "offset": 15
+              },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": {
+            "line": 1,
+            "column": 1,
+            "offset": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 16,
+            "offset": 15
+          }
+        }
+      },
+      "tags": [
+        {
+          "title": "param",
+          "description": "Matrix name (BIS)",
+          "lineNumber": 2,
+          "type": {
+            "type": "NameExpression",
+            "name": "String"
+          },
+          "name": "name"
+        }
+      ],
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 4
+        },
+        "end": {
+          "line": 17,
+          "column": 7
+        }
+      },
+      "context": {
+        "loc": {
+          "start": {
+            "line": 18,
+            "column": 4
+          },
+          "end": {
+            "line": 20,
+            "column": 5
+          }
+        },
+        "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/eigen-js/doctest.js",
+        "sortKey": "!/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/eigen-js/doctest.js 00000018",
+        "code": "{\n    /**\n     * Builds a matrix\n     * @param {String} name Matrix name (BIS)\n     */\n    constructor(name) {\n\n    }\n\n    /**\n     * Add to the matrix\n     * @param {Number} a First value\n     * @param {Number} b Second value\n     * @returns {Number} Added value\n     * @example\n     * const a = 1;\n     * const b = 2;\n     * return add(a, b);\n     */\n    static add(a, b) {\n        return a + b\n    }\n\n    /**\n     * Transpose a matrix\n     * that method doesn't tranpose a matrix in place\n     * @param {DenseMatrix} mat matrix\n     * @returns {DenseMatrix} Transposed matrix\n     * @example\n     * const mat = eig.DenseMatrix(2, 3);\n     * return transpose(mat);\n     */\n    static transpose(mat) {\n        return mat\n    }\n\n    /**\n     * Add all values in place\n     * That method should be the prime way of adding values to a dense matrix\n     * @param {Array} values Values to add\n     * @param {Boolean} reverse Whether the array shoud be reversed\n     * @returns {Boolean} Success\n     */\n    static addAll(values, reverse) {\n        return false\n    }\n\n    /**\n     * Transpose a matrix\n     * that method tranposes a matrix in place\n     * @returns {DenseMatrix} Transposed matrix\n     * @example\n     * const mat = eig.DenseMatrix(2, 3);\n     * return mat.transpose();\n     */\n    transpose() {\n        return this\n    }\n\n    /**\n     * Remove matrix\n     */\n    delete() {\n\n    }\n}"
+      },
+      "augments": [],
+      "errors": [],
+      "examples": [],
+      "implements": [],
+      "params": [
+        {
+          "title": "param",
+          "name": "name",
+          "lineNumber": 2,
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Matrix name (BIS)",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 18,
+                        "offset": 17
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 18,
+                    "offset": 17
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 18,
+                "offset": 17
+              }
+            }
+          },
+          "type": {
+            "type": "NameExpression",
+            "name": "String"
+          }
+        }
+      ],
+      "properties": [],
+      "returns": [],
+      "sees": [],
+      "throws": [],
+      "todos": [],
+      "yields": []
+    },
+    "name": "DenseMatrix",
+    "kind": "class",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Transpose a matrix\nthat method tranposes a matrix in place",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 40,
+                        "offset": 58
+                      },
+                      "indent": [
+                        1
+                      ]
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 40,
+                    "offset": 58
+                  },
+                  "indent": [
+                    1
+                  ]
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 2,
+                "column": 40,
+                "offset": 58
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "returns",
+              "description": "Transposed matrix",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "DenseMatrix"
+              }
+            },
+            {
+              "title": "example",
+              "description": "const mat = eig.DenseMatrix(2, 3);\nreturn mat.transpose();",
+              "lineNumber": 4
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 60,
+              "column": 4
+            },
+            "end": {
+              "line": 67,
+              "column": 7
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 68,
+                "column": 4
+              },
+              "end": {
+                "line": 70,
+                "column": 5
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/eigen-js/doctest.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const mat = eig.DenseMatrix(2, 3);\nreturn mat.transpose();"
+            }
+          ],
+          "implements": [],
+          "params": [],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Transposed matrix",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 18,
+                            "offset": 17
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 18,
+                        "offset": 17
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 18,
+                    "offset": 17
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "DenseMatrix"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "transpose",
+          "kind": "function",
+          "memberof": "DenseMatrix",
+          "scope": "instance",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "DenseMatrix",
+              "kind": "class"
+            },
+            {
+              "name": "transpose",
+              "kind": "function",
+              "scope": "instance"
+            }
+          ],
+          "namespace": "DenseMatrix#transpose"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Remove matrix",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 14,
+                        "offset": 13
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 14,
+                    "offset": 13
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 14,
+                "offset": 13
+              }
+            }
+          },
+          "tags": [],
+          "loc": {
+            "start": {
+              "line": 72,
+              "column": 4
+            },
+            "end": {
+              "line": 74,
+              "column": 7
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 75,
+                "column": 4
+              },
+              "end": {
+                "line": 77,
+                "column": 5
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/eigen-js/doctest.js"
+          },
+          "augments": [],
+          "examples": [],
+          "implements": [],
+          "params": [],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "delete",
+          "kind": "function",
+          "memberof": "DenseMatrix",
+          "scope": "instance",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "DenseMatrix",
+              "kind": "class"
+            },
+            {
+              "name": "delete",
+              "kind": "function",
+              "scope": "instance"
+            }
+          ],
+          "namespace": "DenseMatrix#delete"
+        }
+      ],
+      "events": [],
+      "static": [
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Add to the matrix",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 18,
+                        "offset": 17
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 18,
+                    "offset": 17
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 18,
+                "offset": 17
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "First value",
+              "lineNumber": 2,
+              "type": {
+                "type": "NameExpression",
+                "name": "Number"
+              },
+              "name": "a"
+            },
+            {
+              "title": "param",
+              "description": "Second value",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Number"
+              },
+              "name": "b"
+            },
+            {
+              "title": "returns",
+              "description": "Added value",
+              "lineNumber": 4,
+              "type": {
+                "type": "NameExpression",
+                "name": "Number"
+              }
+            },
+            {
+              "title": "example",
+              "description": "const a = 1;\nconst b = 2;\nreturn add(a, b);",
+              "lineNumber": 5
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 22,
+              "column": 4
+            },
+            "end": {
+              "line": 31,
+              "column": 7
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 4
+              },
+              "end": {
+                "line": 34,
+                "column": 5
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/eigen-js/doctest.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const a = 1;\nconst b = 2;\nreturn add(a, b);"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "a",
+              "lineNumber": 2,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "First value",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 12,
+                            "offset": 11
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 12,
+                        "offset": 11
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12,
+                    "offset": 11
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Number"
+              }
+            },
+            {
+              "title": "param",
+              "name": "b",
+              "lineNumber": 3,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Second value",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 13,
+                            "offset": 12
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 13,
+                        "offset": 12
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 13,
+                    "offset": 12
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Number"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Added value",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 12,
+                            "offset": 11
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 12,
+                        "offset": 11
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12,
+                    "offset": 11
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "Number"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "add",
+          "kind": "function",
+          "memberof": "DenseMatrix",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "DenseMatrix",
+              "kind": "class"
+            },
+            {
+              "name": "add",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "DenseMatrix.add"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Transpose a matrix\nthat method doesn't tranpose a matrix in place",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 47,
+                        "offset": 65
+                      },
+                      "indent": [
+                        1
+                      ]
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 47,
+                    "offset": 65
+                  },
+                  "indent": [
+                    1
+                  ]
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 2,
+                "column": 47,
+                "offset": 65
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "matrix",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "DenseMatrix"
+              },
+              "name": "mat"
+            },
+            {
+              "title": "returns",
+              "description": "Transposed matrix",
+              "lineNumber": 4,
+              "type": {
+                "type": "NameExpression",
+                "name": "DenseMatrix"
+              }
+            },
+            {
+              "title": "example",
+              "description": "const mat = eig.DenseMatrix(2, 3);\nreturn transpose(mat);",
+              "lineNumber": 5
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 36,
+              "column": 4
+            },
+            "end": {
+              "line": 44,
+              "column": 7
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 45,
+                "column": 4
+              },
+              "end": {
+                "line": 47,
+                "column": 5
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/eigen-js/doctest.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const mat = eig.DenseMatrix(2, 3);\nreturn transpose(mat);"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "mat",
+              "lineNumber": 3,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "matrix",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 7,
+                            "offset": 6
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7,
+                        "offset": 6
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7,
+                    "offset": 6
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "DenseMatrix"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Transposed matrix",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 18,
+                            "offset": 17
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 18,
+                        "offset": 17
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 18,
+                    "offset": 17
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "DenseMatrix"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "transpose",
+          "kind": "function",
+          "memberof": "DenseMatrix",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "DenseMatrix",
+              "kind": "class"
+            },
+            {
+              "name": "transpose",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "DenseMatrix.transpose"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Add all values in place\nThat method should be the prime way of adding values to a dense matrix",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 71,
+                        "offset": 94
+                      },
+                      "indent": [
+                        1
+                      ]
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 71,
+                    "offset": 94
+                  },
+                  "indent": [
+                    1
+                  ]
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 2,
+                "column": 71,
+                "offset": 94
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "Values to add",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Array"
+              },
+              "name": "values"
+            },
+            {
+              "title": "param",
+              "description": "Whether the array shoud be reversed",
+              "lineNumber": 4,
+              "type": {
+                "type": "NameExpression",
+                "name": "Boolean"
+              },
+              "name": "reverse"
+            },
+            {
+              "title": "returns",
+              "description": "Success",
+              "lineNumber": 5,
+              "type": {
+                "type": "NameExpression",
+                "name": "Boolean"
+              }
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 49,
+              "column": 4
+            },
+            "end": {
+              "line": 55,
+              "column": 7
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 56,
+                "column": 4
+              },
+              "end": {
+                "line": 58,
+                "column": 5
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/eigen-js/doctest.js"
+          },
+          "augments": [],
+          "examples": [],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "values",
+              "lineNumber": 3,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Values to add",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 14,
+                            "offset": 13
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 14,
+                        "offset": 13
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 14,
+                    "offset": 13
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Array"
+              }
+            },
+            {
+              "title": "param",
+              "name": "reverse",
+              "lineNumber": 4,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Whether the array shoud be reversed",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 36,
+                            "offset": 35
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 36,
+                        "offset": 35
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 36,
+                    "offset": 35
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Boolean"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Success",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 8,
+                            "offset": 7
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 8,
+                        "offset": 7
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 8,
+                    "offset": 7
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "Boolean"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "addAll",
+          "kind": "function",
+          "memberof": "DenseMatrix",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "DenseMatrix",
+              "kind": "class"
+            },
+            {
+              "name": "addAll",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "DenseMatrix.addAll"
+        }
+      ]
+    },
+    "path": [
+      {
+        "name": "DenseMatrix",
+        "kind": "class"
+      }
+    ],
+    "namespace": "DenseMatrix"
+  }
+]

@@ -6,7 +6,7 @@ v-alert(v-model='visible'
         min-width='100%'
         icon='mdi-chevron-right'
         color='green')
-  div.black--text(v-katex='expression')
+  div.grey--text.text--darken-2(v-katex='expression')
 </template>
 
 <script>
@@ -27,6 +27,8 @@ export default {
     expression() {
       if (typeof this.value === "number") {
         console.log("number");
+        return `${this.value}`;
+      } else if (typeof this.value === "string") {
         return `${this.value}`;
       } else if (Array.isArray(this.value)) {
         console.log("is array");
@@ -50,9 +52,11 @@ export default {
           ${body.join("\\\\")}
           \\end{pmatrix}
         `;
-      } else {
+      } else if (this.value) {
         const constructor = this.value.constructor;
         return `${constructor ? constructor.name : typeof this.value}`;
+      } else {
+        return `${this.value}`;
       }
     }
   },

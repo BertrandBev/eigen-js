@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import DenseMatrix from '../views/DenseMatrix.vue'
+import Documentation from '../views/Documentation.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'denseMatrix',
-    component: DenseMatrix
+    name: 'documentation',
+    component: Documentation
   }
 ]
 

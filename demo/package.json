@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "arraybuffer-loader": "^1.0.8",
-    "codeflask": "^1.4.1",
     "core-js": "^3.4.3",
     "katex": "^0.11.1",
     "safe-eval": "^0.4.1",

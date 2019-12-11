@@ -33,28 +33,28 @@ public:
   {
   }
 
-  DenseMatrix<T> &operator=(const Mat &data_)
-  {
-    if (&data != &data_)
-      data = data_;
+  // DenseMatrix<T> &operator=(const Mat &data_)
+  // {
+  //   if (&data != &data_)
+  //     data = data_;
 
-    return *this;
-  }
+  //   return *this;
+  // }
 
-  DenseMatrix<T> &operator=(const DenseMatrix<T> &B)
-  {
-    if (this != &B)
-      data = B.copy();
+  // DenseMatrix<T> &operator=(const DenseMatrix<T> &B)
+  // {
+  //   if (this != &B)
+  //     data = B.copy();
 
-    return *this;
-  }
+  //   return *this;
+  // }
 
   DenseMatrix<T> transpose() const
   {
     return DenseMatrix<T>(data.transpose());
   }
 
-  DenseMatrix<T> & transposeInPlace()
+  DenseMatrix<T> & transposeSelf()
   {
     std::cout << "working on: " << this << " data: " <<  &data << std::endl;
     data.transposeInPlace();

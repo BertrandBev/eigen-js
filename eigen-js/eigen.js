@@ -12,6 +12,7 @@ if (BROWSER) {
 }
 const HashMap = require('./hashmap.js')
 
+const Matrix = require('../src/classes/Matrix')
 
 function getStaticMethods(Class) {
   return Object.getOwnPropertyNames(Class).filter(prop => prop !== "constructor" && typeof Class[prop] === "function");
@@ -156,6 +157,7 @@ function addHelpers(Module) {
 
 const defExport = {
   GC: GarbageCollector,
+  Matrix,
   ready: () => { } // Override if needed
 }
 

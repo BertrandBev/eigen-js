@@ -29,7 +29,7 @@ EMSCRIPTEN_BINDINGS(Module)
     emscripten::function("imag", select_overload<double(const complex<double> &)>(&imag)); // TODO: extract in complex class
 
     // Dense Matrix
-    class_<DDM>("DenseMatrix")
+    class_<DDM>("Matrix") // TODO: rename
         .constructor<int, int>()
         .constructor<const DDM &>()
         .class_function("identity", &DDM::identity)
@@ -38,7 +38,7 @@ EMSCRIPTEN_BINDINGS(Module)
         .class_function("random", &DDM::random)
         .class_function("fromVector", &DDM::fromVector)
         .function("transpose", &DDM::transpose)
-        .function("transposeInPlace", &DDM::transposeInPlace)
+        .function("transposeSelf", &DDM::transposeSelf)
         .function("inverse", &DDM::inverse)
         .function("rows", &DDM::rows)
         .function("cols", &DDM::cols)
