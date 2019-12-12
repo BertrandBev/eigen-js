@@ -57,7 +57,7 @@ export default {
     },
 
     constructorFunction() {
-      return _.get(this.data, "constructorComment", []);
+      return _.get(this.data, "constructorComment");
     },
 
     staticMembers() {

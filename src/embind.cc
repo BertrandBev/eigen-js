@@ -43,7 +43,11 @@ EMSCRIPTEN_BINDINGS(Module)
         .function("rows", &DDM::rows)
         .function("cols", &DDM::cols)
         .function("norm", &DDM::norm)
+        .function("normSqr", &DDM::normSqr)
+        .function("l1Norm", &DDM::l1Norm)
+        .function("lInfNorm", &DDM::lInfNorm)
         .function("rank", &DDM::rank)
+        .function("det", &DDM::det)
         .function("sum", &DDM::sum)
         .function("block", &DDM::block)
         .function("setBlock", &DDM::setBlock)
@@ -131,10 +135,10 @@ EMSCRIPTEN_BINDINGS(Module)
         .function("set", &SDM::set)
         .function("print", &SDM::print);
 
-        // .function("matMulSelf", &SDM::matMulSelf, allow_raw_pointers());
-        // .function("chol", &SDM::chol, allow_raw_pointers())
-        // .function("lu", &SDM::lu, allow_raw_pointers())
-        // .function("qr", &SDM::qr, allow_raw_pointers());
+    // .function("matMulSelf", &SDM::matMulSelf, allow_raw_pointers());
+    // .function("chol", &SDM::chol, allow_raw_pointers())
+    // .function("lu", &SDM::lu, allow_raw_pointers())
+    // .function("qr", &SDM::qr, allow_raw_pointers());
 
     // Computation Info
     enum_<Eigen::ComputationInfo>("ComputationInfo")

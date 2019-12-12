@@ -24,7 +24,7 @@ export default {
 
   computed: {
     data() {
-      return doc[1]; // TODO: pass as argument
+      return doc[0]; // TODO: pass as argument
     }
   },
 

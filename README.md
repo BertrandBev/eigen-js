@@ -26,5 +26,6 @@ lib/Eigen
 Now to compile the wasm binary, run the following command
 
 ```bash
-emcc -I lib --pre-js src/pre.js --bind -o eigen-js/eigen_gen.js src/embind.cc
+//emcc -I lib --pre-js src/pre.js --bind -o eigen-js/eigen_gen.js src/embind.cc
+emcc -I lib/eigen -I lib/QuadProgpp/src/ -I lib/osqp/include --pre-js src/pre.js --bind -o eigen-js eigen_gen.js src/embind.cc -Isrc ./lib/QuadProgpp/build/src/libquadprog.bc -Isrc ./lib/osqp/build/out libosqp.bc -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0
 ```

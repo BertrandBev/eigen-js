@@ -26,24 +26,23 @@ export default {
   computed: {
     expression() {
       if (typeof this.value === "number") {
-        console.log("number");
         return `${this.value}`;
       } else if (typeof this.value === "string") {
         return `${this.value}`;
       } else if (Array.isArray(this.value)) {
-        console.log("is array");
-        const body = this.value.map(val => val).join(" & ");
+        const body = this.value.map(this.format).join(" & ");
         return `
           \\begin{bmatrix}
           ${body}
           \\end{bmatrix}
         `;
-      } else if (this.value instanceof eig.DenseMatrix) {
+      } else if (this.value instanceof eig.Matrix) {
         let body = [];
         for (let i = 0; i < this.value.rows(); i++) {
           const row = [];
           for (let j = 0; j < this.value.cols(); j++) {
-            row.push(this.value.get(i, j));
+            const val = this.value.get(i, j);
+            const str = row.push(this.format(val));
           }
           body.push(row.join(" & "));
         }
@@ -74,6 +73,10 @@ export default {
   },
 
   methods: {
+    format(val) {
+      return `${val}`.length < 5 ? `${val}` : val.toFixed(3);
+    },
+
     parse(object) {}
   },
 

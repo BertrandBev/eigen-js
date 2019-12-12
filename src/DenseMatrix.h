@@ -12,9 +12,15 @@ class DenseMatrix
   using Vector2d = std::vector<std::vector<T>>;
 
 protected:
+  void assertVector(DenseMatrix &M) const
+  {
+    assert((M.rows() == 1 || M.cols() == 1) && "The matrix must be a vector");
+  }
+
   void assertVector() const
   {
     assert((rows() == 1 || cols() == 1) && "The matrix must be a vector");
+    // return assertVector(*this);
   }
 
 public:
@@ -49,28 +55,6 @@ public:
   //   return *this;
   // }
 
-  DenseMatrix<T> transpose() const
-  {
-    return DenseMatrix<T>(data.transpose());
-  }
-
-  DenseMatrix<T> & transposeSelf()
-  {
-    std::cout << "working on: " << this << " data: " <<  &data << std::endl;
-    data.transposeInPlace();
-    return *this;
-  }
-
-  DenseMatrix<T> inverse() const
-  {
-    return DenseMatrix<T>(data.inverse());
-  }
-
-  DenseMatrix<T> conjugate() const
-  {
-    return DenseMatrix<T>(data.conjugate());
-  }
-
   int rows() const
   {
     return (int)data.rows();
@@ -81,19 +65,72 @@ public:
     return (int)data.cols();
   }
 
-  double norm(int n) const
+  T get(int i, int j) const
   {
-    if (n == 0)
-      return data.template lpNorm<Eigen::Infinity>();
-    else if (n == 1)
-      return data.template lpNorm<1>();
+    return data(i, j);
+  }
+
+  void set(int i, int j, const T &s)
+  {
+    data(i, j) = s;
+  }
+
+  int length() const
+  {
+    assertVector();
+    return std::max(rows(), cols());
+  }
+
+  T vGet(int i) const
+  {
+    assertVector();
+    return cols() == 1 ? data(i, 0) : data(0, i);
+  }
+
+  void vSet(int i, const T &s)
+  {
+    assertVector();
+    *(cols() == 1 ? &data(i, 0) : &data(0, i)) = s;
+  }
+
+  T dot(const DenseMatrix<T> &B) const
+  {
+    assert(length() == B.length() && "The two matrices must be same length vectors");
+    double dot = 0;
+    for (int k = 0; k < length(); k++)
+      dot += vGet(k) * B.vGet(k);
+    return dot;
+  }
+
+  double norm() const
+  {
     return data.norm();
+  }
+
+  double normSqr() const
+  {
+    return data.squaredNorm();
+  }
+
+  double l1Norm() const
+  {
+    return data.template lpNorm<1>();
+  }
+
+  double lInfNorm() const
+  {
+    return data.template lpNorm<Eigen::Infinity>();
   }
 
   double rank() const
   {
     Eigen::ColPivHouseholderQR<Mat> qr(data);
     return qr.rank();
+  }
+
+  double det() const
+  {
+    return data.determinant();
   }
 
   T sum() const
@@ -106,10 +143,13 @@ public:
     return DenseMatrix<T>(data.block(i, j, di, dj));
   }
 
-  void setBlock(int i, int j, DenseMatrix<T> & block) {
+  void setBlock(int i, int j, DenseMatrix<T> &block)
+  {
     assert(rows() >= i + block.rows() && cols() >= j + block.cols() && "The matrix doens't fit");
-    for (int ii = 0; ii < block.rows(); ii++) {
-      for (int jj = 0; jj < block.cols(); jj++) {
+    for (int ii = 0; ii < block.rows(); ii++)
+    {
+      for (int jj = 0; jj < block.cols(); jj++)
+      {
         data(i + ii, j + jj) = block.data(ii, jj);
       }
     }
@@ -175,44 +215,6 @@ public:
     data *= B->data;
   }
 
-  T get(int i, int j) const
-  {
-    return data(i, j);
-  }
-
-  void set(int i, int j, const T &s)
-  {
-    data(i, j) = s;
-  }
-
-  /**
-   * Vector ops
-   */
-
-  int length() const
-  {
-    assertVector();
-    return std::max(rows(), cols());
-  } 
-
-  T vGet(int i) const
-  {
-    assertVector();
-    return cols() == 1 ? data(i, 0) : data(0, i);
-  }
-
-  void vSet(int i, const T &s)
-  {
-    assertVector();
-    *(cols() == 1 ? &data(i, 0) : &data(0, i)) = s;
-  }
-
-  T dot(const DenseMatrix<T> &B) const
-  {
-    assertVector();
-    return (cols() == 1 ? B.data * data : data * B.data)(0, 0);
-  }
-
   DenseMatrix<T> hcat(DenseMatrix<T> *B)
   {
     int m = data.rows();
@@ -259,25 +261,41 @@ public:
     return C;
   }
 
+  DenseMatrix<T> transpose() const
+  {
+    return DenseMatrix<T>(data.transpose());
+  }
+
+  DenseMatrix<T> &transposeSelf()
+  {
+    std::cout << "working on: " << this << " data: " << &data << std::endl;
+    data.transposeInPlace();
+    return *this;
+  }
+
+  DenseMatrix<T> inverse() const
+  {
+    return DenseMatrix<T>(data.inverse());
+  }
+
+  DenseMatrix<T> conjugate() const
+  {
+    return DenseMatrix<T>(data.conjugate());
+  }
+
   DenseMatrix<T> clamp(T lo, T hi)
   {
     DenseMatrix<T> clamped = DenseMatrix<T>(data);
     for (int i = 0; i < rows(); i++)
-    {
       for (int j = 0; j < cols(); j++)
-      {
         clamped.data(i, j) = std::max(lo, std::min(hi, clamped.data(i, j)));
-      }
-    }
     return clamped;
   }
 
   void print(const std::string title = "") const
   {
     if (title.length())
-    {
       std::cout << title << std::endl;
-    }
     const int rows = data.rows();
     const int cols = data.cols();
     for (int i = 0; i < rows; i++)
@@ -329,9 +347,7 @@ public:
     {
       assert(v[i].size() == n && "All the rows must have the same size");
       for (size_t j = 0; j < n; j++)
-      {
         mat(i, j) = v[i][j];
-      }
     }
     return mat;
   }

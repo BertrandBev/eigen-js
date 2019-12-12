@@ -4,7 +4,7 @@ v-col
     codemirror(style='flex: 1 0 auto'
                ref="codeMirror"
                :value="code")
-    v-btn(style='position: absolute; right: 5px; bottom: 5px; z-index: 10'
+    v-btn(style='position: absolute; right: 5px; z-index: 2'
           icon fab dark small color='green'
           @click='eval')
       v-icon mdi-play
@@ -64,7 +64,28 @@ export default {
     eval() {
       this.showResult = false;
       this.showError = false;
-      let code = this.$refs.codeMirror.content;
+      let code = this.$refs.codeMirror.codemirror.getValue();
+      // Wrap code
+      // code = `(function fun() {'use strict'; ${code}})()`;
+      try {
+        // let eig = eig;
+
+        let f = new Function('eig', code);
+        this.result = f(eig);
+
+        // this.result = eval(code);
+        this.showResult = true;
+        console.log("result", this.result);
+      } catch (e) {
+        this.showError = true;
+        this.error = e;
+      }
+    },
+
+    evalOld() {
+      this.showResult = false;
+      this.showError = false;
+      let code = this.$refs.codeMirror.codemirror.getValue();
       // Wrap code
       code = `(function fun() {'use strict'; ${code}})()`;
       try {
@@ -84,13 +105,17 @@ export default {
     }
   },
 
-  mounted() {}
+  mounted() {
+    // Add conditionnal execution
+    this.eval();
+  }
 };
 </script>
 
 <style>
 .CodeMirror {
   height: auto !important;
+  /* min-height: 48px */
 }
 .CodeMirror-scroll {
   height: auto;

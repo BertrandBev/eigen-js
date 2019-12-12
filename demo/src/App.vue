@@ -25,7 +25,7 @@ export default {
   name: "App",
 
   data: () => ({
-    loading: false
+    loading: true
   }),
 
   created() {

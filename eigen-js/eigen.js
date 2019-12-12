@@ -12,7 +12,7 @@ if (BROWSER) {
 }
 const HashMap = require('./hashmap.js')
 
-const Matrix = require('../src/classes/Matrix')
+// const Matrix = require('../src/classes/Matrix')
 
 function getStaticMethods(Class) {
   return Object.getOwnPropertyNames(Class).filter(prop => prop !== "constructor" && typeof Class[prop] === "function");
@@ -108,19 +108,19 @@ function initClass(classes, Class) {
  * Add helper functions TODO: extract in file
  */
 function addHelpers(Module) {
-  const DenseMatrix = Module.DenseMatrix;
-  const get = DenseMatrix.prototype.get;
+  const Matrix = Module.Matrix;
+  const get = Matrix.prototype.get;
   /**
    * Add default for vector polling
    */
-  DenseMatrix.get = function (i, j = 0) {
+  Matrix.get = function (i, j = 0) {
     return get(i, j)
   }
 
   /**
    * Add fromArray factory (maybe add that utility in all functions)
    */
-  DenseMatrix.fromArray = function (array) {
+  Matrix.fromArray = function (array) {
     // Generate vector if needed
     if (!array.length || !Array.isArray(array[0])) {
       array = array.map(val => [val])
@@ -131,7 +131,7 @@ function addHelpers(Module) {
       arr.forEach(val => v.push_back(val));
       v2d.push_back(v)
     })
-    return new DenseMatrix.fromVector(v2d);
+    return new Matrix.fromVector(v2d);
   }
 
   /**
@@ -146,8 +146,8 @@ function addHelpers(Module) {
     "negatedSelf"
   ]
   methods.forEach(method => {
-    const fun = DenseMatrix.prototype[method]
-    DenseMatrix.prototype[method] = function (...args) {
+    const fun = Matrix.prototype[method]
+    Matrix.prototype[method] = function (...args) {
       fun.call(this, ...args)
       return this
     }
@@ -157,7 +157,6 @@ function addHelpers(Module) {
 
 const defExport = {
   GC: GarbageCollector,
-  Matrix,
   ready: () => { } // Override if needed
 }
 
@@ -165,7 +164,7 @@ Module.onRuntimeInitialized = _ => {
   const classes = new Set(["Vector",
     "Vector2d",
     "Complex",
-    "DenseMatrix",
+    "Matrix",
     "SparseMatrix",
     "TripletVector",
     "ComplexDenseMatrix",

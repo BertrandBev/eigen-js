@@ -581,8 +581,8 @@ var wasmMemory;
 // In the wasm backend, we polyfill the WebAssembly object,
 // so this creates a (non-native-wasm) table for us.
 var wasmTable = new WebAssembly.Table({
-  'initial': 2223,
-  'maximum': 2223 + 0,
+  'initial': 2221,
+  'maximum': 2221 + 0,
   'element': 'anyfunc'
 });
 
@@ -1181,11 +1181,11 @@ function updateGlobalBufferAndViews(buf) {
 }
 
 var STATIC_BASE = 1024,
-    STACK_BASE = 5300896,
+    STACK_BASE = 5300976,
     STACKTOP = STACK_BASE,
-    STACK_MAX = 58016,
-    DYNAMIC_BASE = 5300896,
-    DYNAMICTOP_PTR = 57840;
+    STACK_MAX = 58096,
+    DYNAMIC_BASE = 5300976,
+    DYNAMICTOP_PTR = 57920;
 
 
 
@@ -1601,7 +1601,7 @@ var ASM_CONSTS = {
 
 
 
-// STATICTOP = STATIC_BASE + 56992;
+// STATICTOP = STATIC_BASE + 57072;
 /* global initializers */  __ATINIT__.push({ func: function() { ___wasm_call_ctors() } });
 
 
@@ -1750,7 +1750,7 @@ var ASM_CONSTS = {
   
       var pointer = ___cxa_is_pointer_type(throwntype);
       // can_catch receives a **, add indirection
-      var buffer = 58000;
+      var buffer = 58080;
       HEAP32[((buffer)>>2)]=thrown;
       thrown = buffer;
       // The different catch blocks are denoted by different types.
@@ -1787,7 +1787,7 @@ var ASM_CONSTS = {
   
       var pointer = ___cxa_is_pointer_type(throwntype);
       // can_catch receives a **, add indirection
-      var buffer = 58000;
+      var buffer = 58080;
       HEAP32[((buffer)>>2)]=thrown;
       thrown = buffer;
       // The different catch blocks are denoted by different types.
@@ -6097,7 +6097,7 @@ var ASM_CONSTS = {
     }
 
   function _emscripten_get_sbrk_ptr() {
-      return 57840;
+      return 57920;
     }
 
   function _emscripten_memcpy_big(dest, src, num) {
@@ -6964,12 +6964,12 @@ var dynCall_iiiid = Module["dynCall_iiiid"] = function() {
   return Module["asm"]["dynCall_iiiid"].apply(null, arguments)
 };
 
-var dynCall_dii = Module["dynCall_dii"] = function() {
-  return Module["asm"]["dynCall_dii"].apply(null, arguments)
-};
-
 var dynCall_viidd = Module["dynCall_viidd"] = function() {
   return Module["asm"]["dynCall_viidd"].apply(null, arguments)
+};
+
+var dynCall_dii = Module["dynCall_dii"] = function() {
+  return Module["asm"]["dynCall_dii"].apply(null, arguments)
 };
 
 var dynCall_iidd = Module["dynCall_iidd"] = function() {
