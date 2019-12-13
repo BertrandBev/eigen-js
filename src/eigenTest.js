@@ -5,38 +5,40 @@ const util = require('util');
 eig.ready = _ => {
   // inPlaceBenchmark()
   // quadProgTest()
-  for (let k = 0; k < 1000000; k++) {
-    const m = solveTest()
-    eig.GC.flush()
-    // m.delete()
-    if (k % 1000 === 0) {
-      // m.print('m')
-      console.log(`Iteration ${k}`)
-    }
-  }
+  refTest()
 };
 
 function refTest() {
-  const A = eig.DenseMatrix.fromArray([
-    [1, 2, 3, 5, 6, 7, 8, 9, 10],
-    [4, 5, 6, 5, 6, 7, 8, 9, 10],
-    [7, 8, 9, 5, 6, 7, 8, 9, 10]
+  const A = eig.Matrix.fromArray([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
   ])
-  const B = eig.DenseMatrix.fromArray([
-    [1, 2, 3, 2, 3, 4, 5, 6, 7],
-    [4, 5, 6, 2, 3, 4, 5, 6, 7],
-    [7, 8, 9, 2, 3, 4, 5, 6, 7]
+  const B = eig.Matrix.fromArray([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
   ])
   let tStart = Date.now();
-  for (let k = 0; k < 10000; k++) {
-    A.matAdd(B)
+  for (let k = 0; k < 1000000; k++) {
+    // A.matAdd(B)
+    // if (k % 10000 === 0) {
+    //   eig.GC.flush()
+    // }
   }
   console.log('Ref time', Date.now() - tStart)
   tStart = Date.now();
-  for (let k = 0; k < 10000; k++) {
-    A.matAddSelfRef(B)
+  for (let k = 0; k < 1000000; k++) {
+    A.matMulSelf(B)
   }
   console.log('Pointer time', Date.now() - tStart)
+
+  const start = Date.now();
+  let mat = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+  for (let k = 0; k < 1000000; k++) {
+    mat.matMulSelf(mat);
+  }
+  console.log("Eig time", Date.now() - start);
 }
 
 function quadProgBenchmark() {
@@ -69,9 +71,9 @@ function solveTest() {
   triplets.add(2, 1, 1);
   const A = new eig.SparseMatrix(3, 2, triplets);
 
-  const q = eig.DenseMatrix.fromArray([1, 1])
-  const l = eig.DenseMatrix.fromArray([1, 0, 0])
-  const u = eig.DenseMatrix.fromArray([1, 0.7, 0.7])
+  const q = eig.Matrix.fromArray([1, 1])
+  const l = eig.Matrix.fromArray([1, 0, 0])
+  const u = eig.Matrix.fromArray([1, 0.7, 0.7])
 
   return eig.QuadProgSolver.solve(P, q, A, l, u);
   // console.log('solved')
@@ -79,29 +81,29 @@ function solveTest() {
 }
 
 function quadProgTest() {
-  const G = eig.DenseMatrix.fromArray([[4, -2], [-2, 4]])
-  const g0 = eig.DenseMatrix.fromArray([6, 0])
-  const CE = eig.DenseMatrix.fromArray([1, 1])
-  const ce0 = eig.DenseMatrix.fromArray([-3])
-  const CI = eig.DenseMatrix.fromArray([[1, 0, 1], [0, 1, 1]])
-  const ci0 = eig.DenseMatrix.fromArray([0, 0, 2])
-  const x = eig.DenseMatrix.fromArray([0, 0])
+  const G = eig.Matrix.fromArray([[4, -2], [-2, 4]])
+  const g0 = eig.Matrix.fromArray([6, 0])
+  const CE = eig.Matrix.fromArray([1, 1])
+  const ce0 = eig.Matrix.fromArray([-3])
+  const CI = eig.Matrix.fromArray([[1, 0, 1], [0, 1, 1]])
+  const ci0 = eig.Matrix.fromArray([0, 0, 2])
+  const x = eig.Matrix.fromArray([0, 0])
   const res = eig.QuadProgSolver.solve(G, g0, CE, ce0, CI, ci0, x)
   console.log('result', res)
   x.print('x')
 }
 
 function inPlaceBenchmark() {
-  const M1 = eig.DenseMatrix.random(8, 8);
-  const M2 = eig.DenseMatrix.random(8, 8);
-  const M3 = eig.DenseMatrix.random(8, 8);
-  const M4 = eig.DenseMatrix.random(8, 8);
+  const M1 = eig.Matrix.random(8, 8);
+  const M2 = eig.Matrix.random(8, 8);
+  const M3 = eig.Matrix.random(8, 8);
+  const M4 = eig.Matrix.random(8, 8);
   eig.GC.pushException(M1, M2, M3, M4)
   console.log('M1', M1)
   const nIter = 1;
   let tStart = Date.now();
   for (let k = 0; k < nIter; k++) {
-    const [m1, m2, m3, m4] = [M1, M2, M3, M4].map(m => new eig.DenseMatrix(m));
+    const [m1, m2, m3, m4] = [M1, M2, M3, M4].map(m => new eig.Matrix(m));
     let res = m1;
     for (let j = 0; j < 7; j++) {
       res = res.matAdd(m2).matMul(m3).matSub(m4).mul(123).div(321)
@@ -113,7 +115,7 @@ function inPlaceBenchmark() {
   console.log('Copy time', Date.now() - tStart)
   tStart = Date.now();
   for (let k = 0; k < nIter; k++) {
-    const [m1, m2, m3, m4] = [M1, M2, M3, M4].map(m => new eig.DenseMatrix(m));
+    const [m1, m2, m3, m4] = [M1, M2, M3, M4].map(m => new eig.Matrix(m));
     let res = m1;
     for (let j = 0; j < 7; j++) {
       res = res.matAddSelf(m2).matMulSelf(m3).matSubSelf(m4).mulSelf(123).divSelf(321)
@@ -128,13 +130,13 @@ function inPlaceBenchmark() {
 function gcTest() {
   const obj1 = {}
   const obj2 = {}
-  const v1 = new eig.DenseMatrix(1, 1)
+  const v1 = new eig.Matrix(1, 1)
   eig.GC.set(obj1, 'v', v1)
   eig.GC.set(obj2, 'v', v1)
   let n = eig.GC.flush()
   console.assert(n == 0, 'No object should be flushed')
   v1.print("v1")
-  const v2 = eig.DenseMatrix.identity(1, 1)
+  const v2 = eig.Matrix.identity(1, 1)
   eig.GC.set(obj1, 'v', v2)
   n = eig.GC.flush()
   console.assert(n == 0, 'No object should be flushed')

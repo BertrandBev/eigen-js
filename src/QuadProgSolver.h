@@ -1,88 +1,220 @@
-#ifndef QUADPROGSOLVER_H
-#define QUADPROGSOLVER_H
+#ifndef QUADPROGSOLVER
+#define QUADPROGSOLVER
 
-#include <Eigen/Dense>
-#include <QuadProg++.hh>
+#include <Eigen/Sparse>
+#include "SparseMatrix.h"
 #include "DenseMatrix.h"
-#include "Array.hh"
-#undef inverse // fix array.hh inverse directive
+#include "osqp.h"
+#include <vector>
 
-// using namespace std;
-// using namespace Eigen;
-
-using DMD = DenseMatrix<double>;
-using QMD = quadprogpp::Matrix<double>;
-using QVD = quadprogpp::Vector<double>;
+#define PRINT_MAT(name, M, size)     \
+  printf("%s: [", name);             \
+  for (int k = 0; k < (size); k++)   \
+    printf("%.2f,", (double)(M)[k]); \
+  printf("]\n");
 
 class QuadProgSolver
 {
+  using T = Eigen::Triplet<double>;
+
 public:
-  // The problem is in the form:
-  // min 0.5 * x G x + g0 x
-  // s.t.
-  //  CE^T x + ce0 = 0
-  //  CI^T x + ci0 >= 0
-  // 
-  // With
-  //  x: n
-  //  G: n * n; g0: n
-  //  CE: n * p; ce0: p
-  //  CI: n * m; ci0: m
-  static double solve(DMD &G, DMD& g0, const DMD& CE, const DMD &ce0, const DMD &CI, const DMD &ci0, DMD &x) {
-    int n = G.rows();
-    int m = CE.cols();
-    int p = CI.cols();
-    assert(G.cols() == n && "G must be a square matrix");
-    assert(g0.rows() == n && "g0 and G must have the same number of rows");
-    assert(CE.rows() == n && "CE and G must have the same number of rows");
-    assert(CE.cols() == std::max(ce0.rows(), ce0.cols()) && "CE and ce0 must have the same number of columns");
-    assert(CI.rows() == n && "CI and G must have the same number of rows");
-    assert(CI.cols() == std::max(ci0.rows(), ci0.cols()) && "CI and ci0 must have the same number of columns");
-    QMD _G = getMatrix(G);
-    QVD _g0 = getVector(g0);
-    QMD _CE = getMatrix(CE);
-    QVD _ce0 = getVector(ce0);
-    QMD _CI = getMatrix(CI);
-    QVD _ci0 = getVector(ci0);
-    QVD _x = getVector(x);
-    double res = quadprogpp::solve_quadprog(_G, _g0, _CE, _ce0, _CI, _ci0, _x);
-    copy(_G, G);
-    copy(_g0, g0);
-    copy(_x, x);
-    return res;
-  }
+  // Minimize 0.5 xT.P.x + qT.x
+  // Suject to l <= Ax <= u
+  static DenseMatrix<double> solve(SparseMatrix<double> &P, DenseMatrix<double> &q, SparseMatrix<double> &A, DenseMatrix<double> &l, DenseMatrix<double> &u) {
+    assert(P.rows() == P.cols() && "P must be a square matrix");
+    assert(q.rows() == P.rows() && "q and P must have the same number of rows");
+    assert(A.cols() == P.rows() && "A.cols must equal P.rows");
+    assert(l.rows() == A.rows() && "l and A must have the same number of rows");
+    assert(u.rows() == A.rows() && "u and A must have the same number of rows");
 
-private:
-  static QMD getMatrix(const DMD &M) {
-    QMD mat(M.rows(), M.cols());
-    for (size_t i = 0; i < M.rows(); i++)
-      for (size_t j =0; j < M.cols(); j++)
-        mat[i][j] = M.get(i, j);
-    return mat;
-  }
-  
-  static QVD getVector(const DMD &V) {
-    assert((V.rows() == 1 || V.cols() == 1) && "The matrix must be a vector");
-    QVD vec(std::max(V.rows(), V.cols()));
-    for (size_t k = 0; k < std::max(V.rows(), V.cols()); k++) {
-      vec[k] = V.vGet(k);
+
+    int n = P.rows();
+    int m = A.rows();
+    csc *P_ = sparseToCSC(P);
+    csc *A_ = sparseToCSC(A);
+    double *q_ = denseToArray(q);
+    double *l_ = denseToArray(l);
+    double *u_ = denseToArray(u);
+
+    // Workspace settings
+    OSQPSettings settings;
+    osqp_set_default_settings(&settings);
+    // settings.max_iter = 10;
+    settings.verbose = 0;
+
+    OSQPData data = {
+        .n = n,
+        .m = m,
+        .P = P_,
+        .A = A_,
+        .q = q_,
+        .l = l_,
+        .u = u_};
+
+    OSQPWorkspace *work;
+    int exitflag = osqp_setup(&work, &data, &settings);
+    DenseMatrix<double> x(n, 1);
+    if (!exitflag)
+    {
+      osqp_solve(work);
+      double *xArr = work->solution->x;
+      for (int k = 0; k < n; k++)
+        x.set(k, 0, xArr[k]);
+        // x.print("solution");
+      // PRINT_MAT("x", work->solution->x, n);
     }
-    return vec;
+    osqp_cleanup(work);
+    // Free matrices
+    free(P_); // Don't csc_free as sparse matrix pointers are being used
+    free(A_); // Don't csc_free as sparse matrix pointers are being used
+    free(q_);
+    free(l_);
+    free(u_);
+    return x;
   }
 
-  static void copy(const QMD &M, DMD &target) {
-    assert(M.nrows() == target.rows() && M.ncols() == target.cols() && "Matrices must be the same size");
-    for (size_t i = 0; i < M.nrows(); i++)
-      for (size_t j =0; j < M.ncols(); j++)
-        target.set(i, j, M[i][j]);
-  }
 
-  static void copy(const QVD &V, DMD &target) {
-    assert(V.size() == std::max(target.rows(), target.cols())  && "Vectors must be the same size");
-    for (size_t k = 0; k < V.size(); k++) {
-      target.vSet(k, V[k]);
+  static void solveSparse()
+  {
+    std::vector<T> triplets;
+    triplets.reserve(3);
+    triplets.push_back(T(0, 0, 4));
+    triplets.push_back(T(0, 1, 1));
+    triplets.push_back(T(1, 1, 2));
+    Eigen::SparseMatrix<double> P(2, 2);
+    P.setFromTriplets(triplets.begin(), triplets.end());
+
+    triplets.clear();
+    triplets.reserve(4);
+    triplets.push_back(T(0, 0, 1));
+    triplets.push_back(T(0, 1, 1));
+    triplets.push_back(T(1, 0, 1));
+    triplets.push_back(T(2, 1, 1));
+    Eigen::SparseMatrix<double> A(3, 2);
+    A.setFromTriplets(triplets.begin(), triplets.end());
+
+    // Get lists
+    // const int nnz = mat.nonZeros();
+    // PRINT_MAT("Values", mat.valuePtr(), nnz);
+    // PRINT_MAT("Inner indices", mat.innerIndexPtr(), nnz);
+    // const int nCols = mat.cols();
+    // PRINT_MAT("Outer index ptr", mat.outerIndexPtr(), nCols + 1);
+
+    // Build csc from matrix
+    csc *P_csc = sparseToCSC(P);
+    csc *A_csc = sparseToCSC(A);
+    double q[2] = {1.0, 1.0};
+    double l[3] = {1.0, 0.0, 0.0};
+    double u[3] = {1.0, 0.7, 0.7};
+    int n = 2;
+    int m = 3;
+
+    // Workspace settings
+    OSQPSettings settings;
+    osqp_set_default_settings(&settings);
+    // settings.max_iter = 10;
+    settings.verbose = 0;
+
+    OSQPData data = {
+        .n = n,
+        .m = m,
+        .P = P_csc,
+        .A = A_csc,
+        .q = q,
+        .l = l,
+        .u = u};
+
+    OSQPWorkspace *work;
+    int exitflag = osqp_setup(&work, &data, &settings);
+    if (!exitflag)
+    {
+      osqp_solve(work);
+      // PRINT_MAT("x", work->solution->x, n);
     }
+    osqp_cleanup(work);
+    // Free matrices
+    c_free(P_csc);
+    c_free(A_csc);
   }
+
+  static double* denseToArray(DenseMatrix<double> mat) {
+    double *arr = (double *) malloc(mat.rows() * sizeof(double));
+    for (int k = 0; k < mat.rows(); k++) {
+      arr[k] = mat.get(k, 0);
+    }
+    return arr;
+  }
+
+  static csc *sparseToCSC(Eigen::SparseMatrix<double> &mat)
+  {
+    return csc_matrix(mat.rows(), mat.cols(), mat.nonZeros(), mat.valuePtr(), mat.innerIndexPtr(), mat.outerIndexPtr());
+  }
+
+  static csc *sparseToCSC(SparseMatrix<double> &mat)
+  {
+    return csc_matrix(mat.rows(), mat.cols(), mat.nonZeros(), mat.valuePtr(), mat.innerIndexPtr(), mat.outerIndexPtr());
+  }
+
+  static void solveBasic()
+  {
+    // Load problem data
+    // P = [[4, 1]
+    //      [0, 2]]
+    double P_x[3] = {4.0, 1.0, 2.0};
+    int P_nnz = 3;
+    int P_i[3] = {0, 0, 1};
+    int P_p[3] = {0, 1, 3};
+    double q[2] = {1.0, 1.0};
+    // A = [[1 1
+    //       1 0
+    //       0 1]]
+    double A_x[4] = {1.0, 1.0, 1.0, 1.0};
+    int A_nnz = 4;
+    int A_i[4] = {0, 1, 0, 2};
+    int A_p[3] = {0, 2, 4};
+    double l[3] = {1.0, 0.0, 0.0};
+    double u[3] = {1.0, 0.7, 0.7};
+    int n = 2;
+    int m = 3;
+
+    // Exitflag
+    int exitflag = 0;
+
+    // Workspace structures
+    OSQPSettings settings;
+    OSQPData data;
+
+    // Populate data
+    data.n = n;
+    data.m = m;
+    data.P = csc_matrix(data.n, data.n, P_nnz, P_x, P_i, P_p);
+    data.q = q;
+    data.A = csc_matrix(data.m, data.n, A_nnz, A_x, A_i, A_p);
+    data.l = l;
+    data.u = u;
+
+    // Define solver settings as default
+    osqp_set_default_settings(&settings);
+    settings.alpha = 1.0; // Change alpha parameter
+    // settings.max_iter = 10;
+    settings.verbose = 0;
+
+    // Setup workspace
+    OSQPWorkspace *work;
+    exitflag = osqp_setup(&work, &data, &settings);
+
+    // Solve Problem
+    osqp_solve(work);
+    // PRINT_MAT("x", work->solution->x, n);
+
+    // Cleanup
+    osqp_cleanup(work);
+    free(data.P);
+    free(data.A);
+    // return exitflag;
+  }
+
+  // private:
 };
 
-#endif // QUADPROGSOLVER_H
+#endif // QUADPROGSOLVER

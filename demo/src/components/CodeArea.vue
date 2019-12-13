@@ -68,14 +68,11 @@ export default {
       // Wrap code
       // code = `(function fun() {'use strict'; ${code}})()`;
       try {
-        // let eig = eig;
-
         let f = new Function('eig', code);
         this.result = f(eig);
-
-        // this.result = eval(code);
+        // eig.GC.flush()
+        console.log('result', this.result)
         this.showResult = true;
-        console.log("result", this.result);
       } catch (e) {
         this.showError = true;
         this.error = e;

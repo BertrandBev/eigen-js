@@ -1,15 +1,36 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Documentation from '../views/Documentation.vue'
+import Benchmarks from '../views/Benchmarks.vue'
 
 Vue.use(VueRouter)
+
+const classes = [
+  { name: 'matrix', title: 'Matrix', icon: 'mdi-matrix' },
+  { name: 'solvers', title: 'Solvers', icon: 'mdi-cogs' }
+]
+const classRoutes = classes.map(cl => ({
+  ...cl,
+  group: 'Classes',
+  path: `/${cl.name}`,
+  component: Documentation,
+  props: { className: cl.title }
+}))
 
 const routes = [
   {
     path: '/',
-    name: 'documentation',
-    component: Documentation
-  }
+    redirect: '/benchmark'
+  },
+  {
+    path: '/benchmark',
+    name: 'benchmark',
+    title: 'Benchmark',
+    group: 'Benchmarks',
+    component: Benchmarks,
+    icon: 'mdi-speedometer'
+  },
+  ...classRoutes,
 ]
 
 const router = new VueRouter({
@@ -18,4 +39,5 @@ const router = new VueRouter({
   routes
 })
 
+export { routes }
 export default router

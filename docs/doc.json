@@ -8,7 +8,7 @@
           "children": [
             {
               "type": "text",
-              "value": "A generic dense matrix class to hold double real numbers",
+              "value": "A generic dense matrix class holding real number",
               "position": {
                 "start": {
                   "line": 1,
@@ -17,8 +17,8 @@
                 },
                 "end": {
                   "line": 1,
-                  "column": 57,
-                  "offset": 56
+                  "column": 49,
+                  "offset": 48
                 },
                 "indent": []
               }
@@ -32,8 +32,8 @@
             },
             "end": {
               "line": 1,
-              "column": 57,
-              "offset": 56
+              "column": 49,
+              "offset": 48
             },
             "indent": []
           }
@@ -47,8 +47,8 @@
         },
         "end": {
           "line": 1,
-          "column": 57,
-          "offset": 56
+          "column": 49,
+          "offset": 48
         }
       }
     },
@@ -70,7 +70,7 @@
           "column": 0
         },
         "end": {
-          "line": 387,
+          "line": 397,
           "column": 1
         }
       },
@@ -312,7 +312,7 @@
         },
         "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js",
         "sortKey": "!/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js 00000013",
-        "code": "{\n  /**\n   * Creates a m * n matrix filled with zeros\n   * @param {number} m - Number of rows\n   * @param {number} n - Number of columns\n   * @example\n   * return new eig.Matrix(2, 3);\n   */\n  constructor(m, n) { }\n\n  /**\n   * Get the number of rows\n   * @returns {number} - The number of rows\n   */\n  rows() { }\n\n  /**\n   * Get the number of columns\n   * @returns {number} - The number of columns\n   * @example\n   * const m = new eig.Matrix(2, 3)\n   * return [m.rows(), m.cols()]\n   */\n  cols() { }\n\n  /**\n   * Get the value at (i, j)\n   * @param {number} i - Row\n   * @param {number} j - Col\n   * @returns {number} - M[i, j]\n   */\n  get(i, j) { }\n\n  /**\n   * Set the value at (i, j)\n   * @param {number} i - Row\n   * @param {number} j - Col\n   * @param {number} val - value\n   * @example\n   * const A = new eig.Matrix(2, 2)\n   * A.set(0, 1, 3 / 2)\n   * return A.get(0, 1)\n   */\n  set(i, j, val) { }\n\n  /**\n   * Get a vector length\n   * @warning The matrix must be a vector (either single row or column)\n   * @returns {number} - V.length\n   * @example\n   * return (new eig.Matrix(3, 1)).length()\n   */\n  length() { }\n\n  /**\n   * Get the value at idx\n   * The matrix must be a vector (either single row or column)\n   * @param {number} idx - Index\n   * @returns {number} - V[idx]\n   */\n  vGet(idx) { }\n\n  /**\n   * Set the value at idx\n   * The matrix must be a vector (either single row or column)\n   * @param {number} idx - Row\n   * @param {number} val - value\n   * @example\n   * const A = new eig.Matrix(2, 1)\n   * A.vSet(1, 3 / 2)\n   * return A.vGet(1)\n   */\n  vSet(i, val) { }\n\n  /**\n   * Take the dot product with another vector\n   * The matrix must be a vector (either single row or column)\n   * @param {Matrix} B - Vector of interest\n   * @returns {number} - V.B\n   * @example\n   * const V = eig.Matrix.fromArray([1, 2])\n   * const B = eig.Matrix.fromArray([-1, 3])\n   * return V.dot(B)\n   */\n  dot(B) { }\n\n\n  /**\n   * Get the l2 (Frobenius) norm\n   * @returns {number} - The l2 norm\n   */\n  norm() { }\n\n  /**\n   * Get the squared l2 (Frobenius) norm\n   * @returns {number} - The l2 norm squared\n   */\n  normSqr() { }\n\n  /**\n   * Get the l1 norm\n   * @returns {number} - The l1 norm\n   */\n  l1Norm() { }\n\n  /**\n   * Get the l-Infinity norm\n   * @returns {number} - The l-Infinity norm\n   * @example\n   * const m = eig.Matrix.fromArray([[1, 2], [3, 4]])\n   * return [m.norm(), m.normSqr(), m.l1Norm(), m.lInfNorm()]\n   */\n  lInfNorm() { }\n\n  /**\n   * Get the rank\n   * @returns {number} - The rank\n   * @example\n   * const m = eig.Matrix.fromArray([[2, 1], [2, 1]]);\n   * return m.rank();\n   */\n  rank() { }\n\n  /**\n   * Get the determinant\n   * @return {number} - The determinant\n   * @example\n   * const m = eig.Matrix.fromArray([[2, 0], [0, 3]]);\n   * return m.det();\n   */\n  det() { }\n\n  /**\n   * Sum all the elements\n   * @returns {number} - The sum of all the elements\n   * @example\n   * const m = eig.Matrix.fromArray([1, 2])\n   * return m.sum();\n   */\n  sum() { }\n\n  /**\n   * Get a block\n   * @param {number} i - The block top left row\n   * @param {number} j - The block top left column\n   * @param {number} di - Block rows count\n   * @param {number} dj - Block columns count\n   * @returns {Matrix} - The resulting block\n   * @example\n   * const m = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\n   * return m.block(1, 0, 1, 2)\n   */\n  block(i, j, di, dj) { }\n\n  /**\n   * Set a block\n   * @param {number} i - The block top left row\n   * @param {number} j - The block top left column\n   * @param {Matrix} block - Block to be set\n   * @example\n   * const m = new eig.Matrix(3, 3);\n   * const b = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\n   * m.setBlock(1, 0, b);\n   * return m;\n   */\n  setBlock(i, j, block) { }\n\n  /**\n   * Multiply by a value\n   * @param {number} val - Value to multiply by\n   * @returns {Matrix} - M * val\n   * @example\n   * const m = eig.Matrix.fromArray([1, 2]);\n   * return m.mul(2);\n   */\n  mul(val) { }\n\n  /**\n   * Multiply by a value in place\n   * @param {number} val - Value to multiply by\n   * @returns {Matrix} - this (M * val)\n   * @example\n   * const m = eig.Matrix.fromArray([1, 2]);\n   * m.mulSelf(2);\n   * return m;\n   */\n  mulSelf(val) { }\n\n  /**\n   * Divide by a value\n   * @param {number} val - Value to divide by\n   * @returns {Matrix} - M / val\n   * @example\n   * const m = eig.Matrix.fromArray([2, 4]);\n   * return m.div(2);\n   */\n  div(val) { }\n\n  /**\n   * Divide by a value in place\n   * @param {number} val - Value to divide by\n   * @returns {Matrix} - this (M / val)\n   * @example\n   * const m = eig.Matrix.fromArray([2, 4]);\n   * m.divSelf(2);\n   * return m;\n   */\n  divSelf(val) { }\n\n  /**\n   * Add B\n   * @param {Matrix} B - Matrix to be added\n   * @returns {Matrix} M + B\n   * @example\n   * const M = eig.Matrix.fromArray([1, 2]);\n   * const B = eig.Matrix.fromArray([3, 4]);\n   * return M.matAdd(B);\n   */\n  matAdd(B) { }\n\n  /**\n   * Add B in place\n   * @param {Matrix} B - Matrix to be added\n   * @returns {Matrix} - this\n   * @example\n   * const M = eig.Matrix.fromArray([1, 2]);\n   * const B = eig.Matrix.fromArray([3, 4]);\n   * M.matAdd(B);\n   * return M;\n   */\n  matAdd(B) { }\n\n  /**\n   * Substract B\n   * @param {Matrix} B - Matrix to be substracted\n   * @returns {Matrix} - M - B\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([1, 2]);\n   * return M.matSub(B);\n   */\n  matSub(B) { }\n\n  /**\n   * Substract B in place\n   * @param {Matrix} B - Matrix to be substracted\n   * @returns {Matrix} - this (M - B)\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([1, 2]);\n   * M.matSub(B);\n   * return M;\n   */\n  matAdd(B) { }\n\n  /**\n   * Multiply by a matrix B\n   * @param {Matrix} B - Matrix to multiply M by\n   * @returns {Matrix} - M * B\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([[1, 2]]);\n   * return M.matMul(B);\n   */\n  matMul(B) { }\n\n  /**\n   * Multiplyby a matrix B in place\n   * @param {Matrix} B - Matrix to multiply M by\n   * @returns {Matrix} - this (M * B)\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([[1, 2]]);\n   * M.matMulSelf(B);\n   * return M;\n   */\n  matMulSelf(B) { }\n\n  /**\n   * Concatenate B horizontally\n   * @param {Matrix} B - Matrix to be concatenated\n   * @returns {Matrix} - [M, B]\n   * @example\n   * const M = eig.Matrix.fromArray([[1], [2]]);\n   * const B = eig.Matrix.fromArray([[3], [4]]);\n   * return M.hcat(B);\n   */\n  hcat(B) { }\n\n  /**\n   * Concatenate B vertically\n   * @param {Matrix} B - Matrix to be concatenated\n   * @returns {Matrix} - [M; B]\n   * @example\n   * const M = eig.Matrix.fromArray([[1], [2]]);\n   * const B = eig.Matrix.fromArray([[3], [4]]);\n   * return M.vcat(B);\n   */\n  vcat(B) { }\n\n  /**\n   * Get the transpose\n   * @returns {Matrix} - M'\n   * @example\n   * const m = eig.Matrix.fromArray([[0, 1], [3, 0]]);\n   * return m.transpose();\n   */\n  tranpose() { }\n\n  /**\n   * Transpose in place\n   * @returns {Matrix} - this (M')\n   * @example\n   * const m = eig.Matrix.fromArray([[0, 1], [3, 0]]);\n   * m.transpose();\n   * return m;\n   */\n  transposeSelf() { }\n\n  /**\n   * Get the inverse of a square matrix\n   * The inverse is the matrix Minv such that M * Minv = In\n   * With In the n * n identity matrix\n   * The matrix must be square and invertible (full rank)\n   * @returns {Matrix} - The inverse\n   * @example\n   * const m = eig.Matrix.fromArray([[4, 9], [3, 7]]);\n   * return m.inverse();\n   */\n  inverse() { }\n\n  /**\n   * Create a m * n identity matrix\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n identity matrix\n   * @example\n   * return eig.Matrix.identity(2, 2);\n   */\n  static identity(m, n) { }\n\n  /**\n   * Create a m * n matrix filled with ones\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n matrix filled with ones\n   * @example\n   * return eig.Matrix.ones(2, 3);\n   */\n  static ones(m, n) { }\n\n  /**\n   * Create a m * n matrix filled with some value\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @param {number} val - Value to fill the matrix with\n   * @returns {Matrix} - m * n matrix filled with val\n   * @example\n   * return eig.Matrix.constant(2, 3, 3 / 2);\n   */\n  static constant(m, n, val) { }\n\n  /**\n   * Create a m * n random matrix\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n random matrix\n   * @example\n   * return eig.Matrix.random(3, 2);\n   */\n  static random(m, n) { }\n\n  /**\n   * Create a matrix from an array\n   * A 1D array will create a column vector\n   * A 2D array will create a matrix\n   * @param {Array} arr - 1D or 2D array to build matrix from\n   * @returns {Matrix} - Matrix initialized from the array\n   * @example\n   * return eig.Matrix.fromArray([[1, 2], [3, 4]]);\n   */\n  static fromArray(arr) { }\n}"
+        "code": "{\n  /**\n   * Creates a m * n matrix filled with zeros\n   * @param {number} m - Number of rows\n   * @param {number} n - Number of columns\n   * @example\n   * return new eig.Matrix(2, 3);\n   */\n  constructor(m, n) { }\n\n  /**\n   * Get the number of rows\n   * @returns {number} - The number of rows\n   */\n  rows() { }\n\n  /**\n   * Get the number of columns\n   * @returns {number} - The number of columns\n   * @example\n   * const m = new eig.Matrix(2, 3)\n   * return [m.rows(), m.cols()]\n   */\n  cols() { }\n\n  /**\n   * Get the value at (i, j)\n   * @param {number} i - Row\n   * @param {number} j - Col\n   * @returns {number} - M[i, j]\n   */\n  get(i, j) { }\n\n  /**\n   * Set the value at (i, j)\n   * @param {number} i - Row\n   * @param {number} j - Col\n   * @param {number} val - value\n   * @example\n   * const A = new eig.Matrix(2, 2)\n   * A.set(0, 1, 3 / 2)\n   * return A.get(0, 1)\n   */\n  set(i, j, val) { }\n\n  /**\n   * Get a vector length\n   * @warning The matrix must be a vector (either single row or column)\n   * @returns {number} - V.length\n   * @example\n   * return (new eig.Matrix(3, 1)).length()\n   */\n  length() { }\n\n  /**\n   * Get the value at idx\n   * @warning The matrix must be a vector (either single row or column)\n   * @param {number} idx - Index\n   * @returns {number} - V[idx]\n   */\n  vGet(idx) { }\n\n  /**\n   * Set the value at idx\n   * @warning The matrix must be a vector (either single row or column)\n   * @param {number} idx - Row\n   * @param {number} val - value\n   * @example\n   * const A = new eig.Matrix(2, 1)\n   * A.vSet(1, 3 / 2)\n   * return A.vGet(1)\n   */\n  vSet(i, val) { }\n\n  /**\n   * Take the dot product with another vector\n   * @warning The matrix must be a vector (either single row or column)\n   * @param {Matrix} B - Vector of interest\n   * @returns {number} - V.B\n   * @example\n   * const V = eig.Matrix.fromArray([1, 2])\n   * const B = eig.Matrix.fromArray([-1, 3])\n   * return V.dot(B)\n   */\n  dot(B) { }\n\n\n  /**\n   * Get the l2 (Frobenius) norm\n   * @returns {number} - The l2 norm\n   */\n  norm() { }\n\n  /**\n   * Get the squared l2 (Frobenius) norm\n   * @returns {number} - The l2 norm squared\n   */\n  normSqr() { }\n\n  /**\n   * Get the l1 norm\n   * @returns {number} - The l1 norm\n   */\n  l1Norm() { }\n\n  /**\n   * Get the l-Infinity norm\n   * @returns {number} - The l-Infinity norm\n   * @example\n   * const m = eig.Matrix.fromArray([[1, 2], [3, 4]])\n   * return [m.norm(), m.normSqr(), m.l1Norm(), m.lInfNorm()]\n   */\n  lInfNorm() { }\n\n  /**\n   * Get the rank\n   * @returns {number} - The rank\n   * @example\n   * const m = eig.Matrix.fromArray([[2, 1], [2, 1]]);\n   * return m.rank();\n   */\n  rank() { }\n\n  /**\n   * Get the determinant\n   * @return {number} - The determinant\n   * @example\n   * const m = eig.Matrix.fromArray([[2, 0], [0, 3]]);\n   * return m.det();\n   */\n  det() { }\n\n  /**\n   * Sum all the elements\n   * @returns {number} - The sum of all the elements\n   * @example\n   * const m = eig.Matrix.fromArray([1, 2])\n   * return m.sum();\n   */\n  sum() { }\n\n  /**\n   * Get a block\n   * @param {number} i - The block top left row\n   * @param {number} j - The block top left column\n   * @param {number} di - Block rows count\n   * @param {number} dj - Block columns count\n   * @returns {Matrix} - The resulting block\n   * @example\n   * const m = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\n   * return m.block(1, 0, 1, 2)\n   */\n  block(i, j, di, dj) { }\n\n  /**\n   * Set a block\n   * @param {number} i - The block top left row\n   * @param {number} j - The block top left column\n   * @param {Matrix} block - Block to be set\n   * @example\n   * const m = new eig.Matrix(3, 3);\n   * const b = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\n   * m.setBlock(1, 0, b);\n   * return m;\n   */\n  setBlock(i, j, block) { }\n\n  /**\n   * Multiply by a value\n   * @param {number} val - Value to multiply by\n   * @returns {Matrix} - M * val\n   * @example\n   * const m = eig.Matrix.fromArray([1, 2]);\n   * return m.mul(2);\n   */\n  mul(val) { }\n\n  /**\n   * Multiply by a value in place\n   * @param {number} val - Value to multiply by\n   * @returns {Matrix} - this (M * val)\n   * @example\n   * const m = eig.Matrix.fromArray([1, 2]);\n   * m.mulSelf(2);\n   * return m;\n   */\n  mulSelf(val) { }\n\n  /**\n   * Divide by a value\n   * @param {number} val - Value to divide by\n   * @returns {Matrix} - M / val\n   * @example\n   * const m = eig.Matrix.fromArray([2, 4]);\n   * return m.div(2);\n   */\n  div(val) { }\n\n  /**\n   * Divide by a value in place\n   * @param {number} val - Value to divide by\n   * @returns {Matrix} - this (M / val)\n   * @example\n   * const m = eig.Matrix.fromArray([2, 4]);\n   * m.divSelf(2);\n   * return m;\n   */\n  divSelf(val) { }\n\n  /**\n   * Add B\n   * @param {Matrix} B - Matrix to be added\n   * @returns {Matrix} M + B\n   * @example\n   * const M = eig.Matrix.fromArray([1, 2]);\n   * const B = eig.Matrix.fromArray([3, 4]);\n   * return M.matAdd(B);\n   */\n  matAdd(B) { }\n\n  /**\n   * Add B in place\n   * @param {Matrix} B - Matrix to be added\n   * @returns {Matrix} - this\n   * @example\n   * const M = eig.Matrix.fromArray([1, 2]);\n   * const B = eig.Matrix.fromArray([3, 4]);\n   * M.matAdd(B);\n   * return M;\n   */\n  matAdd(B) { }\n\n  /**\n   * Substract B\n   * @param {Matrix} B - Matrix to be substracted\n   * @returns {Matrix} - M - B\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([1, 2]);\n   * return M.matSub(B);\n   */\n  matSub(B) { }\n\n  /**\n   * Substract B in place\n   * @param {Matrix} B - Matrix to be substracted\n   * @returns {Matrix} - this (M - B)\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([1, 2]);\n   * M.matSub(B);\n   * return M;\n   */\n  matAdd(B) { }\n\n  /**\n   * Multiply by a matrix B\n   * @param {Matrix} B - Matrix to multiply M by\n   * @returns {Matrix} - M * B\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([[1, 2]]);\n   * return M.matMul(B);\n   */\n  matMul(B) { }\n\n  /**\n   * Multiplyby a matrix B in place\n   * @param {Matrix} B - Matrix to multiply M by\n   * @returns {Matrix} - this (M * B)\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([[1, 2]]);\n   * M.matMulSelf(B);\n   * return M;\n   */\n  matMulSelf(B) { }\n\n  /**\n   * Concatenate B horizontally\n   * @param {Matrix} B - Matrix to be concatenated\n   * @returns {Matrix} - [M, B]\n   * @example\n   * const M = eig.Matrix.fromArray([[1], [2]]);\n   * const B = eig.Matrix.fromArray([[3], [4]]);\n   * return M.hcat(B);\n   */\n  hcat(B) { }\n\n  /**\n   * Concatenate B vertically\n   * @param {Matrix} B - Matrix to be concatenated\n   * @returns {Matrix} - [M; B]\n   * @example\n   * const M = eig.Matrix.fromArray([[1], [2]]);\n   * const B = eig.Matrix.fromArray([[3], [4]]);\n   * return M.vcat(B);\n   */\n  vcat(B) { }\n\n  /**\n   * Get the transpose\n   * @returns {Matrix} - M'\n   * @example\n   * const m = eig.Matrix.fromArray([[0, 1], [3, 0]]);\n   * return m.transpose();\n   */\n  tranpose() { }\n\n  /**\n   * Transpose in place\n   * @returns {Matrix} - this (M')\n   * @example\n   * const m = eig.Matrix.fromArray([[0, 1], [3, 0]]);\n   * m.transpose();\n   * return m;\n   */\n  transposeSelf() { }\n\n  /**\n   * Get the inverse of a square matrix\n   * The inverse is the matrix Minv such that M * Minv = In\n   * With In the n * n identity matrix\n   * @warning The matrix must be square and invertible (full rank)\n   * @returns {Matrix} - The inverse\n   * @example\n   * const m = eig.Matrix.fromArray([[4, 9], [3, 7]]);\n   * return m.inverse();\n   */\n  inverse() { }\n\n  /**\n   * Create a m * n identity matrix\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n identity matrix\n   * @example\n   * return eig.Matrix.identity(2, 2);\n   */\n  static identity(m, n) { }\n\n  /**\n   * Create a m * n matrix filled with ones\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n matrix filled with ones\n   * @example\n   * return eig.Matrix.ones(2, 3);\n   */\n  static ones(m, n) { }\n\n  /**\n   * Create a m * n matrix filled with some value\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @param {number} val - Value to fill the matrix with\n   * @returns {Matrix} - m * n matrix filled with val\n   * @example\n   * return eig.Matrix.constant(2, 3, 3 / 2);\n   */\n  static constant(m, n, val) { }\n\n  /**\n   * Create a m * n random matrix\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n random matrix\n   * @example\n   * return eig.Matrix.random(3, 2);\n   */\n  static random(m, n) { }\n\n  /**\n   * Create a diagonal matrix from a vector\n   * @param {Matrix} vec - Vector from which to populate the diagonal\n   * @returns {Matrix} - Diagonal matrix\n   * @example\n   * const vec = eig.Matrix.fromArray([1, 2, 3])\n   * return eig.Matrix.diagonal(vec);\n   */\n  static diagonal(vec) { }\n\n  /**\n   * Create a matrix from an array\n   * A 1D array will create a column vector\n   * A 2D array will create a matrix\n   * @param {Array} arr - 1D or 2D array to build matrix from\n   * @returns {Matrix} - Matrix initialized from the array\n   * @example\n   * return eig.Matrix.fromArray([[1, 2], [3, 4]]);\n   */\n  static fromArray(arr) { }\n}"
       },
       "augments": [],
       "errors": [],
@@ -1730,7 +1730,7 @@
                 "children": [
                   {
                     "type": "text",
-                    "value": "Get the value at idx\nThe matrix must be a vector (either single row or column)",
+                    "value": "Get the value at idx",
                     "position": {
                       "start": {
                         "line": 1,
@@ -1738,13 +1738,11 @@
                         "offset": 0
                       },
                       "end": {
-                        "line": 2,
-                        "column": 58,
-                        "offset": 78
+                        "line": 1,
+                        "column": 21,
+                        "offset": 20
                       },
-                      "indent": [
-                        1
-                      ]
+                      "indent": []
                     }
                   }
                 ],
@@ -1755,13 +1753,11 @@
                     "offset": 0
                   },
                   "end": {
-                    "line": 2,
-                    "column": 58,
-                    "offset": 78
+                    "line": 1,
+                    "column": 21,
+                    "offset": 20
                   },
-                  "indent": [
-                    1
-                  ]
+                  "indent": []
                 }
               }
             ],
@@ -1772,13 +1768,18 @@
                 "offset": 0
               },
               "end": {
-                "line": 2,
-                "column": 58,
-                "offset": 78
+                "line": 1,
+                "column": 21,
+                "offset": 20
               }
             }
           },
           "tags": [
+            {
+              "title": "warning",
+              "description": "The matrix must be a vector (either single row or column)",
+              "lineNumber": 2
+            },
             {
               "title": "param",
               "description": "Index",
@@ -2024,7 +2025,7 @@
                 "children": [
                   {
                     "type": "text",
-                    "value": "Set the value at idx\nThe matrix must be a vector (either single row or column)",
+                    "value": "Set the value at idx",
                     "position": {
                       "start": {
                         "line": 1,
@@ -2032,13 +2033,11 @@
                         "offset": 0
                       },
                       "end": {
-                        "line": 2,
-                        "column": 58,
-                        "offset": 78
+                        "line": 1,
+                        "column": 21,
+                        "offset": 20
                       },
-                      "indent": [
-                        1
-                      ]
+                      "indent": []
                     }
                   }
                 ],
@@ -2049,13 +2048,11 @@
                     "offset": 0
                   },
                   "end": {
-                    "line": 2,
-                    "column": 58,
-                    "offset": 78
+                    "line": 1,
+                    "column": 21,
+                    "offset": 20
                   },
-                  "indent": [
-                    1
-                  ]
+                  "indent": []
                 }
               }
             ],
@@ -2066,13 +2063,18 @@
                 "offset": 0
               },
               "end": {
-                "line": 2,
-                "column": 58,
-                "offset": 78
+                "line": 1,
+                "column": 21,
+                "offset": 20
               }
             }
           },
           "tags": [
+            {
+              "title": "warning",
+              "description": "The matrix must be a vector (either single row or column)",
+              "lineNumber": 2
+            },
             {
               "title": "param",
               "description": "Row",
@@ -2297,7 +2299,7 @@
                 "children": [
                   {
                     "type": "text",
-                    "value": "Take the dot product with another vector\nThe matrix must be a vector (either single row or column)",
+                    "value": "Take the dot product with another vector",
                     "position": {
                       "start": {
                         "line": 1,
@@ -2305,13 +2307,11 @@
                         "offset": 0
                       },
                       "end": {
-                        "line": 2,
-                        "column": 58,
-                        "offset": 98
+                        "line": 1,
+                        "column": 41,
+                        "offset": 40
                       },
-                      "indent": [
-                        1
-                      ]
+                      "indent": []
                     }
                   }
                 ],
@@ -2322,13 +2322,11 @@
                     "offset": 0
                   },
                   "end": {
-                    "line": 2,
-                    "column": 58,
-                    "offset": 98
+                    "line": 1,
+                    "column": 41,
+                    "offset": 40
                   },
-                  "indent": [
-                    1
-                  ]
+                  "indent": []
                 }
               }
             ],
@@ -2339,13 +2337,18 @@
                 "offset": 0
               },
               "end": {
-                "line": 2,
-                "column": 58,
-                "offset": 98
+                "line": 1,
+                "column": 41,
+                "offset": 40
               }
             }
           },
           "tags": [
+            {
+              "title": "warning",
+              "description": "The matrix must be a vector (either single row or column)",
+              "lineNumber": 2
+            },
             {
               "title": "param",
               "description": "Vector of interest",
@@ -8298,7 +8301,7 @@
                   },
                   {
                     "type": "text",
-                    "value": " n identity matrix\nThe matrix must be square and invertible (full rank)",
+                    "value": " n identity matrix",
                     "position": {
                       "start": {
                         "line": 3,
@@ -8306,13 +8309,11 @@
                         "offset": 105
                       },
                       "end": {
-                        "line": 4,
-                        "column": 53,
-                        "offset": 176
+                        "line": 3,
+                        "column": 34,
+                        "offset": 123
                       },
-                      "indent": [
-                        1
-                      ]
+                      "indent": []
                     }
                   }
                 ],
@@ -8323,12 +8324,11 @@
                     "offset": 0
                   },
                   "end": {
-                    "line": 4,
-                    "column": 53,
-                    "offset": 176
+                    "line": 3,
+                    "column": 34,
+                    "offset": 123
                   },
                   "indent": [
-                    1,
                     1,
                     1
                   ]
@@ -8342,13 +8342,18 @@
                 "offset": 0
               },
               "end": {
-                "line": 4,
-                "column": 53,
-                "offset": 176
+                "line": 3,
+                "column": 34,
+                "offset": 123
               }
             }
           },
           "tags": [
+            {
+              "title": "warning",
+              "description": "The matrix must be square and invertible (full rank)",
+              "lineNumber": 4
+            },
             {
               "title": "returns",
               "description": "The inverse",
@@ -9900,6 +9905,268 @@
                 "children": [
                   {
                     "type": "text",
+                    "value": "Create a diagonal matrix from a vector",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 39,
+                        "offset": 38
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 39,
+                    "offset": 38
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 39,
+                "offset": 38
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "Vector from which to populate the diagonal",
+              "lineNumber": 2,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "vec"
+            },
+            {
+              "title": "returns",
+              "description": "Diagonal matrix",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            },
+            {
+              "title": "example",
+              "description": "const vec = eig.Matrix.fromArray([1, 2, 3])\nreturn eig.Matrix.diagonal(vec);",
+              "lineNumber": 4
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 377,
+              "column": 2
+            },
+            "end": {
+              "line": 384,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 385,
+                "column": 2
+              },
+              "end": {
+                "line": 385,
+                "column": 26
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const vec = eig.Matrix.fromArray([1, 2, 3])\nreturn eig.Matrix.diagonal(vec);"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "vec",
+              "lineNumber": 2,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Vector from which to populate the diagonal",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 43,
+                            "offset": 42
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 43,
+                        "offset": 42
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 43,
+                    "offset": 42
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Diagonal matrix",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 16,
+                            "offset": 15
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 16,
+                        "offset": 15
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 16,
+                    "offset": 15
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "diagonal",
+          "kind": "function",
+          "memberof": "Matrix",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Matrix",
+              "kind": "class"
+            },
+            {
+              "name": "diagonal",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "Matrix.diagonal"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
                     "value": "Create a matrix from an array\nA 1D array will create a column vector\nA 2D array will create a matrix",
                     "position": {
                       "start": {
@@ -9978,22 +10245,22 @@
           ],
           "loc": {
             "start": {
-              "line": 377,
+              "line": 387,
               "column": 2
             },
             "end": {
-              "line": 385,
+              "line": 395,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 386,
+                "line": 396,
                 "column": 2
               },
               "end": {
-                "line": 386,
+                "line": 396,
                 "column": 27
               }
             },
@@ -10168,5 +10435,1423 @@
       }
     ],
     "namespace": "Matrix"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "A class containing a few useful solver utilities",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 49,
+                  "offset": 48
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 49,
+              "offset": 48
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 49,
+          "offset": 48
+        }
+      }
+    },
+    "tags": [],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 3,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 60,
+          "column": 1
+        }
+      },
+      "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Solvers.js"
+    },
+    "augments": [],
+    "examples": [],
+    "implements": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "yields": [],
+    "name": "Solvers",
+    "kind": "class",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": [
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "SVD decomposition consists in decomposing any n-by-p matrix A as a product M = U S V'\nWhere U is a n-by-n unitary, V is a p-by-p unitary, and S is a n-by-p real positive diagonal matrix\nSingular values are always sorted in decreasing order.\nThe algorithm used is a two-sided jacobi SVD decomposition of rectangular matrices for small matrices (< 16x16), or bidiagonal divide and conquer SVD for large ones.",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 166,
+                        "offset": 406
+                      },
+                      "indent": [
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 166,
+                    "offset": 406
+                  },
+                  "indent": [
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 4,
+                "column": 166,
+                "offset": 406
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "Matrix of interest",
+              "lineNumber": 5,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "M"
+            },
+            {
+              "title": "param",
+              "description": "Only keep the non-zero singular values",
+              "lineNumber": 6,
+              "type": {
+                "type": "NameExpression",
+                "name": "boolean"
+              },
+              "name": "thin"
+            },
+            {
+              "title": "returns",
+              "description": "Result",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "SVDResult"
+              }
+            },
+            {
+              "title": "example",
+              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Solvers.svd(M, true);\nreturn svd;",
+              "lineNumber": 8
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 5,
+              "column": 2
+            },
+            "end": {
+              "line": 17,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 2
+              },
+              "end": {
+                "line": 18,
+                "column": 25
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Solvers.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Solvers.svd(M, true);\nreturn svd;"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "M",
+              "lineNumber": 5,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Matrix of interest",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 19,
+                            "offset": 18
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 19,
+                        "offset": 18
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 19,
+                    "offset": 18
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            },
+            {
+              "title": "param",
+              "name": "thin",
+              "lineNumber": 6,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Only keep the non-zero singular values",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 39,
+                            "offset": 38
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 39,
+                        "offset": 38
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 39,
+                    "offset": 38
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "boolean"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Result",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 7,
+                            "offset": 6
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7,
+                        "offset": 6
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7,
+                    "offset": 6
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "SVDResult"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "svd",
+          "kind": "function",
+          "memberof": "Solvers",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Solvers",
+              "kind": "class"
+            },
+            {
+              "name": "svd",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "Solvers.svd"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Find the eigenvalues of a given matrix\nOptionally, compute a set of normalized eigenvectors",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 53,
+                        "offset": 91
+                      },
+                      "indent": [
+                        1
+                      ]
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 53,
+                    "offset": 91
+                  },
+                  "indent": [
+                    1
+                  ]
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 2,
+                "column": 53,
+                "offset": 91
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "Matrix of interest",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "M"
+            },
+            {
+              "title": "param",
+              "description": "Whether to compute eigenvectors",
+              "lineNumber": 4,
+              "type": {
+                "type": "NameExpression",
+                "name": "boolean"
+              },
+              "name": "computeEigenvectors"
+            },
+            {
+              "title": "returns",
+              "description": "Result of the solver",
+              "lineNumber": 5,
+              "type": {
+                "type": "NameExpression",
+                "name": "EigenSolverResult"
+              }
+            },
+            {
+              "title": "example",
+              "description": "const M = eig.Matrix.fromArray([[8, 3], [2, 7]]);\nconst result = eig.Solvers.eigenSolve(M, true);\ndelete result.info\nreturn result",
+              "lineNumber": 6
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 20,
+              "column": 2
+            },
+            "end": {
+              "line": 31,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 2
+              },
+              "end": {
+                "line": 32,
+                "column": 47
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Solvers.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const M = eig.Matrix.fromArray([[8, 3], [2, 7]]);\nconst result = eig.Solvers.eigenSolve(M, true);\ndelete result.info\nreturn result"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "M",
+              "lineNumber": 3,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Matrix of interest",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 19,
+                            "offset": 18
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 19,
+                        "offset": 18
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 19,
+                    "offset": 18
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            },
+            {
+              "title": "param",
+              "name": "computeEigenvectors",
+              "lineNumber": 4,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Whether to compute eigenvectors",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 32,
+                            "offset": 31
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 32,
+                        "offset": 31
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 32,
+                    "offset": 31
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "boolean"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Result of the solver",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 21,
+                            "offset": 20
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 21,
+                        "offset": 20
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 21,
+                    "offset": 20
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "EigenSolverResult"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "eigenSolve",
+          "kind": "function",
+          "memberof": "Solvers",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Solvers",
+              "kind": "class"
+            },
+            {
+              "name": "eigenSolve",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "Solvers.eigenSolve"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Solve a continuous time algebraic Riccati equation of the form\nA'",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 3,
+                        "offset": 65
+                      },
+                      "indent": [
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "type": "emphasis",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "P + P",
+                        "position": {
+                          "start": {
+                            "line": 2,
+                            "column": 4,
+                            "offset": 66
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 9,
+                            "offset": 71
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 2,
+                        "column": 3,
+                        "offset": 65
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 10,
+                        "offset": 72
+                      },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": "A - P",
+                    "position": {
+                      "start": {
+                        "line": 2,
+                        "column": 10,
+                        "offset": 72
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 15,
+                        "offset": 77
+                      },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "emphasis",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "B",
+                        "position": {
+                          "start": {
+                            "line": 2,
+                            "column": 16,
+                            "offset": 78
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 17,
+                            "offset": 79
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 2,
+                        "column": 15,
+                        "offset": 77
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 18,
+                        "offset": 80
+                      },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": "Rinv",
+                    "position": {
+                      "start": {
+                        "line": 2,
+                        "column": 18,
+                        "offset": 80
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 22,
+                        "offset": 84
+                      },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "emphasis",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "B'",
+                        "position": {
+                          "start": {
+                            "line": 2,
+                            "column": 23,
+                            "offset": 85
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 25,
+                            "offset": 87
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 2,
+                        "column": 22,
+                        "offset": 84
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 26,
+                        "offset": 88
+                      },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": "P + Q = 0",
+                    "position": {
+                      "start": {
+                        "line": 2,
+                        "column": 26,
+                        "offset": 88
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 35,
+                        "offset": 97
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 35,
+                    "offset": 97
+                  },
+                  "indent": [
+                    1
+                  ]
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 2,
+                "column": 35,
+                "offset": 97
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "State matrix",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "A"
+            },
+            {
+              "title": "param",
+              "description": "Input matrix",
+              "lineNumber": 4,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "B"
+            },
+            {
+              "title": "param",
+              "description": "Quadratic state cost matrix",
+              "lineNumber": 5,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "Q"
+            },
+            {
+              "title": "param",
+              "description": "Quadratic input cost matrix",
+              "lineNumber": 6,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "R"
+            },
+            {
+              "title": "returns",
+              "description": "Result of the solver",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "CareSolverResult"
+              }
+            },
+            {
+              "title": "example",
+              "description": "// Finds the optimal linear quadratic regulator controller of an inverted pendulum \n// The state-space dynamic of the pendulum linearized about the upside down state is\n// xDot = A*x + B*u\n// With x = [theta, thetaDot]\n// And dThetaDot/dt = -(m*g*l*sin(theta) + u)/ml^2\n// Here, we take m = 1, l = 1, g = 10\nconst A = eig.Matrix.fromArray([[0, 1], [-10, 0]])\nconst B = eig.Matrix.fromArray([0, 1])\nconst Q = eig.Matrix.identity(2, 2).mul(10)\nconst R = eig.Matrix.identity(1, 1)\n\n// Solve the CARE equation\nconst result = eig.Solvers.careSolve(A, B, Q, R)\ndelete result.info\nreturn result",
+              "lineNumber": 8
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 34,
+              "column": 2
+            },
+            "end": {
+              "line": 58,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 59,
+                "column": 2
+              },
+              "end": {
+                "line": 59,
+                "column": 34
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Solvers.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "// Finds the optimal linear quadratic regulator controller of an inverted pendulum \n// The state-space dynamic of the pendulum linearized about the upside down state is\n// xDot = A*x + B*u\n// With x = [theta, thetaDot]\n// And dThetaDot/dt = -(m*g*l*sin(theta) + u)/ml^2\n// Here, we take m = 1, l = 1, g = 10\nconst A = eig.Matrix.fromArray([[0, 1], [-10, 0]])\nconst B = eig.Matrix.fromArray([0, 1])\nconst Q = eig.Matrix.identity(2, 2).mul(10)\nconst R = eig.Matrix.identity(1, 1)\n\n// Solve the CARE equation\nconst result = eig.Solvers.careSolve(A, B, Q, R)\ndelete result.info\nreturn result"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "A",
+              "lineNumber": 3,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "State matrix",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 13,
+                            "offset": 12
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 13,
+                        "offset": 12
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 13,
+                    "offset": 12
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            },
+            {
+              "title": "param",
+              "name": "B",
+              "lineNumber": 4,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Input matrix",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 13,
+                            "offset": 12
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 13,
+                        "offset": 12
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 13,
+                    "offset": 12
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            },
+            {
+              "title": "param",
+              "name": "Q",
+              "lineNumber": 5,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Quadratic state cost matrix",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 28,
+                            "offset": 27
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 28,
+                        "offset": 27
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 28,
+                    "offset": 27
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            },
+            {
+              "title": "param",
+              "name": "R",
+              "lineNumber": 6,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Quadratic input cost matrix",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 28,
+                            "offset": 27
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 28,
+                        "offset": 27
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 28,
+                    "offset": 27
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Result of the solver",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 21,
+                            "offset": 20
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 21,
+                        "offset": 20
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 21,
+                    "offset": 20
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "CareSolverResult"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "careSolve",
+          "kind": "function",
+          "memberof": "Solvers",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Solvers",
+              "kind": "class"
+            },
+            {
+              "name": "careSolve",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "Solvers.careSolve"
+        }
+      ]
+    },
+    "path": [
+      {
+        "name": "Solvers",
+        "kind": "class"
+      }
+    ],
+    "namespace": "Solvers"
   }
 ]

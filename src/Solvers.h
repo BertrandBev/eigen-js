@@ -3,35 +3,61 @@
 
 #include <Eigen/Dense>
 #include "DenseMatrix.h"
+#include "CareSolver.h"
 
-class EigenSolver
+class Solvers
 {
   using Matrix = Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic>;
-
-protected:
-  Eigen::EigenSolver<Matrix> data;
+  using DMD = DenseMatrix<double>;
+  using CMD = DenseMatrix<std::complex<double>>;
 
 public:
-  explicit EigenSolver(const DenseMatrix<double> &matrix, bool computeEigenvectors = true)
+  /**
+   * Eigen solver
+   */
+  typedef struct {
+    Eigen::ComputationInfo info;
+    CMD eigenvalues;
+    CMD eigenvectors;
+  } EigenSolverResult;
+
+  static EigenSolverResult eigenSolve(const DMD &matrix, bool computeEigenvectors = true)
   {
     // const EigenBase<InputType> &matrix
-    data = Eigen::EigenSolver<Matrix>(matrix.data, computeEigenvectors);
-  }
+    Eigen::EigenSolver<Matrix> data = Eigen::EigenSolver<Matrix>(matrix.data, computeEigenvectors);
+    // return EigenSolverResult(data);
+    return (EigenSolverResult){
+      .info = data.info(),
+      .eigenvalues = CMD(data.eigenvalues()),
+      .eigenvectors = CMD(data.eigenvectors())
+    };
+  };
 
-  Eigen::ComputationInfo info() const
+  /**
+   * Care solver 
+   */
+  static CareSolver::CareSolverResult careSolve(const DMD &A, const DMD &B, const DMD &Q, const DMD &R)
   {
-    return data.info();
-  }
+    return CareSolver::solve(A, B, Q, R);
+  };
 
-  const DenseMatrix<std::complex<double>> eigenvalues() const
-  {
-    return DenseMatrix<std::complex<double>>(data.eigenvalues());
-  }
+  /**
+   * Decompositions
+   */
+  typedef struct {
+    DMD SingularValues;
+    DMD U;
+    DMD V;
+  } SVDResult;
 
-  const DenseMatrix<std::complex<double>> eigenvectors() const
-  {
-    return DenseMatrix<std::complex<double>>(data.eigenvectors());
-  }
+  static SVDResult svd(const DMD &M, bool thin) {
+    Eigen::BDCSVD<Matrix> svd(M.data, thin ? (Eigen::ComputeThinU | Eigen::ComputeThinV) : (Eigen::ComputeFullU | Eigen::ComputeFullV));
+    return (SVDResult) {
+      .SingularValues = DMD(svd.singularValues()),
+      .U = DMD(svd.matrixU()),
+      .V = DMD(svd.matrixV())
+    };
+  };
 };
 
 #endif // SOLVERS_H

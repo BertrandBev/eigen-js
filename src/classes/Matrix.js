@@ -1,6 +1,6 @@
 
 /**
- * A generic dense matrix class to hold double real numbers
+ * A generic dense matrix class holding real number
  */
 class Matrix {
   /**
@@ -58,7 +58,7 @@ class Matrix {
 
   /**
    * Get the value at idx
-   * The matrix must be a vector (either single row or column)
+   * @warning The matrix must be a vector (either single row or column)
    * @param {number} idx - Index
    * @returns {number} - V[idx]
    */
@@ -66,7 +66,7 @@ class Matrix {
 
   /**
    * Set the value at idx
-   * The matrix must be a vector (either single row or column)
+   * @warning The matrix must be a vector (either single row or column)
    * @param {number} idx - Row
    * @param {number} val - value
    * @example
@@ -78,7 +78,7 @@ class Matrix {
 
   /**
    * Take the dot product with another vector
-   * The matrix must be a vector (either single row or column)
+   * @warning The matrix must be a vector (either single row or column)
    * @param {Matrix} B - Vector of interest
    * @returns {number} - V.B
    * @example
@@ -325,7 +325,7 @@ class Matrix {
    * Get the inverse of a square matrix
    * The inverse is the matrix Minv such that M * Minv = In
    * With In the n * n identity matrix
-   * The matrix must be square and invertible (full rank)
+   * @warning The matrix must be square and invertible (full rank)
    * @returns {Matrix} - The inverse
    * @example
    * const m = eig.Matrix.fromArray([[4, 9], [3, 7]]);
@@ -373,6 +373,16 @@ class Matrix {
    * return eig.Matrix.random(3, 2);
    */
   static random(m, n) { }
+
+  /**
+   * Create a diagonal matrix from a vector
+   * @param {Matrix} vec - Vector from which to populate the diagonal
+   * @returns {Matrix} - Diagonal matrix
+   * @example
+   * const vec = eig.Matrix.fromArray([1, 2, 3])
+   * return eig.Matrix.diagonal(vec);
+   */
+  static diagonal(vec) { }
 
   /**
    * Create a matrix from an array

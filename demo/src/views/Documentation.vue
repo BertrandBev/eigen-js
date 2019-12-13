@@ -1,10 +1,6 @@
 <template lang='pug'>
 v-container
   v-col
-    //- v-alert(border='left'
-    //-         color='blue'
-    //-         dark dense
-    //-         icon='mdi-information-variant') Some alert
     Class(:data='data')
 </template>
 
@@ -16,6 +12,10 @@ import _ from "lodash";
 export default {
   name: "Documentation",
 
+  props: {
+    className: String
+  },
+
   components: {
     Class
   },
@@ -24,7 +24,7 @@ export default {
 
   computed: {
     data() {
-      return doc[0]; // TODO: pass as argument
+      return doc.filter(obj => obj.namespace === this.className)[0];
     }
   },
 

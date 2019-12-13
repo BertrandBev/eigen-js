@@ -1,10 +1,7 @@
 <template lang='pug'>
 v-app
-  v-app-bar(app, color='primary', dark)
-    v-spacer
-    v-btn(href='https://github.com/vuetifyjs/vuetify/releases/latest', target='_blank', text)
-      span.mr-2 Latest Release
-      v-icon mdi-open-in-new
+  Drawer(v-model='drawer')
+  Toolbar(:drawer.sync='drawer')
   v-content
     //* Loading row
     v-row(v-if='loading'
@@ -20,11 +17,19 @@ v-app
 
 <script>
 import eig from "@eigen/eigen.js";
+import Toolbar from "@/components/nav/Toolbar.vue";
+import Drawer from "@/components/nav/Drawer.vue";
 
 export default {
   name: "App",
 
+  components: {
+    Toolbar,
+    Drawer
+  },
+
   data: () => ({
+    drawer: false,
     loading: true
   }),
 

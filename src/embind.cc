@@ -6,8 +6,7 @@
 #include "SparseMatrix.h"
 #include "CareSolver.h"
 #include "Solvers.h"
-// #include "QuadProgSolver.h"
-#include "QuadProg.h"
+#include "QuadProgSolver.h"
 
 using namespace std;
 using namespace emscripten;
@@ -24,9 +23,11 @@ EMSCRIPTEN_BINDINGS(Module)
 
     // Complex numbers
     class_<complex<double>>("Complex")
-        .constructor<double, double>();
-    emscripten::function("real", select_overload<double(const complex<double> &)>(&real)); // TODO: extract in complex class
-    emscripten::function("imag", select_overload<double(const complex<double> &)>(&imag)); // TODO: extract in complex class
+        .constructor<double, double>()
+        .function("real", select_overload<double(const complex<double> &)>(&real))
+        .function("imag", select_overload<double(const complex<double> &)>(&imag));
+    // emscripten::function("real", select_overload<double(const complex<double> &)>(&real)); // TODO: extract in complex class
+    // emscripten::function("imag", select_overload<double(const complex<double> &)>(&imag)); // TODO: extract in complex class
 
     // Dense Matrix
     class_<DDM>("Matrix") // TODO: rename
@@ -36,6 +37,7 @@ EMSCRIPTEN_BINDINGS(Module)
         .class_function("ones", &DDM::ones)
         .class_function("constant", &DDM::constant)
         .class_function("random", &DDM::random)
+        .class_function("diagonal", &DDM::diagonal)
         .class_function("fromVector", &DDM::fromVector)
         .function("transpose", &DDM::transpose)
         .function("transposeSelf", &DDM::transposeSelf)
@@ -147,23 +149,26 @@ EMSCRIPTEN_BINDINGS(Module)
         .value("NoConvergence", Eigen::ComputationInfo::NoConvergence)
         .value("InvalidInput", Eigen::ComputationInfo::InvalidInput);
 
-    // Eigen Solver
-    class_<EigenSolver>("EigenSolver")
-        .constructor<const DDM &, bool>()
-        .function("info", &EigenSolver::info)
-        .function("eigenvectors", &EigenSolver::eigenvectors)
-        .function("eigenvalues", &EigenSolver::eigenvalues);
+    // Solver
+    value_object<Solvers::EigenSolverResult>("EigenSolverResult")
+      .field("info", &Solvers::EigenSolverResult::info)
+      .field("eigenvalues", &Solvers::EigenSolverResult::eigenvalues)
+      .field("eigenvectors", &Solvers::EigenSolverResult::eigenvectors);
 
-    // Care Solver
-    class_<CareSolver>("CareSolver")
-        .constructor<const DDM &, const DDM &, const DDM &, const DDM &>()
-        .function("info", &CareSolver::info)
-        .function("S", &CareSolver::S)
-        .function("K", &CareSolver::K);
+    value_object<CareSolver::CareSolverResult>("CareSolverResult")
+      .field("info", &CareSolver::CareSolverResult::info)
+      .field("K", &CareSolver::CareSolverResult::K)
+      .field("S", &CareSolver::CareSolverResult::S);
 
-    // Quad prog solver
-    // class_<QuadProgSolver>("QuadProgSolver")
-    //     .class_function("solve", &QuadProgSolver::solve);
+    value_object<Solvers::SVDResult>("SVDResult")
+      .field("SingularValues", &Solvers::SVDResult::SingularValues)
+      .field("U", &Solvers::SVDResult::U)
+      .field("V", &Solvers::SVDResult::V);
+
+    class_<Solvers>("Solvers")
+        .class_function("eigenSolve", &Solvers::eigenSolve)
+        .class_function("careSolve", &Solvers::careSolve)
+        .class_function("svd", &Solvers::svd);
 
     // Quad prog solver
     class_<QuadProgSolver>("QuadProgSolver")

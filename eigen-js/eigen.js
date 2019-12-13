@@ -168,8 +168,7 @@ Module.onRuntimeInitialized = _ => {
     "SparseMatrix",
     "TripletVector",
     "ComplexDenseMatrix",
-    "EigenSolver",
-    "CareSolver",
+    "Solvers",
     "QuadProgSolver"])
   classes.forEach(className => {
     defExport[className] = initClass(classes, Module[className])

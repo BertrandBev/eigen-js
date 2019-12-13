@@ -4,53 +4,43 @@
 #include <Eigen/Dense>
 #include "DenseMatrix.h"
 
-template <typename T1, typename T2>
-bool isEqual(const Eigen::MatrixBase<T1> &m1,
-             const Eigen::MatrixBase<T2> &m2,
-             double tolerance)
-{
-  return (
-      (m1.rows() == m2.rows()) &&
-      (m1.cols() == m2.cols()) &&
-      ((m1 - m2).template lpNorm<Eigen::Infinity>() <= tolerance));
-}
-
 class CareSolver
 {
   using MatrixXd = Eigen::MatrixXd;
   using ComputationInfo = Eigen::ComputationInfo;
 
-protected:
-  DenseMatrix<double> _S = DenseMatrix<double>(0, 0);
-  DenseMatrix<double> _K = DenseMatrix<double>(0, 0);
-  ComputationInfo computationInfo;
-
 public:
-  CareSolver(const DenseMatrix<double> &A,
-             const DenseMatrix<double> &B,
-             const DenseMatrix<double> &Q,
-             const DenseMatrix<double> &R)
-  {
-    solve(A.data, B.data, Q.data, R.data);
-  }
+  typedef struct {
+    DenseMatrix<double> K;
+    DenseMatrix<double> S;
+    ComputationInfo info;
+  } CareSolverResult;
 
-  ComputationInfo info() const
+  static CareSolverResult solve(const DenseMatrix<double> &A,
+                                const DenseMatrix<double> &B,
+                                const DenseMatrix<double> &Q,
+                                const DenseMatrix<double> &R)
   {
-    return computationInfo;
-  }
-
-  DenseMatrix<double> S() const
-  {
-    return _S;
-  }
-
-  DenseMatrix<double> K() const
-  {
-    return _K;
+    assert(isEqual(R.data, R.data.transpose(), 1e-10));
+    Eigen::LLT<MatrixXd> R_cholesky(R.data);
+    if (R_cholesky.info() != Eigen::Success)
+      throw std::runtime_error("R must be positive definite");
+    return solve(A.data, B.data, Q.data, R_cholesky);
   }
 
 private:
-  void solve(
+  template <typename T1, typename T2>
+  static bool isEqual(const Eigen::MatrixBase<T1> &m1,
+              const Eigen::MatrixBase<T2> &m2,
+              double tolerance)
+  {
+    return (
+        (m1.rows() == m2.rows()) &&
+        (m1.cols() == m2.cols()) &&
+        ((m1 - m2).template lpNorm<Eigen::Infinity>() <= tolerance));
+  }
+
+  static CareSolverResult solve(
       const MatrixXd &A,
       const MatrixXd &B,
       const MatrixXd &Q,
@@ -93,7 +83,9 @@ private:
       relative_norm = (Z - Z_old).norm();
       iteration++;
     } while (iteration < max_iterations && relative_norm > tolerance);
-    computationInfo = iteration == max_iterations ? ComputationInfo::NoConvergence : ComputationInfo::Success;
+
+    CareSolverResult result = (CareSolverResult) {};
+    result.info = iteration == max_iterations ? ComputationInfo::NoConvergence : ComputationInfo::Success;
 
     MatrixXd W11 = Z.block(0, 0, n, n);
     MatrixXd W12 = Z.block(0, n, n, n);
@@ -110,22 +102,9 @@ private:
         lhs, Eigen::ComputeThinU | Eigen::ComputeThinV);
 
     MatrixXd sol = svd.solve(rhs);
-    _S = DenseMatrix<double>(sol);
-    _K = DenseMatrix<double>(R_cholesky.solve(B.transpose() * sol));
-  }
-
-  void solve(
-      const MatrixXd &A,
-      const MatrixXd &B,
-      const MatrixXd &Q,
-      const MatrixXd &R)
-  {
-    assert(isEqual(R, R.transpose(), 1e-10));
-
-    Eigen::LLT<MatrixXd> R_cholesky(R);
-    if (R_cholesky.info() != Eigen::Success)
-      throw std::runtime_error("R must be positive definite");
-    solve(A, B, Q, R_cholesky);
+    result.S = DenseMatrix<double>(sol);
+    result.K = DenseMatrix<double>(R_cholesky.solve(B.transpose() * sol));
+    return result;
   }
 };
 

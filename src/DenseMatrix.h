@@ -26,6 +26,10 @@ protected:
 public:
   Mat data;
 
+  DenseMatrix() {
+    data = Mat();
+  }
+
   DenseMatrix(int m, int n)
   {
     data = Mat::Zero(m, n);
@@ -336,6 +340,16 @@ public:
   static DenseMatrix<T> random(int m, int n)
   {
     return DenseMatrix<T>(Mat::Random(m, n));
+  }
+
+  static DenseMatrix<T> diagonal(const DenseMatrix<T> vector)
+  {
+    int n = vector.length();
+    DenseMatrix<T> mat(n, n);
+    for (int k = 0; k < n; k++) {
+      mat.set(k, k, vector.vGet(k));
+    }
+    return mat;
   }
 
   static DenseMatrix<T> fromVector(const Vector2d &v)
