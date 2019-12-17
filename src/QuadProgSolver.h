@@ -16,11 +16,13 @@
 class QuadProgSolver
 {
   using T = Eigen::Triplet<double>;
+  using DMD = DenseMatrix<double>;
+  using SMD = SparseMatrix<double>;
 
 public:
   // Minimize 0.5 xT.P.x + qT.x
   // Suject to l <= Ax <= u
-  static DenseMatrix<double> solve(SparseMatrix<double> &P, DenseMatrix<double> &q, SparseMatrix<double> &A, DenseMatrix<double> &l, DenseMatrix<double> &u) {
+  static DMD solve(SMD &P, DMD &q, SMD &A, DMD &l, DMD &u) {
     assert(P.rows() == P.cols() && "P must be a square matrix");
     assert(q.rows() == P.rows() && "q and P must have the same number of rows");
     assert(A.cols() == P.rows() && "A.cols must equal P.rows");
@@ -53,7 +55,7 @@ public:
 
     OSQPWorkspace *work;
     int exitflag = osqp_setup(&work, &data, &settings);
-    DenseMatrix<double> x(n, 1);
+    DMD x(n, 1);
     if (!exitflag)
     {
       osqp_solve(work);
@@ -76,22 +78,20 @@ public:
 
   static void solveSparse()
   {
-    std::vector<T> triplets;
-    triplets.reserve(3);
-    triplets.push_back(T(0, 0, 4));
-    triplets.push_back(T(0, 1, 1));
-    triplets.push_back(T(1, 1, 2));
-    Eigen::SparseMatrix<double> P(2, 2);
-    P.setFromTriplets(triplets.begin(), triplets.end());
+    TripletVector<double> tripletsP(3);
+    tripletsP.add(0, 0, 4);
+    tripletsP.add(0, 1, 1);
+    tripletsP.add(1, 1, 2);
+    SMD P(2, 2, &tripletsP);
+    // P.data.setFromTriplets(triplets.begin(), triplets.end());
 
-    triplets.clear();
-    triplets.reserve(4);
-    triplets.push_back(T(0, 0, 1));
-    triplets.push_back(T(0, 1, 1));
-    triplets.push_back(T(1, 0, 1));
-    triplets.push_back(T(2, 1, 1));
-    Eigen::SparseMatrix<double> A(3, 2);
-    A.setFromTriplets(triplets.begin(), triplets.end());
+    TripletVector<double> tripletsA(4);
+    tripletsA.add(0, 0, 1);
+    tripletsA.add(0, 1, 1);
+    tripletsA.add(1, 0, 1);
+    tripletsA.add(2, 1, 1);
+    SMD A(3, 2, &tripletsA);
+    // A.data.setFromTriplets(triplets.begin(), triplets.end());
 
     // Get lists
     // const int nnz = mat.nonZeros();
@@ -137,7 +137,7 @@ public:
     c_free(A_csc);
   }
 
-  static double* denseToArray(DenseMatrix<double> mat) {
+  static double* denseToArray(DMD mat) {
     double *arr = (double *) malloc(mat.rows() * sizeof(double));
     for (int k = 0; k < mat.rows(); k++) {
       arr[k] = mat.get(k, 0);
@@ -145,12 +145,7 @@ public:
     return arr;
   }
 
-  static csc *sparseToCSC(Eigen::SparseMatrix<double> &mat)
-  {
-    return csc_matrix(mat.rows(), mat.cols(), mat.nonZeros(), mat.valuePtr(), mat.innerIndexPtr(), mat.outerIndexPtr());
-  }
-
-  static csc *sparseToCSC(SparseMatrix<double> &mat)
+  static csc *sparseToCSC(SMD &mat)
   {
     return csc_matrix(mat.rows(), mat.cols(), mat.nonZeros(), mat.valuePtr(), mat.innerIndexPtr(), mat.outerIndexPtr());
   }

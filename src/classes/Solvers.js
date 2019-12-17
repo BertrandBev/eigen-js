@@ -3,21 +3,6 @@
  */
 class Solvers {
   /**
-   * SVD decomposition consists in decomposing any n-by-p matrix A as a product M = U S V'
-   * Where U is a n-by-n unitary, V is a p-by-p unitary, and S is a n-by-p real positive diagonal matrix
-   * Singular values are always sorted in decreasing order.
-   * The algorithm used is a two-sided jacobi SVD decomposition of rectangular matrices for small matrices (< 16x16), or bidiagonal divide and conquer SVD for large ones.
-   * @param {Matrix} M - Matrix of interest
-   * @param {boolean} thin - Only keep the non-zero singular values
-   * @returns {SVDResult} - Result
-   * @example
-   * const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);
-   * const svd = eig.Solvers.svd(M, true);
-   * return svd;
-   */
-  static svd(M, thin) { }
-
-  /**
    * Find the eigenvalues of a given matrix
    * Optionally, compute a set of normalized eigenvectors
    * @param {Matrix} M - Matrix of interest
@@ -33,7 +18,7 @@ class Solvers {
 
   /**
    * Solve a continuous time algebraic Riccati equation of the form
-   * A'*P + P*A - P*B*Rinv*B'*P + Q = 0
+   * A' P + P A - P B Rinv B' P + Q = 0
    * @param {Matrix} A - State matrix
    * @param {Matrix} B - Input matrix
    * @param {Matrix} Q - Quadratic state cost matrix
@@ -57,4 +42,34 @@ class Solvers {
    * return result
    */
   static careSolve(A, B, Q, R) { }
+
+  /**
+   * Solve quadratic program of the form
+   * Min 0.5 x' P x + q' x
+   * Suject to l <= Ax <= u
+   * Using operator splitting quadratic programming https://osqp.org/docs/
+   * @warning The problem needs to be convex
+   * @param {SparseMatrix} P - Quadratic cost matrix
+   * @param {Matrix} q - Linear cost vector
+   * @param {SparseMatrix} A - Linear constraint matrix
+   * @param {Matrix} l - Linear constraint lower bound
+   * @param {Matrix} u - Linear constraint upper bound
+   * @example
+   * // Let's minimize 0.5 x' P x + q' x
+   * // Suject to l <= Ax <= u
+   * // With P = [[4, 1], [0, 2]]; q = [1, 1]
+   * // And A = [[1, 1], [1, 0], [0, 1]] 
+   * // l = [1, 0, 0]; u = [1, 0.7, 0.7];
+   * const P = eig.SparseMatrix.fromTriplets(2, 2, [
+   *  [0, 0, 4], [0, 1, 1], [1, 1, 2]
+   * ]);
+   * const A = eig.SparseMatrix.fromTriplets(3, 2, [
+   *  [0, 0, 1], [0, 1, 1], [1, 0, 1], [2, 1, 1]
+   * ]);
+   * const q = eig.Matrix.fromArray([1, 1])
+   * const l = eig.Matrix.fromArray([1, 0, 0])
+   * const u = eig.Matrix.fromArray([1, 0.7, 0.7])
+   * return eig.QuadProgSolver.solve(P, q, A, l, u);
+   */
+  static quadProgSolve(P, q, A, l, u) { }
 }

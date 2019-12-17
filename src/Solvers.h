@@ -4,12 +4,14 @@
 #include <Eigen/Dense>
 #include "DenseMatrix.h"
 #include "CareSolver.h"
+#include "QuadProgSolver.h"
 
 class Solvers
 {
   using Matrix = Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic>;
   using DMD = DenseMatrix<double>;
   using CMD = DenseMatrix<std::complex<double>>;
+  using SMD = SparseMatrix<double>;
 
 public:
   /**
@@ -42,21 +44,10 @@ public:
   };
 
   /**
-   * Decompositions
+   * Quadratic program solver
    */
-  typedef struct {
-    DMD SingularValues;
-    DMD U;
-    DMD V;
-  } SVDResult;
-
-  static SVDResult svd(const DMD &M, bool thin) {
-    Eigen::BDCSVD<Matrix> svd(M.data, thin ? (Eigen::ComputeThinU | Eigen::ComputeThinV) : (Eigen::ComputeFullU | Eigen::ComputeFullV));
-    return (SVDResult) {
-      .SingularValues = DMD(svd.singularValues()),
-      .U = DMD(svd.matrixU()),
-      .V = DMD(svd.matrixV())
-    };
+  static DMD quadProgSolve(SMD &P, DMD &q, SMD &A, DMD &l, DMD &u) {
+    return QuadProgSolver::solve(P, q, A, l, u);
   };
 };
 

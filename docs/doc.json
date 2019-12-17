@@ -8,6 +8,1104 @@
           "children": [
             {
               "type": "text",
+              "value": "A class containing various matrix decompositions algorithms",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 60,
+                  "offset": 59
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 60,
+              "offset": 59
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 60,
+          "offset": 59
+        }
+      }
+    },
+    "tags": [],
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 3,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 58,
+          "column": 1
+        }
+      },
+      "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Decompositions.js"
+    },
+    "augments": [],
+    "examples": [],
+    "implements": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "yields": [],
+    "name": "Decompositions",
+    "kind": "class",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [],
+      "events": [],
+      "static": [
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Cholesky decomposition consists in decomposing a square, hermitian (or real symmetric), positive definite matrix A as a product A = L L*\nWhere L is lower triangular with real positive diagonal entries",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 64,
+                        "offset": 200
+                      },
+                      "indent": [
+                        1
+                      ]
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 64,
+                    "offset": 200
+                  },
+                  "indent": [
+                    1
+                  ]
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 2,
+                "column": 64,
+                "offset": 200
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": null,
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "M"
+            },
+            {
+              "title": "returns",
+              "description": "Result",
+              "lineNumber": 4,
+              "type": {
+                "type": "NameExpression",
+                "name": "QRResult"
+              }
+            },
+            {
+              "title": "warning",
+              "description": "M must be positive definite",
+              "lineNumber": 5
+            },
+            {
+              "title": "example",
+              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst cholesky = eig.Decompositions.cholesky(M);\nreturn cholesky;",
+              "lineNumber": 6
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 6,
+              "column": 2
+            },
+            "end": {
+              "line": 16,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 2
+              },
+              "end": {
+                "line": 17,
+                "column": 24
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Decompositions.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst cholesky = eig.Decompositions.cholesky(M);\nreturn cholesky;"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "M",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Result",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 7,
+                            "offset": 6
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7,
+                        "offset": 6
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7,
+                    "offset": 6
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "QRResult"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "cholesky",
+          "kind": "function",
+          "memberof": "Decompositions",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Decompositions",
+              "kind": "class"
+            },
+            {
+              "name": "cholesky",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "Decompositions.cholesky"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "LU decomposition consists in decomposing a square matrix A as a product A = L U\nWhere U is upper triangular L lower triangular",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 47,
+                        "offset": 126
+                      },
+                      "indent": [
+                        1
+                      ]
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 47,
+                    "offset": 126
+                  },
+                  "indent": [
+                    1
+                  ]
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 2,
+                "column": 47,
+                "offset": 126
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": null,
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "M"
+            },
+            {
+              "title": "returns",
+              "description": "Result",
+              "lineNumber": 4,
+              "type": {
+                "type": "NameExpression",
+                "name": "QRResult"
+              }
+            },
+            {
+              "title": "warning",
+              "description": "M must be a square matrix",
+              "lineNumber": 5
+            },
+            {
+              "title": "example",
+              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst lu = eig.Decompositions.lu(M);\nreturn lu;",
+              "lineNumber": 6
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 19,
+              "column": 2
+            },
+            "end": {
+              "line": 29,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 2
+              },
+              "end": {
+                "line": 30,
+                "column": 18
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Decompositions.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst lu = eig.Decompositions.lu(M);\nreturn lu;"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "M",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Result",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 7,
+                            "offset": 6
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7,
+                        "offset": 6
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7,
+                    "offset": 6
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "QRResult"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "lu",
+          "kind": "function",
+          "memberof": "Decompositions",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Decompositions",
+              "kind": "class"
+            },
+            {
+              "name": "lu",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "Decompositions.lu"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "QR decomposition consists in decomposing any n-by-p matrix A with linearly independent colums as a product A = Q R\nWhere Q is a m-by-m unitary matrix and R is a m-by-n upper triangular matrix",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 77,
+                        "offset": 191
+                      },
+                      "indent": [
+                        1
+                      ]
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 77,
+                    "offset": 191
+                  },
+                  "indent": [
+                    1
+                  ]
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 2,
+                "column": 77,
+                "offset": 191
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": null,
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "M"
+            },
+            {
+              "title": "returns",
+              "description": "Result",
+              "lineNumber": 4,
+              "type": {
+                "type": "NameExpression",
+                "name": "QRResult"
+              }
+            },
+            {
+              "title": "example",
+              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst qr = eig.Decompositions.qr(M);\nreturn qr;",
+              "lineNumber": 5
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 2
+            },
+            "end": {
+              "line": 41,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 42,
+                "column": 2
+              },
+              "end": {
+                "line": 42,
+                "column": 18
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Decompositions.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst qr = eig.Decompositions.qr(M);\nreturn qr;"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "M",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Result",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 7,
+                            "offset": 6
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7,
+                        "offset": 6
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7,
+                    "offset": 6
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "QRResult"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "qr",
+          "kind": "function",
+          "memberof": "Decompositions",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Decompositions",
+              "kind": "class"
+            },
+            {
+              "name": "qr",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "Decompositions.qr"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "SVD decomposition consists in decomposing any n-by-p matrix A as a product M = U S V'\nWhere U is a n-by-n unitary, V is a p-by-p unitary, and S is a n-by-p real positive diagonal matrix\nSingular values are always sorted in decreasing order.\nThe algorithm used is a two-sided jacobi SVD decomposition of rectangular matrices for small matrices (< 16x16), or bidiagonal divide and conquer SVD for large ones.",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 166,
+                        "offset": 406
+                      },
+                      "indent": [
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 166,
+                    "offset": 406
+                  },
+                  "indent": [
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 4,
+                "column": 166,
+                "offset": 406
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "Matrix of interest",
+              "lineNumber": 5,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "M"
+            },
+            {
+              "title": "param",
+              "description": "Only keep the non-zero singular values",
+              "lineNumber": 6,
+              "type": {
+                "type": "NameExpression",
+                "name": "boolean"
+              },
+              "name": "thin"
+            },
+            {
+              "title": "returns",
+              "description": "Result",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "SVDResult"
+              }
+            },
+            {
+              "title": "example",
+              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Decompositions.svd(M, true);\nreturn svd;",
+              "lineNumber": 8
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 44,
+              "column": 2
+            },
+            "end": {
+              "line": 56,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 57,
+                "column": 2
+              },
+              "end": {
+                "line": 57,
+                "column": 25
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Decompositions.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Decompositions.svd(M, true);\nreturn svd;"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "M",
+              "lineNumber": 5,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Matrix of interest",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 19,
+                            "offset": 18
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 19,
+                        "offset": 18
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 19,
+                    "offset": 18
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            },
+            {
+              "title": "param",
+              "name": "thin",
+              "lineNumber": 6,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Only keep the non-zero singular values",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 39,
+                            "offset": 38
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 39,
+                        "offset": 38
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 39,
+                    "offset": 38
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "boolean"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Result",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 7,
+                            "offset": 6
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 7,
+                        "offset": 6
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 7,
+                    "offset": 6
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "SVDResult"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "svd",
+          "kind": "function",
+          "memberof": "Decompositions",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Decompositions",
+              "kind": "class"
+            },
+            {
+              "name": "svd",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "Decompositions.svd"
+        }
+      ]
+    },
+    "path": [
+      {
+        "name": "Decompositions",
+        "kind": "class"
+      }
+    ],
+    "namespace": "Decompositions"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
               "value": "A generic dense matrix class holding real number",
               "position": {
                 "start": {
@@ -10507,7 +11605,7 @@
           "column": 0
         },
         "end": {
-          "line": 60,
+          "line": 75,
           "column": 1
         }
       },
@@ -10531,347 +11629,6 @@
       "instance": [],
       "events": [],
       "static": [
-        {
-          "description": {
-            "type": "root",
-            "children": [
-              {
-                "type": "paragraph",
-                "children": [
-                  {
-                    "type": "text",
-                    "value": "SVD decomposition consists in decomposing any n-by-p matrix A as a product M = U S V'\nWhere U is a n-by-n unitary, V is a p-by-p unitary, and S is a n-by-p real positive diagonal matrix\nSingular values are always sorted in decreasing order.\nThe algorithm used is a two-sided jacobi SVD decomposition of rectangular matrices for small matrices (< 16x16), or bidiagonal divide and conquer SVD for large ones.",
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 4,
-                        "column": 166,
-                        "offset": 406
-                      },
-                      "indent": [
-                        1,
-                        1,
-                        1
-                      ]
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 4,
-                    "column": 166,
-                    "offset": 406
-                  },
-                  "indent": [
-                    1,
-                    1,
-                    1
-                  ]
-                }
-              }
-            ],
-            "position": {
-              "start": {
-                "line": 1,
-                "column": 1,
-                "offset": 0
-              },
-              "end": {
-                "line": 4,
-                "column": 166,
-                "offset": 406
-              }
-            }
-          },
-          "tags": [
-            {
-              "title": "param",
-              "description": "Matrix of interest",
-              "lineNumber": 5,
-              "type": {
-                "type": "NameExpression",
-                "name": "Matrix"
-              },
-              "name": "M"
-            },
-            {
-              "title": "param",
-              "description": "Only keep the non-zero singular values",
-              "lineNumber": 6,
-              "type": {
-                "type": "NameExpression",
-                "name": "boolean"
-              },
-              "name": "thin"
-            },
-            {
-              "title": "returns",
-              "description": "Result",
-              "lineNumber": 7,
-              "type": {
-                "type": "NameExpression",
-                "name": "SVDResult"
-              }
-            },
-            {
-              "title": "example",
-              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Solvers.svd(M, true);\nreturn svd;",
-              "lineNumber": 8
-            }
-          ],
-          "loc": {
-            "start": {
-              "line": 5,
-              "column": 2
-            },
-            "end": {
-              "line": 17,
-              "column": 5
-            }
-          },
-          "context": {
-            "loc": {
-              "start": {
-                "line": 18,
-                "column": 2
-              },
-              "end": {
-                "line": 18,
-                "column": 25
-              }
-            },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Solvers.js"
-          },
-          "augments": [],
-          "examples": [
-            {
-              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Solvers.svd(M, true);\nreturn svd;"
-            }
-          ],
-          "implements": [],
-          "params": [
-            {
-              "title": "param",
-              "name": "M",
-              "lineNumber": 5,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Matrix of interest",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 19,
-                            "offset": 18
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 19,
-                        "offset": 18
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 19,
-                    "offset": 18
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "Matrix"
-              }
-            },
-            {
-              "title": "param",
-              "name": "thin",
-              "lineNumber": 6,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Only keep the non-zero singular values",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 39,
-                            "offset": 38
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 39,
-                        "offset": 38
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 39,
-                    "offset": 38
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "boolean"
-              }
-            }
-          ],
-          "properties": [],
-          "returns": [
-            {
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Result",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 7,
-                            "offset": 6
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 7,
-                        "offset": 6
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 7,
-                    "offset": 6
-                  }
-                }
-              },
-              "title": "returns",
-              "type": {
-                "type": "NameExpression",
-                "name": "SVDResult"
-              }
-            }
-          ],
-          "sees": [],
-          "throws": [],
-          "todos": [],
-          "yields": [],
-          "name": "svd",
-          "kind": "function",
-          "memberof": "Solvers",
-          "scope": "static",
-          "members": {
-            "global": [],
-            "inner": [],
-            "instance": [],
-            "events": [],
-            "static": []
-          },
-          "path": [
-            {
-              "name": "Solvers",
-              "kind": "class"
-            },
-            {
-              "name": "svd",
-              "kind": "function",
-              "scope": "static"
-            }
-          ],
-          "namespace": "Solvers.svd"
-        },
         {
           "description": {
             "type": "root",
@@ -10967,22 +11724,22 @@
           ],
           "loc": {
             "start": {
-              "line": 20,
+              "line": 5,
               "column": 2
             },
             "end": {
-              "line": 31,
+              "line": 16,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 32,
+                "line": 17,
                 "column": 2
               },
               "end": {
-                "line": 32,
+                "line": 17,
                 "column": 47
               }
             },
@@ -11218,7 +11975,7 @@
                 "children": [
                   {
                     "type": "text",
-                    "value": "Solve a continuous time algebraic Riccati equation of the form\nA'",
+                    "value": "Solve a continuous time algebraic Riccati equation of the form\nA' P + P A - P B Rinv B' P + Q = 0",
                     "position": {
                       "start": {
                         "line": 1,
@@ -11227,168 +11984,12 @@
                       },
                       "end": {
                         "line": 2,
-                        "column": 3,
-                        "offset": 65
+                        "column": 35,
+                        "offset": 97
                       },
                       "indent": [
                         1
                       ]
-                    }
-                  },
-                  {
-                    "type": "emphasis",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "P + P",
-                        "position": {
-                          "start": {
-                            "line": 2,
-                            "column": 4,
-                            "offset": 66
-                          },
-                          "end": {
-                            "line": 2,
-                            "column": 9,
-                            "offset": 71
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 2,
-                        "column": 3,
-                        "offset": 65
-                      },
-                      "end": {
-                        "line": 2,
-                        "column": 10,
-                        "offset": 72
-                      },
-                      "indent": []
-                    }
-                  },
-                  {
-                    "type": "text",
-                    "value": "A - P",
-                    "position": {
-                      "start": {
-                        "line": 2,
-                        "column": 10,
-                        "offset": 72
-                      },
-                      "end": {
-                        "line": 2,
-                        "column": 15,
-                        "offset": 77
-                      },
-                      "indent": []
-                    }
-                  },
-                  {
-                    "type": "emphasis",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "B",
-                        "position": {
-                          "start": {
-                            "line": 2,
-                            "column": 16,
-                            "offset": 78
-                          },
-                          "end": {
-                            "line": 2,
-                            "column": 17,
-                            "offset": 79
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 2,
-                        "column": 15,
-                        "offset": 77
-                      },
-                      "end": {
-                        "line": 2,
-                        "column": 18,
-                        "offset": 80
-                      },
-                      "indent": []
-                    }
-                  },
-                  {
-                    "type": "text",
-                    "value": "Rinv",
-                    "position": {
-                      "start": {
-                        "line": 2,
-                        "column": 18,
-                        "offset": 80
-                      },
-                      "end": {
-                        "line": 2,
-                        "column": 22,
-                        "offset": 84
-                      },
-                      "indent": []
-                    }
-                  },
-                  {
-                    "type": "emphasis",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "B'",
-                        "position": {
-                          "start": {
-                            "line": 2,
-                            "column": 23,
-                            "offset": 85
-                          },
-                          "end": {
-                            "line": 2,
-                            "column": 25,
-                            "offset": 87
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 2,
-                        "column": 22,
-                        "offset": 84
-                      },
-                      "end": {
-                        "line": 2,
-                        "column": 26,
-                        "offset": 88
-                      },
-                      "indent": []
-                    }
-                  },
-                  {
-                    "type": "text",
-                    "value": "P + Q = 0",
-                    "position": {
-                      "start": {
-                        "line": 2,
-                        "column": 26,
-                        "offset": 88
-                      },
-                      "end": {
-                        "line": 2,
-                        "column": 35,
-                        "offset": 97
-                      },
-                      "indent": []
                     }
                   }
                 ],
@@ -11480,22 +12081,22 @@
           ],
           "loc": {
             "start": {
-              "line": 34,
+              "line": 19,
               "column": 2
             },
             "end": {
-              "line": 58,
+              "line": 43,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 59,
+                "line": 44,
                 "column": 2
               },
               "end": {
-                "line": 59,
+                "line": 44,
                 "column": 34
               }
             },
@@ -11843,6 +12444,533 @@
             }
           ],
           "namespace": "Solvers.careSolve"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Solve quadratic program of the form\nMin 0.5 x' P x + q' x\nSuject to l <= Ax <= u\nUsing operator splitting quadratic programming ",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 48,
+                        "offset": 128
+                      },
+                      "indent": [
+                        1,
+                        1,
+                        1
+                      ]
+                    }
+                  },
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://osqp.org/docs/",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "https://osqp.org/docs/",
+                        "position": {
+                          "start": {
+                            "line": 4,
+                            "column": 48,
+                            "offset": 128
+                          },
+                          "end": {
+                            "line": 4,
+                            "column": 70,
+                            "offset": 150
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 4,
+                        "column": 48,
+                        "offset": 128
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 70,
+                        "offset": 150
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 70,
+                    "offset": 150
+                  },
+                  "indent": [
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 4,
+                "column": 70,
+                "offset": 150
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "warning",
+              "description": "The problem needs to be convex",
+              "lineNumber": 5
+            },
+            {
+              "title": "param",
+              "description": "Quadratic cost matrix",
+              "lineNumber": 6,
+              "type": {
+                "type": "NameExpression",
+                "name": "SparseMatrix"
+              },
+              "name": "P"
+            },
+            {
+              "title": "param",
+              "description": "Linear cost vector",
+              "lineNumber": 7,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "q"
+            },
+            {
+              "title": "param",
+              "description": "Linear constraint matrix",
+              "lineNumber": 8,
+              "type": {
+                "type": "NameExpression",
+                "name": "SparseMatrix"
+              },
+              "name": "A"
+            },
+            {
+              "title": "param",
+              "description": "Linear constraint lower bound",
+              "lineNumber": 9,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "l"
+            },
+            {
+              "title": "param",
+              "description": "Linear constraint upper bound",
+              "lineNumber": 10,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "u"
+            },
+            {
+              "title": "example",
+              "description": "// Let's minimize 0.5 x' P x + q' x\n// Suject to l <= Ax <= u\n// With P = [[4, 1], [0, 2]]; q = [1, 1]\n// And A = [[1, 1], [1, 0], [0, 1]] \n// l = [1, 0, 0]; u = [1, 0.7, 0.7];\nconst P = eig.SparseMatrix.fromTriplets(2, 2, [\n [0, 0, 4], [0, 1, 1], [1, 1, 2]\n]);\nconst A = eig.SparseMatrix.fromTriplets(3, 2, [\n [0, 0, 1], [0, 1, 1], [1, 0, 1], [2, 1, 1]\n]);\nconst q = eig.Matrix.fromArray([1, 1])\nconst l = eig.Matrix.fromArray([1, 0, 0])\nconst u = eig.Matrix.fromArray([1, 0.7, 0.7])\nreturn eig.QuadProgSolver.solve(P, q, A, l, u);",
+              "lineNumber": 11
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 46,
+              "column": 2
+            },
+            "end": {
+              "line": 73,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 74,
+                "column": 2
+              },
+              "end": {
+                "line": 74,
+                "column": 41
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Solvers.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "// Let's minimize 0.5 x' P x + q' x\n// Suject to l <= Ax <= u\n// With P = [[4, 1], [0, 2]]; q = [1, 1]\n// And A = [[1, 1], [1, 0], [0, 1]] \n// l = [1, 0, 0]; u = [1, 0.7, 0.7];\nconst P = eig.SparseMatrix.fromTriplets(2, 2, [\n [0, 0, 4], [0, 1, 1], [1, 1, 2]\n]);\nconst A = eig.SparseMatrix.fromTriplets(3, 2, [\n [0, 0, 1], [0, 1, 1], [1, 0, 1], [2, 1, 1]\n]);\nconst q = eig.Matrix.fromArray([1, 1])\nconst l = eig.Matrix.fromArray([1, 0, 0])\nconst u = eig.Matrix.fromArray([1, 0.7, 0.7])\nreturn eig.QuadProgSolver.solve(P, q, A, l, u);"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "P",
+              "lineNumber": 6,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Quadratic cost matrix",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 22,
+                            "offset": 21
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 22,
+                        "offset": 21
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 22,
+                    "offset": 21
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "SparseMatrix"
+              }
+            },
+            {
+              "title": "param",
+              "name": "q",
+              "lineNumber": 7,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Linear cost vector",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 19,
+                            "offset": 18
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 19,
+                        "offset": 18
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 19,
+                    "offset": 18
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            },
+            {
+              "title": "param",
+              "name": "A",
+              "lineNumber": 8,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Linear constraint matrix",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 25,
+                            "offset": 24
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 25,
+                        "offset": 24
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 25,
+                    "offset": 24
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "SparseMatrix"
+              }
+            },
+            {
+              "title": "param",
+              "name": "l",
+              "lineNumber": 9,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Linear constraint lower bound",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 30,
+                            "offset": 29
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 30,
+                        "offset": 29
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 30,
+                    "offset": 29
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            },
+            {
+              "title": "param",
+              "name": "u",
+              "lineNumber": 10,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Linear constraint upper bound",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 30,
+                            "offset": 29
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 30,
+                        "offset": 29
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 30,
+                    "offset": 29
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "quadProgSolve",
+          "kind": "function",
+          "memberof": "Solvers",
+          "scope": "static",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Solvers",
+              "kind": "class"
+            },
+            {
+              "name": "quadProgSolve",
+              "kind": "function",
+              "scope": "static"
+            }
+          ],
+          "namespace": "Solvers.quadProgSolve"
         }
       ]
     },

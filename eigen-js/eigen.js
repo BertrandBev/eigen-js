@@ -19,9 +19,6 @@ function getStaticMethods(Class) {
 }
 
 class GarbageCollector {
-  static objects = new Set()
-  static whitelist = new HashMap() // Reference count
-
   static add(...addList) {
     addList.flat(Infinity).forEach(obj => {
       GarbageCollector.objects.add(obj)
@@ -67,6 +64,9 @@ class GarbageCollector {
     ref[name] = newObj
   }
 }
+// Add static members
+GarbageCollector.objects = new Set();
+GarbageCollector.whitelist = new HashMap(); // Reference count
 
 /**
  * Equip class to add constructor feedback
@@ -107,31 +107,31 @@ function initClass(classes, Class) {
 /**
  * Add helper functions TODO: extract in file
  */
-function addHelpers(Module) {
-  const Matrix = Module.Matrix;
-  const get = Matrix.prototype.get;
-  /**
-   * Add default for vector polling
-   */
-  Matrix.get = function (i, j = 0) {
-    return get(i, j)
-  }
-
+function addHelpers(eig) {
   /**
    * Add fromArray factory (maybe add that utility in all functions)
    */
-  Matrix.fromArray = function (array) {
+  eig.Matrix.fromArray = function (array) {
     // Generate vector if needed
     if (!array.length || !Array.isArray(array[0])) {
       array = array.map(val => [val])
     }
-    var v2d = new Module.Vector2d();
+    var v2d = new eig.Vector2d();
     array.forEach(arr => {
-      var v = new Module.Vector();
+      var v = new eig.Vector();
       arr.forEach(val => v.push_back(val));
       v2d.push_back(v)
     })
-    return new Matrix.fromVector(v2d);
+    return new eig.Matrix.fromVector(v2d);
+  }
+
+  /**
+   * Add fromTriplets factory to triplets
+   */
+  eig.SparseMatrix.fromTriplets = function (m, n, array) {
+    let triplets = new eig.TripletVector(array.length)
+    array.forEach(sub => triplets.add(...sub))
+    return new eig.SparseMatrix(m, n, triplets);
   }
 
   /**
@@ -146,8 +146,8 @@ function addHelpers(Module) {
     "negatedSelf"
   ]
   methods.forEach(method => {
-    const fun = Matrix.prototype[method]
-    Matrix.prototype[method] = function (...args) {
+    const fun = eig.Matrix.prototype[method]
+    eig.Matrix.prototype[method] = function (...args) {
       fun.call(this, ...args)
       return this
     }
@@ -169,6 +169,7 @@ Module.onRuntimeInitialized = _ => {
     "TripletVector",
     "ComplexDenseMatrix",
     "Solvers",
+    "Decompositions",
     "QuadProgSolver"])
   classes.forEach(className => {
     defExport[className] = initClass(classes, Module[className])

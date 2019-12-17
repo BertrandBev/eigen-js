@@ -20,6 +20,7 @@ v-app-bar(app clipped-left
 
 <script>
 import _ from "lodash";
+import { routes } from "@/router/router";
 
 export default {
   props: {
@@ -28,12 +29,8 @@ export default {
 
   computed: {
     title() {
-      return _.get(
-        {
-          matrix: "Matrix"
-        },
-        this.routeName
-      );
+      const route = _.find(routes, r => r.name === this.routeName);
+      return _.get(route, "title");
     },
 
     showBack() {
@@ -45,7 +42,13 @@ export default {
     },
 
     color() {
-      return "blue";
+      return _.get(
+        {
+          home: "#004D40"
+        },
+        this.routeName,
+        "primary"
+      );
     },
 
     routeName() {

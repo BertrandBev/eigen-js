@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Documentation from '../views/Documentation.vue'
-import Benchmarks from '../views/Benchmarks.vue'
+import BenchmarksView from '../views/BenchmarksView.vue'
+import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const classes = [
   { name: 'matrix', title: 'Matrix', icon: 'mdi-matrix' },
-  { name: 'solvers', title: 'Solvers', icon: 'mdi-cogs' }
+  { name: 'solvers', title: 'Solvers', icon: 'mdi-cogs' },
+  { name: 'decompositions', title: 'Decompositions', icon: 'mdi-puzzle' }
 ]
 const classRoutes = classes.map(cl => ({
   ...cl,
@@ -20,17 +22,22 @@ const classRoutes = classes.map(cl => ({
 const routes = [
   {
     path: '/',
-    redirect: '/benchmark'
+    name: 'home',
+    title: 'Eigen JS',
+    group: 'Pages',
+    component: Home,
+    icon: 'mdi-lambda'
+
   },
+  ...classRoutes,
   {
     path: '/benchmark',
     name: 'benchmark',
     title: 'Benchmark',
     group: 'Benchmarks',
-    component: Benchmarks,
+    component: BenchmarksView,
     icon: 'mdi-speedometer'
-  },
-  ...classRoutes,
+  }
 ]
 
 const router = new VueRouter({

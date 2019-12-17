@@ -6,6 +6,7 @@
 #include "SparseMatrix.h"
 #include "CareSolver.h"
 #include "Solvers.h"
+#include "Decompositions.h"
 #include "QuadProgSolver.h"
 
 using namespace std;
@@ -151,24 +152,44 @@ EMSCRIPTEN_BINDINGS(Module)
 
     // Solver
     value_object<Solvers::EigenSolverResult>("EigenSolverResult")
-      .field("info", &Solvers::EigenSolverResult::info)
-      .field("eigenvalues", &Solvers::EigenSolverResult::eigenvalues)
-      .field("eigenvectors", &Solvers::EigenSolverResult::eigenvectors);
+        .field("info", &Solvers::EigenSolverResult::info)
+        .field("eigenvalues", &Solvers::EigenSolverResult::eigenvalues)
+        .field("eigenvectors", &Solvers::EigenSolverResult::eigenvectors);
 
     value_object<CareSolver::CareSolverResult>("CareSolverResult")
-      .field("info", &CareSolver::CareSolverResult::info)
-      .field("K", &CareSolver::CareSolverResult::K)
-      .field("S", &CareSolver::CareSolverResult::S);
-
-    value_object<Solvers::SVDResult>("SVDResult")
-      .field("SingularValues", &Solvers::SVDResult::SingularValues)
-      .field("U", &Solvers::SVDResult::U)
-      .field("V", &Solvers::SVDResult::V);
+        .field("info", &CareSolver::CareSolverResult::info)
+        .field("K", &CareSolver::CareSolverResult::K)
+        .field("S", &CareSolver::CareSolverResult::S);
 
     class_<Solvers>("Solvers")
         .class_function("eigenSolve", &Solvers::eigenSolve)
         .class_function("careSolve", &Solvers::careSolve)
-        .class_function("svd", &Solvers::svd);
+        .class_function("quadProgSolve", &Solvers::quadProgSolve);
+
+    // Decompositions
+    value_object<Decompositions::CholeskyResult>("CholeskyResult")
+        .field("L", &Decompositions::CholeskyResult::L);
+
+    value_object<Decompositions::LUResult>("LUResult")
+        .field("L", &Decompositions::LUResult::L)
+        .field("U", &Decompositions::LUResult::U)
+        .field("P", &Decompositions::LUResult::P)
+        .field("Q", &Decompositions::LUResult::Q);
+
+    value_object<Decompositions::QRResult>("QRResult")
+        .field("Q", &Decompositions::QRResult::Q)
+        .field("R", &Decompositions::QRResult::R);
+
+    value_object<Decompositions::SVDResult>("SVDResult")
+        .field("sv", &Decompositions::SVDResult::sv)
+        .field("U", &Decompositions::SVDResult::U)
+        .field("V", &Decompositions::SVDResult::V);
+
+    class_<Decompositions>("Decompositions")
+        .class_function("cholesky", &Decompositions::cholesky)
+        .class_function("lu", &Decompositions::lu)
+        .class_function("qr", &Decompositions::qr)
+        .class_function("svd", &Decompositions::svd);
 
     // Quad prog solver
     class_<QuadProgSolver>("QuadProgSolver")

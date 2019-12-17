@@ -1,16 +1,16 @@
 <template lang='pug'>
-v-col
-  v-row(align='center' style='position: relative')
+v-col.py-0
+  v-row.pa-0(align='center' style='position: relative')
     codemirror(style='flex: 1 0 auto'
                ref="codeMirror"
                :value="code")
     v-btn(style='position: absolute; right: 5px; z-index: 2'
           icon fab dark small color='green'
-          @click='eval')
+          @click='run')
       v-icon mdi-play
     //- v-btn.ml-2(style='flex: 0 0 auto'
     //-             @click='eval') EVAL
-  v-row.mt-3
+  v-row.mt-3(v-if='texEval')
     TexDisplay(v-if='showResult'
                :value='result'
                @clear='clear')
@@ -32,7 +32,8 @@ export default {
   name: "CodeArea",
 
   props: {
-    code: String
+    code: String,
+    texEval: Boolean
   },
 
   components: {
@@ -60,51 +61,56 @@ export default {
     }
   },
 
-  methods: {
-    eval() {
+  watch: {
+    code() {
       this.showResult = false;
       this.showError = false;
-      let code = this.$refs.codeMirror.codemirror.getValue();
-      // Wrap code
-      // code = `(function fun() {'use strict'; ${code}})()`;
-      try {
-        let f = new Function('eig', code);
-        this.result = f(eig);
-        // eig.GC.flush()
-        console.log('result', this.result)
-        this.showResult = true;
-      } catch (e) {
-        this.showError = true;
-        this.error = e;
-      }
+    }
+  },
+
+  methods: {
+    getCode() {
+      return this.$refs.codeMirror.codemirror.getValue();
     },
 
-    evalOld() {
+    runAsync() {
       this.showResult = false;
       this.showError = false;
-      let code = this.$refs.codeMirror.codemirror.getValue();
-      // Wrap code
-      code = `(function fun() {'use strict'; ${code}})()`;
-      try {
-        this.result = safeEval(code, {
-          eig
+      const code = this.getCode();
+      this.$worker
+        .run(new Function("eig", code), [eig])
+        .then(res => {
+          this.result = res;
+          this.showResult = true;
+        })
+        .catch(e => {
+          this.showError = true;
+          this.error = e;
         });
-        this.showResult = true;
-        console.log("result", this.result);
-      } catch (e) {
-        this.showError = true;
-        this.error = e;
+    },
+
+    run() {
+      if (this.texEval) {
+        this.showResult = false;
+        this.showError = false;
+        let code = this.$refs.codeMirror.codemirror.getValue();
+        try {
+          let f = new Function("eig", code);
+          this.result = f(eig);
+          // eig.GC.flush()
+          this.showResult = true;
+        } catch (e) {
+          this.showError = true;
+          this.error = e;
+        }
+      } else {
+        this.$emit("run", this.getCode());
       }
     },
 
     clear() {
       this.showResult = false;
     }
-  },
-
-  mounted() {
-    // Add conditionnal execution
-    this.eval();
   }
 };
 </script>

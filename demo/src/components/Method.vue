@@ -19,10 +19,11 @@ v-col
   Parameter.mt-1.ml-2(v-for='ret, idx in returns'
                       :key='`return_${idx}`'
                       :data='ret')
-  v-row
+  v-row.mt-2
     CodeArea(v-for='example, idx in examples'
             :key='`example_${idx}`'
-            :code='example.description')
+            :code='example.description'
+            texEval)
 </template>
 
 <script>

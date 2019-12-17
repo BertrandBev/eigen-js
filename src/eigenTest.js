@@ -34,9 +34,8 @@ function refTest() {
   console.log('Pointer time', Date.now() - tStart)
 
   const start = Date.now();
-  let mat = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
   for (let k = 0; k < 1000000; k++) {
-    mat.matMulSelf(mat);
+    A.matMul(B);
   }
   console.log("Eig time", Date.now() - start);
 }
