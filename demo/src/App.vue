@@ -34,9 +34,9 @@ export default {
   }),
 
   created() {
-    eig.ready = () => {
+    eig.ready.then(() => {
       this.loading = false;
-    };
+    });
   }
 };
 </script>

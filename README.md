@@ -74,3 +74,11 @@ Once done, eigen.js can be compile to a wasm binary
 ```bash
 emcc -I lib/eigen -I lib/osqp/include --bind -o build/eigen_gen.js src/cpp/embind.cc -Isrc ./lib/osqp/build/out/libosqp.bc -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0 -O3 -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1
 ```
+
+### Generate the documentation
+
+The documentation is generated from classes descriptions using [documentation.js](https://documentation.js.org/)
+
+```bash
+documentation build src/classes/ -f json -o docs/doc.json
+```
