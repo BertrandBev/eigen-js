@@ -1,7 +1,7 @@
 <template lang='pug'>
-v-app
-  Drawer(v-model='drawer')
-  Toolbar(:drawer.sync='drawer')
+v-app(v-resize="onResize")
+  Drawer(ref='drawer')
+  Toolbar(@toggleDrawer='toggleDrawer')
   v-content
     //* Loading row
     v-row(v-if='loading'
@@ -29,7 +29,6 @@ export default {
   },
 
   data: () => ({
-    drawer: false,
     loading: true
   }),
 
@@ -37,6 +36,25 @@ export default {
     eig.ready.then(() => {
       this.loading = false;
     });
+  },
+
+  mounted() {},
+
+  methods: {
+    onResize() {
+      console.log("onResize");
+      this.$store.windowSize.x =
+        window.innerWidth - this.$vuetify.application.left;
+      this.$store.windowSize.y =
+        window.innerHeight - this.$vuetify.application.top;
+    },
+
+    toggleDrawer() {
+      this.$refs.drawer.toggle();
+    }
   }
 };
 </script>
+
+<style>
+</style>

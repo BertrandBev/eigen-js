@@ -1,7 +1,6 @@
 <template lang="pug">
-v-navigation-drawer(app clipped
-                    :value='value'
-                    @input='val => $emit("input", val)')
+v-navigation-drawer(v-model='drawer'
+                    app clipped)
   v-list(dense)
     //* Routes
     div(v-for='routes, name in groups'
@@ -31,7 +30,9 @@ import { routes } from "@/router/router";
 import _ from "lodash";
 
 export default {
-  data: () => ({}),
+  data: () => ({
+    drawer: true
+  }),
 
   props: {
     value: Boolean
@@ -51,8 +52,12 @@ export default {
   },
 
   methods: {
-    github() {
+    toggle() {
+      this.drawer = !this.drawer;
+    },
 
+    github() {
+      window.open("https://github.com/BertrandBev/eigen-js", "_blank");
     },
 
     isActive(name) {

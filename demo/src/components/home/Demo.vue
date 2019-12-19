@@ -1,6 +1,7 @@
 <template lang="pug">
 div(style='display: flex; align-items: center')
-  div(style='width: 256px;')
+  div(style='width: 256px;'
+      v-if='showMat')
     div.white--text(v-katex='expression')
   div(ref='canvas')
 </template>
@@ -22,6 +23,10 @@ export default {
   }),
 
   computed: {
+    showMat() {
+      return this.$store.windowSize.x > 768;
+    },
+
     expression() {
       if (this.matrix) {
         const tex = getTex(this.matrix);
@@ -52,14 +57,14 @@ export default {
     const ellipse = this.two.makeEllipse(0, 0, dim, 2 * dim);
     ellipse.fill = "rgba(255, 255, 255, 0.90)";
     ellipse.translation.set(w / 2, h / 2);
-    ellipse.stroke = '#004c3f'
+    ellipse.stroke = "#004c3f";
     this.graphics.ellipse = ellipse;
 
     // Build inner frame
     const sig1 = this.two.makeLine(0, 0, dim, 0);
     const sig2 = this.two.makeLine(0, 0, 0, 2 * dim);
     sig1.linewidth = sig2.linewidth = 2;
-    sig1.stroke = sig2.stroke = '#004c3f'
+    sig1.stroke = sig2.stroke = "#004c3f";
     this.graphics.frame = {
       sig1,
       sig2,

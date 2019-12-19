@@ -4,7 +4,7 @@ v-app-bar(app clipped-left
           :dark='dark'
           dense)
   v-app-bar-nav-icon(v-if='!showBack'
-                     @click.stop="toggleDrawer")
+                     @click.stop="$emit('toggleDrawer')")
   v-toolbar-items(v-else
                   style='margin-left: 0px')
     v-btn.mr-2(icon @click='navBack')
@@ -24,7 +24,6 @@ import { routes } from "@/router/router";
 
 export default {
   props: {
-    drawer: Boolean
   },
 
   computed: {
@@ -63,10 +62,6 @@ export default {
   created() {},
 
   methods: {
-    toggleDrawer() {
-      this.$emit("update:drawer", !this.drawer);
-    },
-
     navBack() {
       this.$bus.$emit("navBack");
     }

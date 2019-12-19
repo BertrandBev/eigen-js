@@ -3,8 +3,8 @@
 </p>
 
 [![npm version](https://badge.fury.io/js/eigen.svg)](https://badge.fury.io/js/eigen)
-[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](http://shields.io/)
-[![Generic badge](https://img.shields.io/badge/Made width-emscripten-blue.svg)](https://github.com/emscripten-core/emscripten)
+[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://bertrandbev.github.io/eigen-js/#/)
+[![Made with emscripten](https://img.shields.io/badge/Made%20width-emscripten-blue.svg)](https://github.com/emscripten-core/emscripten)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 
 # Eigen.js
@@ -13,7 +13,7 @@ Eigen.js is a port of the [Eigen](https://eigen.tuxfamily.org/) C++ linear algeb
 
 It uses a WebAssembly compiled subset of the [Eigen](https://eigen.tuxfamily.org/) library, and implements a garbage collection mechanism to manage memory
 
-[Home]() • [Documentation]() • [Benchmarks]()
+[Home](https://bertrandbev.github.io/eigen-js/#/) • [Documentation](https://bertrandbev.github.io/eigen-js/#/matrix) • [Benchmarks](https://bertrandbev.github.io/eigen-js/#/benchmark)
 
 ## Usage
 
@@ -29,7 +29,7 @@ yarn add eigen
 
 In a node application or in the browser (using [webpack](https://webpack.js.org/))
 
-```bash
+```js
 const eig = require('eigen')
 // ES6: import eig from 'eigen'
 (async () => {
@@ -42,7 +42,7 @@ const eig = require('eigen')
 
 ## Documentation
 
-The documentation is available at [eigen.js]()
+The documentation is available at [eigen.js](https://bertrandbev.github.io/eigen-js/#/)
 
 ## Build
 
