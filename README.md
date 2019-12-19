@@ -32,9 +32,12 @@ In a node application or in the browser (using [webpack](https://webpack.js.org/
 ```bash
 const eig = require('eigen')
 // ES6: import eig from 'eigen'
-const M = eig.Matrix.fromArray([[1, 2], [3, 4]])
-M.inverse();
-eig.GC.flush();
+(async () => {
+  await eig.ready
+  const M = eig.Matrix.fromArray([[1, 2], [3, 4]])
+  M.inverse();
+  eig.GC.flush();
+})();
 ```
 
 ## Documentation
@@ -69,5 +72,5 @@ emmake make
 Once done, eigen.js can be compile to a wasm binary
 
 ```bash
-emcc -I lib/eigen -I lib/osqp/include --bind -o build/eigen_gen.js src/cpp/embind.cc -Isrc ./lib/osqp/build/out/libosqp.bc -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0 -O3 -s ALLOW_MEMORY_GROWTH=1
+emcc -I lib/eigen -I lib/osqp/include --bind -o build/eigen_gen.js src/cpp/embind.cc -Isrc ./lib/osqp/build/out/libosqp.bc -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0 -O3 -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1
 ```

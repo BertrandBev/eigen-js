@@ -2,14 +2,10 @@ const eig = require('../dist/index.js');
 // const eig = require('./eigen.js');
 const util = require('util');
 
-// refTest()
-console.log('readying', eig)
-eig.ready = _ => {
-  console.log('READY')
-  // inPlaceBenchmark()
-  // quadProgTest()
-  gcTest()
-};
+(async () => {
+  await eig.ready
+  gcTest();
+})()
 
 function refTest() {
   const A = eig.Matrix.fromArray([
