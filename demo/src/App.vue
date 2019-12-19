@@ -16,7 +16,7 @@ v-app
 </template>
 
 <script>
-import eig from "@eigen/eigen.js";
+import eig from "@eigen";
 import Toolbar from "@/components/nav/Toolbar.vue";
 import Drawer from "@/components/nav/Drawer.vue";
 

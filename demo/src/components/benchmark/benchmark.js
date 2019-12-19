@@ -1,4 +1,4 @@
-import eig from "@eigen/eigen.js";
+import eig from "@eigen";
 import { Matrix, inverse } from "ml-matrix";
 const mathjs = require('mathjs')
 const linalg = require('linear-algebra')();

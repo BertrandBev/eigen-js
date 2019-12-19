@@ -15,7 +15,7 @@ v-container
 
 <script>
 import _ from "lodash";
-import eig from "@eigen/eigen.js";
+import eig from "@eigen";
 import Benchmark from "@/components/benchmark/Benchmark.vue";
 import benchmarks from "@/components/benchmark/benchmark.js";
 

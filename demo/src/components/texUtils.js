@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import eig from "@eigen/eigen.js";
+import eig from "@eigen";
 
 function format(val) {
   return `${val}`.length < 5 ? `${val}` : val.toFixed(3);

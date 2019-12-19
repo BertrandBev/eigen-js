@@ -7,7 +7,7 @@ div(style='display: flex; align-items: center')
 
 <script>
 import Two from "two.js";
-import eig from "@eigen/eigen.js";
+import eig from "@eigen";
 import { getTex } from "@/components/texUtils.js";
 import anime from "animejs";
 import _ from "lodash";

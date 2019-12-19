@@ -1,11 +1,14 @@
-const eig = require('../eigen-js/eigen.js');
+const eig = require('../dist/index.js');
+// const eig = require('./eigen.js');
 const util = require('util');
 
-
+// refTest()
+console.log('readying', eig)
 eig.ready = _ => {
+  console.log('READY')
   // inPlaceBenchmark()
   // quadProgTest()
-  refTest()
+  gcTest()
 };
 
 function refTest() {

@@ -26,7 +26,7 @@ v-col.py-0
 <script>
 const safeEval = require("safe-eval");
 import TexDisplay from "@/components/TexDisplay.vue";
-import eig from "@eigen/eigen.js";
+import eig from "@eigen";
 
 export default {
   name: "CodeArea",
