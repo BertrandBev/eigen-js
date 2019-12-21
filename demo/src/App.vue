@@ -38,11 +38,12 @@ export default {
     });
   },
 
-  mounted() {},
+  mounted() {
+    this.onResize();
+  },
 
   methods: {
     onResize() {
-      console.log("onResize");
       this.$store.windowSize.x =
         window.innerWidth - this.$vuetify.application.left;
       this.$store.windowSize.y =

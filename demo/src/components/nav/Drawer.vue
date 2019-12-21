@@ -17,6 +17,7 @@ v-navigation-drawer(v-model='drawer'
         v-list-item-content
           v-list-item-title {{ item.title }}
   //* Footer
+  v-divider
   v-list(dense style='flex: 0 0 auto')
     v-list-item(@click='github')
       v-list-item-action
@@ -31,7 +32,7 @@ import _ from "lodash";
 
 export default {
   data: () => ({
-    drawer: true
+    drawer: false
   }),
 
   props: {

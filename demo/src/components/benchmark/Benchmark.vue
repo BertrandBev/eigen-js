@@ -31,6 +31,8 @@ div
     v-spacer
     v-btn(@click='runAll'
           outlined
+          :loading='running'
+          :disabled='running'
           color='primary') Run all
 
   //* Results
@@ -54,7 +56,8 @@ export default {
 
   data: () => ({
     tab: 0,
-    results: {}
+    results: {},
+    running: false
   }),
 
   props: {
@@ -85,10 +88,13 @@ export default {
     },
 
     async runAll() {
+      this.running = true;
       const libs = _.keys(this.tabs);
+      libs.forEach(lib => this.$set(this.results, lib, `-`));
       for (let k = 0; k < libs.length; k++) {
         await this.runBenchmark(libs[k]);
       }
+      this.running = false;
     },
 
     async runBenchmark(lib) {

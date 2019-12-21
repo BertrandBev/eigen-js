@@ -1,7 +1,7 @@
 <template lang='pug'>
-v-container
-  v-col
-    Class(:data='data')
+div(style='display: flex; justify-content: center; padding: 20px')
+  Class(style='max-width: 920px'
+        :data='data')
 </template>
 
 <script>

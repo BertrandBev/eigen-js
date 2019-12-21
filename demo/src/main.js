@@ -8,7 +8,7 @@ import './plugins/codeMirror';
 import VueWorker from 'vue-worker'
 import { SimpleSVG } from 'vue-simple-svg'
 import SvgFiller from 'vue-svg-filler'
-import 'highlight.js/styles/monokai.css';
+import 'highlight.js/styles/monokai-sublime.css';
 
 Vue.use(VueWorker)
 Vue.use(VueKatex)
@@ -20,8 +20,6 @@ const store = new Vue({
     windowSize: { x: 0, y: 0 }
   })
 })
-console.log("DATA", store)
-
 Vue.prototype.$store = store
 
 Vue.config.productionTip = false

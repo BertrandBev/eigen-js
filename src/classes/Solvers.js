@@ -69,7 +69,7 @@ class Solvers {
    * const q = eig.Matrix.fromArray([1, 1])
    * const l = eig.Matrix.fromArray([1, 0, 0])
    * const u = eig.Matrix.fromArray([1, 0.7, 0.7])
-   * return eig.QuadProgSolver.solve(P, q, A, l, u);
+   * return eig.Solvers.quadProgSolve(P, q, A, l, u);
    */
   static quadProgSolve(P, q, A, l, u) { }
 }

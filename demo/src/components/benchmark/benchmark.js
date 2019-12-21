@@ -75,7 +75,11 @@ class Benchmark {
       ...this.data.params,
     }
     let fun = new Function(..._.keys(params), benchmarkFun);
-    const result = fun(..._.values(params));
+    try {
+      const result = fun(..._.values(params));
+    } catch (e) {
+      console.error('Benchmark error', e)
+    }
     return Date.now() - startTime
   }
 }

@@ -7,7 +7,7 @@ div(style='display: flex; flex-direction: column; align-items: center')
       span.display-1.font-weight-light.white--text(
         style='margin-top: 16px') Eigen JS
       Demo(style='margin-top: 48px')
-  div(style='max-width: 960px; padding: 50px'
+  div(style='width: 100%; max-width: 960px; padding: 40px'
       v-html='markdownHtml')
 </template>
 
@@ -15,7 +15,9 @@ div(style='display: flex; flex-direction: column; align-items: center')
 import Demo from "@/components/home/Demo.vue";
 import markdown from "!raw-loader!../../../README.md";
 import MarkdownIt from "markdown-it";
-import hljs from "highlight.js";
+import hljs from "highlight.js/lib/highlight";
+import javascript from "highlight.js/lib/languages/javascript"
+hljs.registerLanguage('javascript', javascript);
 
 export default {
   components: {
@@ -23,7 +25,6 @@ export default {
   },
 
   data: () => ({
-    windowSize: [0, 0],
     markdown
   }),
 
@@ -32,7 +33,6 @@ export default {
       const highlight = function(str, lang) {
         if (lang && hljs.getLanguage(lang)) {
           try {
-            console.log('highlight', str)
             return (
               '<pre class="hljs"><span>' +
               hljs.highlight(lang, str, true).value +
@@ -75,7 +75,4 @@ export default {
 </script>
 
 <style>
-pre.hljs {
-  /* background: grey */
-}
 </style>
