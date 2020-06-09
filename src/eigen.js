@@ -135,7 +135,8 @@ function addHelpers(eig) {
     "matAddSelf",
     "matSubSelf",
     "matMulSelf",
-    "negatedSelf"
+    "negatedSelf",
+    "clampSelf"
   ]
   methods.forEach(method => {
     const fun = eig.Matrix.prototype[method]
@@ -161,7 +162,8 @@ eig.ready = new Promise(resolve => {
       "ComplexDenseMatrix",
       "Solvers",
       "Decompositions",
-      "QuadProgSolver"])
+      "QuadProgSolver",
+      "Random"])
     classes.forEach(className => {
       eig[className] = initClass(classes, Module[className])
     })

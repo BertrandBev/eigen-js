@@ -21,7 +21,7 @@ v-navigation-drawer(v-model='drawer'
   v-list(dense style='flex: 0 0 auto')
     v-list-item(@click='github')
       v-list-item-action
-        v-icon mdi-github-circle
+        v-icon mdi-github
       v-list-item-content
         v-list-item-title Github
 </template>

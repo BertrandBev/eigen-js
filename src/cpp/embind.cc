@@ -8,6 +8,7 @@
 #include "Solvers.h"
 #include "Decompositions.h"
 #include "QuadProgSolver.h"
+#include "Random.h"
 
 using namespace std;
 using namespace emscripten;
@@ -70,6 +71,7 @@ EMSCRIPTEN_BINDINGS(Module)
         .function("vcat", &DDM::vcat, allow_raw_pointers())
         .function("print", &DDM::print)
         .function("clamp", &DDM::clamp)
+        .function("clampSelf", &DDM::clampSelf)
         // Vector ops
         .function("length", &DDM::length)
         .function("vGet", &DDM::vGet)
@@ -196,4 +198,8 @@ EMSCRIPTEN_BINDINGS(Module)
         .class_function("solve", &QuadProgSolver::solve)
         .class_function("solveSparse", &QuadProgSolver::solveSparse)
         .class_function("solveBasic", &QuadProgSolver::solveBasic);
+
+    // Random
+    class_<Random>("Random")
+        .class_function("normal", &Random::normal);
 }

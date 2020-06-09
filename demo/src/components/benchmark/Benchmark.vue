@@ -46,7 +46,7 @@ div
 </template>
 
 <script>
-import CodeArea from "@/components/CodeArea.vue";
+import CodeArea from "@vue-live-docs/components/CodeArea.vue";
 import _ from "lodash";
 
 export default {

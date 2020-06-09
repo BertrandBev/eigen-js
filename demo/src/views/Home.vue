@@ -17,7 +17,9 @@ import markdown from "!raw-loader!../../../README.md";
 import MarkdownIt from "markdown-it";
 import hljs from "highlight.js/lib/highlight";
 import javascript from "highlight.js/lib/languages/javascript"
+import bash from "highlight.js/lib/languages/bash"
 hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('bash', bash);
 
 export default {
   components: {

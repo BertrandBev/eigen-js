@@ -1,12 +1,12 @@
 <template lang='pug'>
-v-alert(v-model='visible'
-        border='left'
-        outlined
-        dismissible
-        min-width='100%'
-        icon='mdi-chevron-right'
-        color='green')
-  div.grey--text.text--darken-2(v-katex='expression')
+//- v-alert(v-model='visible'
+//-         border='left'
+//-         outlined
+//-         dismissible
+//-         min-width='100%'
+//-         icon='mdi-chevron-right'
+//-         color='green')
+div.grey--text.text--darken-2(v-katex='expression')
 </template>
 
 <script>

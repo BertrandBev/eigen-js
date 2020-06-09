@@ -21,5 +21,6 @@ module.exports = {
     config.resolve.alias.set('@assets', path.resolve(__dirname, 'src/assets'))
     config.resolve.alias.set('@eigen', path.resolve(__dirname, '../dist/index.js'))
     config.resolve.alias.set('@docs', path.resolve(__dirname, '../docs'))
+    config.resolve.alias.set('@vue-live-docs', path.resolve(__dirname, 'lib/vue-live-docs/src'))
   }
 }

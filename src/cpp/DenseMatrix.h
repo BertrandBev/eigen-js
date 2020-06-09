@@ -26,7 +26,8 @@ protected:
 public:
   Mat data;
 
-  DenseMatrix() {
+  DenseMatrix()
+  {
     data = Mat();
   }
 
@@ -296,6 +297,13 @@ public:
     return clamped;
   }
 
+  void clampSelf(T lo, T hi)
+  {
+    for (int i = 0; i < rows(); i++)
+      for (int j = 0; j < cols(); j++)
+        data(i, j) = std::max(lo, std::min(hi, data(i, j)));
+  }
+
   void print(const std::string title = "") const
   {
     if (title.length())
@@ -346,7 +354,8 @@ public:
   {
     int n = vector.length();
     DenseMatrix<T> mat(n, n);
-    for (int k = 0; k < n; k++) {
+    for (int k = 0; k < n; k++)
+    {
       mat.set(k, k, vector.vGet(k));
     }
     return mat;
