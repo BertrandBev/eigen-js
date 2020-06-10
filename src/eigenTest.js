@@ -1,11 +1,11 @@
-const eig = require('../dist/index.js');
-// const eig = require('./eigen.js');
-const util = require('util');
+// const eig = require('./eigen.mjs');
+import eig from '../dist/index.js'
+// import eig from './eigen.mjs'
 
 (async () => {
   await eig.ready
   gcTest();
-})()
+})();
 
 function refTest() {
   const A = eig.Matrix.fromArray([

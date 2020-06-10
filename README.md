@@ -62,10 +62,11 @@ lib/ospq
 
 Now compile osqp for a Webassembly target
 
-```
+```bash
 cd lib/ospq
 mkdir build; cd build
-emconfigure cmake .. -DEMSCRIPTEN_GENERATE_BITCODE_STATIC_LIBRARIES=1
+# emconfigure cmake .. -DEMSCRIPTEN_GENERATE_BITCODE_STATIC_LIBRARIES=1
+emcmake cmake ..
 emmake make
 ```
 
@@ -73,7 +74,7 @@ Once done, eigen.js can be compile to a wasm binary
 
 ```bash
 mkdir build
-emcc -I lib/eigen -I lib/osqp/include --bind -o build/eigen_gen.js src/cpp/embind.cc -Isrc lib/osqp/build/out/libosqp.bc -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0 -O3 -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1
+emcc -I lib/eigen -I lib/osqp/include -Isrc lib/osqp/build/out/libosqp.a -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0 -O3 -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1 --bind -o build/eigen_gen.js src/cpp/embind.cc 
 ```
 
 ### Generate the documentation

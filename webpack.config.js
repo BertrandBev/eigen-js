@@ -3,7 +3,7 @@ const path = require('path');
 
 const config = {
   mode: 'production',
-  entry: './src/eigen.js',
+  entry: './src/eigen.mjs',
   context: path.resolve(__dirname, "."),
   module: {
     rules: [
