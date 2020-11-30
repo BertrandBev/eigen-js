@@ -9,7 +9,7 @@ function getTex(val) {
   if (_.isPlainObject(val)) {
     const list = [];
     _.forEach(val, (sub, key) => {
-      list.push(`\\text{${key}:} ${getTex(sub)}`);
+      list.push(`\\text{${key}: } ${getTex(sub)}`);
     });
     return list.join(", ");
   }

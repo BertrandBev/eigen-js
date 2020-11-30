@@ -65,7 +65,6 @@ Now compile osqp for a Webassembly target
 ```bash
 cd lib/ospq
 mkdir build; cd build
-# emconfigure cmake .. -DEMSCRIPTEN_GENERATE_BITCODE_STATIC_LIBRARIES=1
 emcmake cmake ..
 emmake make
 ```

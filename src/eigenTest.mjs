@@ -1,11 +1,6 @@
-// const eig = require('./eigen.mjs');
-import eig from '../dist/index.js'
-// import eig from './eigen.mjs'
+// import eig from '../dist/index.js'
+import eig from './eigen.mjs'
 
-(async () => {
-  await eig.ready
-  gcTest();
-})();
 
 function refTest() {
   const A = eig.Matrix.fromArray([
@@ -19,21 +14,15 @@ function refTest() {
     [7, 8, 9]
   ])
   let tStart = Date.now();
-  for (let k = 0; k < 1000000; k++) {
-    // A.matAdd(B)
-    // if (k % 10000 === 0) {
-    //   eig.GC.flush()
-    // }
-  }
   console.log('Ref time', Date.now() - tStart)
   tStart = Date.now();
-  for (let k = 0; k < 1000000; k++) {
+  for (let k = 0; k < 100000; k++) {
     A.matMulSelf(B)
   }
   console.log('Pointer time', Date.now() - tStart)
 
   const start = Date.now();
-  for (let k = 0; k < 1000000; k++) {
+  for (let k = 0; k < 100000; k++) {
     A.matMul(B);
   }
   console.log("Eig time", Date.now() - start);
@@ -41,7 +30,7 @@ function refTest() {
 
 function quadProgBenchmark() {
   let tStart = Date.now();
-  const n = 1000000;
+  const n = 10000;
   for (let k = 0; k < n; k++)
     eig.QuadProgSolver.solveBasic()
   console.log('Compiled time', Date.now() - tStart)
@@ -78,18 +67,18 @@ function solveTest() {
   // eig.GC.flush()
 }
 
-function quadProgTest() {
-  const G = eig.Matrix.fromArray([[4, -2], [-2, 4]])
-  const g0 = eig.Matrix.fromArray([6, 0])
-  const CE = eig.Matrix.fromArray([1, 1])
-  const ce0 = eig.Matrix.fromArray([-3])
-  const CI = eig.Matrix.fromArray([[1, 0, 1], [0, 1, 1]])
-  const ci0 = eig.Matrix.fromArray([0, 0, 2])
-  const x = eig.Matrix.fromArray([0, 0])
-  const res = eig.QuadProgSolver.solve(G, g0, CE, ce0, CI, ci0, x)
-  console.log('result', res)
-  x.print('x')
-}
+// function quadProgTest() {
+//   const G = eig.Matrix.fromArray([[4, -2], [-2, 4]])
+//   const g0 = eig.Matrix.fromArray([6, 0])
+//   const CE = eig.Matrix.fromArray([1, 1])
+//   const ce0 = eig.Matrix.fromArray([-3])
+//   const CI = eig.Matrix.fromArray([[1, 0, 1], [0, 1, 1]])
+//   const ci0 = eig.Matrix.fromArray([0, 0, 2])
+//   const x = eig.Matrix.fromArray([0, 0])
+//   const res = eig.QuadProgSolver.solve(G, g0, CE, ce0, CI, ci0, x)
+//   console.log('result', res)
+//   x.print('x')
+// }
 
 function inPlaceBenchmark() {
   const M1 = eig.Matrix.random(8, 8);
@@ -133,22 +122,34 @@ function gcTest() {
   eig.GC.set(obj2, 'v', v1)
   let n = eig.GC.flush()
   console.assert(n == 0, 'No object should be flushed')
-  v1.print("v1")
+  // v1.print("v1")
   const v2 = eig.Matrix.identity(1, 1)
   eig.GC.set(obj1, 'v', v2)
   n = eig.GC.flush()
   console.assert(n == 0, 'No object should be flushed')
-  v1.print("v1")
-  v2.print("v2")
+  // v1.print("v1")
+  // v2.print("v2")
   eig.GC.set(obj2, 'v', v2)
   n = eig.GC.flush()
   console.assert(n == 1, 'One object should be flushed')
-  v2.print("v2")
+  // v2.print("v2")
   eig.GC.popException(v2)
   n = eig.GC.flush()
   console.assert(n == 0, 'No object should be flushed')
-  v2.print("v2")
+  // v2.print("v2")
   eig.GC.popException(v2)
   n = eig.GC.flush()
   console.assert(n == 1, 'One object should be flushed')
+  console.log('GC test successful');
 }
+
+(async () => {
+  await eig.ready
+  const matrix = eig.Matrix([1, 2]);
+  
+  // refTest();
+  // quadProgBenchmark();
+  // solveTest();
+  // inPlaceBenchmark();
+  // gcTest();
+})();

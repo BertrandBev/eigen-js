@@ -1,8 +1,12 @@
 /* eslint-disable */
 import eigen_gen from '../build/eigen_gen.js'
+// import wasm from '../build/eigen_gen.wasm' // Comment out for local testing
 import GC from './GC.mjs'
 
-const Module = eigen_gen();
+
+const Module = eigen_gen({
+  // wasmBinary: wasm // Comment out for local testing
+});
 
 /**
  * Add helper functions TODO: extract in file
@@ -34,6 +38,10 @@ function addHelpers(eig) {
     return new eig.SparseMatrix(m, n, triplets);
   }
 
+  // eig.Matrix = function (arg) {
+  //   if (arg.isArray)
+  // }
+
   /**
    * Return pointer on self methods
    */
@@ -60,51 +68,23 @@ const eig = {
 }
 
 eig.ready = Module.then(module => {
-    const classes = new Set([
-      "Vector",
-      "Vector2d",
-      "Complex",
-      "Matrix",
-      "SparseMatrix",
-      "TripletVector",
-      "ComplexDenseMatrix",
-      "Solvers",
-      "Decompositions",
-      "QuadProgSolver",
-      "Random",
-    ]);
-    classes.forEach(className => {
-      eig[className] = GC.initClass(classes, module[className])
-    })
-    addHelpers(eig);
+  const classes = new Set([
+    "Vector",
+    "Vector2d",
+    "Complex",
+    "Matrix",
+    "SparseMatrix",
+    "TripletVector",
+    "ComplexDenseMatrix",
+    "Solvers",
+    "Decompositions",
+    "QuadProgSolver",
+    "Random",
+  ]);
+  classes.forEach(className => {
+    eig[className] = GC.initClass(classes, module[className])
+  })
+  addHelpers(eig);
 })
-
-
-// eig.ready = new Promise((resolve, reject) => {
-//   console.log('LOADING MODULE', Module)
-//   Module.onRuntimeInitialized = () => {
-//     console.log('on initialized')
-//     const classes = new Set([
-//       "Vector",
-//       "Vector2d",
-//       "Complex",
-//       "Matrix",
-//       "SparseMatrix",
-//       "TripletVector",
-//       "ComplexDenseMatrix",
-//       "Solvers",
-//       "Decompositions",
-//       "QuadProgSolver",
-//       "Random",
-//     ]);
-//     classes.forEach(className => {
-//       eig[className] = GC.initClass(classes, Module[className])
-//     })
-//     addHelpers(eig);
-//     console.log('eig ready!')
-//     resolve(eig)
-//   }
-//   console.log('done')
-// })
 
 export default eig

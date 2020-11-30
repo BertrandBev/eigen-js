@@ -229,10 +229,10 @@ class Matrix {
    * @example
    * const M = eig.Matrix.fromArray([1, 2]);
    * const B = eig.Matrix.fromArray([3, 4]);
-   * M.matAdd(B);
+   * M.matAddSelf(B);
    * return M;
    */
-  matAdd(B) { }
+  matAddSelf(B) { }
 
   /**
    * Substract B
@@ -252,10 +252,10 @@ class Matrix {
    * @example
    * const M = eig.Matrix.fromArray([3, 4]);
    * const B = eig.Matrix.fromArray([1, 2]);
-   * M.matSub(B);
+   * M.matSubSelf(B);
    * return M;
    */
-  matAdd(B) { }
+  matSubSelf(B) { }
 
   /**
    * Multiply by a matrix B
