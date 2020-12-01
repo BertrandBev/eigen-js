@@ -1,6 +1,6 @@
 {
   "name": "eigen",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Eigen-js is a port of the [Eigen](https://eigen.tuxfamily.org/) C++ linear algebra library",
   "main": "dist/index.js",
   "files": [
