@@ -112,7 +112,7 @@ export default {
       const g = this.graphics;
       const svd = this.getSvd();
       const theta = Math.atan2(svd.U.get(1, 0), svd.U.get(0, 0));
-      const [s1, s2] = [svd.sv.vGet(0), svd.sv.vGet(1)];
+      const [s1, s2] = [svd.sv.get(0), svd.sv.get(1)];
       const dim = this.size[0] / 4;
 
       anime({
@@ -149,13 +149,13 @@ export default {
 
     genMatrix() {
       const theta = Math.PI * 2 * Math.random() - Math.PI + Math.PI;
-      const R = eig.Matrix.fromArray([
+      const R = new eig.Matrix([
         [Math.cos(theta), -Math.sin(theta)],
         [Math.sin(theta), Math.cos(theta)]
       ]);
       const s1 = 2.8 * Math.random() + 0.7;
       const s2 = 2.8 * Math.random() + 0.7;
-      const diag = eig.Matrix.fromArray([s1, s2]);
+      const diag = new eig.Matrix([s1, s2]);
       const D = eig.Matrix.diagonal(diag);
       const mat = R.matMul(D);
       this.matrix = mat;

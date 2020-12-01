@@ -27,18 +27,23 @@ npm install eigen
 yarn add eigen
 ```
 
-In a node application or in the browser (using [webpack](https://webpack.js.org/))
+In a node (v14) application or in the browser (using [webpack](https://webpack.js.org/))
 
 ```js
-const eig = require('eigen')
-// ES6: import eig from 'eigen'
+// test.mjs
+import eig from 'eigen'
+
 (async () => {
   await eig.ready
-  const M = eig.Matrix.fromArray([[1, 2], [3, 4]])
+  const M = new eig.Matrix([[1, 2], [3, 4]])
+  M.print("M");
   M.inverse();
+  M.print("Minv");
   eig.GC.flush();
 })();
 ```
+
+This minimal example can be found under ``./example``
 
 ## Documentation
 
@@ -50,7 +55,7 @@ Make sure [Emscripten](https://emscripten.org/docs/getting_started/Tutorial.html
 
 ```bash
 source path/to/emsdk/emsdk_env.sh
-./emcc -v
+emcc -v
 ```
 
 Dowload the latest versions of [Eigen](https://gitlab.com/libeigen/eigen/-/releases/) and [OSPQ](https://github.com/oxfordcontrol/osqp/), and put then in the `lib` directory
@@ -72,6 +77,7 @@ emmake make
 Once done, eigen.js can be compile to a wasm binary
 
 ```bash
+# From the root directory
 mkdir build
 emcc -I lib/eigen -I lib/osqp/include -Isrc lib/osqp/build/out/libosqp.a -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0 -O3 -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1 --bind -o build/eigen_gen.js src/cpp/embind.cc 
 ```

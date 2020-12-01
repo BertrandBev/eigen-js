@@ -3,12 +3,12 @@ import eig from './eigen.mjs'
 
 
 function refTest() {
-  const A = eig.Matrix.fromArray([
+  const A = new eig.Matrix([
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
   ])
-  const B = eig.Matrix.fromArray([
+  const B = new eig.Matrix([
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
@@ -58,9 +58,9 @@ function solveTest() {
   triplets.add(2, 1, 1);
   const A = new eig.SparseMatrix(3, 2, triplets);
 
-  const q = eig.Matrix.fromArray([1, 1])
-  const l = eig.Matrix.fromArray([1, 0, 0])
-  const u = eig.Matrix.fromArray([1, 0.7, 0.7])
+  const q = new eig.Matrix([1, 1])
+  const l = new eig.Matrix([1, 0, 0])
+  const u = new eig.Matrix([1, 0.7, 0.7])
 
   return eig.QuadProgSolver.solve(P, q, A, l, u);
   // console.log('solved')
@@ -68,13 +68,13 @@ function solveTest() {
 }
 
 // function quadProgTest() {
-//   const G = eig.Matrix.fromArray([[4, -2], [-2, 4]])
-//   const g0 = eig.Matrix.fromArray([6, 0])
-//   const CE = eig.Matrix.fromArray([1, 1])
-//   const ce0 = eig.Matrix.fromArray([-3])
-//   const CI = eig.Matrix.fromArray([[1, 0, 1], [0, 1, 1]])
-//   const ci0 = eig.Matrix.fromArray([0, 0, 2])
-//   const x = eig.Matrix.fromArray([0, 0])
+//   const G = new eig.Matrix([[4, -2], [-2, 4]])
+//   const g0 = new eig.Matrix([6, 0])
+//   const CE = new eig.Matrix([1, 1])
+//   const ce0 = new eig.Matrix([-3])
+//   const CI = new eig.Matrix([[1, 0, 1], [0, 1, 1]])
+//   const ci0 = new eig.Matrix([0, 0, 2])
+//   const x = new eig.Matrix([0, 0])
 //   const res = eig.QuadProgSolver.solve(G, g0, CE, ce0, CI, ci0, x)
 //   console.log('result', res)
 //   x.print('x')
@@ -143,13 +143,34 @@ function gcTest() {
   console.log('GC test successful');
 }
 
+function basicTest() {
+  const mat1 = new eig.Matrix(2, 3);
+  mat1.print("mat1");
+  const mat2 = new eig.Matrix([1, 2])
+  mat2.print("mat2");
+  const mat3 = new eig.Matrix([[1, 2]]);
+  mat3.print("mat3");
+  const mat4 = new eig.Matrix([[1, 2], [3, 4]]);
+  mat4.print("mat4");
+  console.log('get1:', mat2.get(1));
+  console.log('get2:', mat3.get(1));
+  console.log('get3:', mat4.get(1, 0));
+  mat2.set(1, 5);
+  mat3.set(1, 5);
+  mat4.set(1, 0, 5);
+  console.log('get1:', mat2.get(1));
+  console.log('get2:', mat3.get(1));
+  console.log('get3:', mat4.get(1, 0));
+  const mat5 = new eig.Matrix(mat1);
+  mat5.print("mat5");
+}
+
 (async () => {
   await eig.ready
-  const matrix = eig.Matrix([1, 2]);
-  
-  // refTest();
-  // quadProgBenchmark();
-  // solveTest();
-  // inPlaceBenchmark();
-  // gcTest();
+  basicTest();
+  refTest();
+  quadProgBenchmark();
+  solveTest();
+  inPlaceBenchmark();
+  gcTest();
 })();

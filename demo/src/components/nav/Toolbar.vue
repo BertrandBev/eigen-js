@@ -7,7 +7,7 @@ v-app-bar(app clipped-left
                      @click.stop="$emit('toggleDrawer')")
   v-toolbar-items(v-else
                   style='margin-left: 0px')
-    v-btn.mr-2(icon @click='navBack')
+    v-btn.mr-2(icon @click='navback')
       v-icon(small) fas fa-chevron-left
   v-toolbar-title.headline
     span.font-weight-light {{ title }}
@@ -62,8 +62,8 @@ export default {
   created() {},
 
   methods: {
-    navBack() {
-      this.$bus.$emit("navBack");
+    navback() {
+      this.$bus.$emit("navback");
     }
   }
 };

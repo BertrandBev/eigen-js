@@ -74,7 +74,7 @@
           "column": 1
         }
       },
-      "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Decompositions.js"
+      "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Decompositions.js"
     },
     "augments": [],
     "examples": [],
@@ -178,7 +178,7 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst cholesky = eig.Decompositions.cholesky(M);\nreturn cholesky;",
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst cholesky = eig.Decompositions.cholesky(M);\nreturn cholesky;",
               "lineNumber": 6
             }
           ],
@@ -203,12 +203,12 @@
                 "column": 24
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Decompositions.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Decompositions.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst cholesky = eig.Decompositions.cholesky(M);\nreturn cholesky;"
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst cholesky = eig.Decompositions.cholesky(M);\nreturn cholesky;"
             }
           ],
           "implements": [],
@@ -397,7 +397,7 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst lu = eig.Decompositions.lu(M);\nreturn lu;",
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst lu = eig.Decompositions.lu(M);\nreturn lu;",
               "lineNumber": 6
             }
           ],
@@ -422,12 +422,12 @@
                 "column": 18
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Decompositions.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Decompositions.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst lu = eig.Decompositions.lu(M);\nreturn lu;"
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst lu = eig.Decompositions.lu(M);\nreturn lu;"
             }
           ],
           "implements": [],
@@ -611,7 +611,7 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst qr = eig.Decompositions.qr(M);\nreturn qr;",
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst qr = eig.Decompositions.qr(M);\nreturn qr;",
               "lineNumber": 5
             }
           ],
@@ -636,12 +636,12 @@
                 "column": 18
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Decompositions.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Decompositions.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst qr = eig.Decompositions.qr(M);\nreturn qr;"
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst qr = eig.Decompositions.qr(M);\nreturn qr;"
             }
           ],
           "implements": [],
@@ -839,7 +839,7 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Decompositions.svd(M, true);\nreturn svd;",
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Decompositions.svd(M, true);\nreturn svd;",
               "lineNumber": 8
             }
           ],
@@ -864,12 +864,12 @@
                 "column": 25
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Decompositions.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Decompositions.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Decompositions.svd(M, true);\nreturn svd;"
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Decompositions.svd(M, true);\nreturn svd;"
             }
           ],
           "implements": [],
@@ -1168,11 +1168,11 @@
           "column": 0
         },
         "end": {
-          "line": 397,
+          "line": 410,
           "column": 1
         }
       },
-      "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+      "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
     },
     "augments": [],
     "examples": [],
@@ -1180,8 +1180,8 @@
     "params": [
       {
         "title": "param",
-        "name": "m",
-        "lineNumber": 2,
+        "name": "arg0",
+        "lineNumber": 4,
         "description": {
           "type": "root",
           "children": [
@@ -1190,7 +1190,7 @@
               "children": [
                 {
                   "type": "text",
-                  "value": "Number of rows",
+                  "value": "Number of rows || 1D or 2D array to build matrix from || matrix to be copied",
                   "position": {
                     "start": {
                       "line": 1,
@@ -1199,8 +1199,8 @@
                     },
                     "end": {
                       "line": 1,
-                      "column": 15,
-                      "offset": 14
+                      "column": 77,
+                      "offset": 76
                     },
                     "indent": []
                   }
@@ -1214,8 +1214,8 @@
                 },
                 "end": {
                   "line": 1,
-                  "column": 15,
-                  "offset": 14
+                  "column": 77,
+                  "offset": 76
                 },
                 "indent": []
               }
@@ -1229,8 +1229,8 @@
             },
             "end": {
               "line": 1,
-              "column": 15,
-              "offset": 14
+              "column": 77,
+              "offset": 76
             }
           }
         },
@@ -1241,8 +1241,8 @@
       },
       {
         "title": "param",
-        "name": "n",
-        "lineNumber": 3,
+        "name": "arg1",
+        "lineNumber": 5,
         "description": {
           "type": "root",
           "children": [
@@ -1312,138 +1312,47 @@
         "type": "root",
         "children": [
           {
-            "type": "paragraph",
+            "type": "list",
+            "ordered": false,
+            "start": null,
+            "loose": false,
             "children": [
               {
-                "type": "text",
-                "value": "Creates a m * n matrix filled with zeros",
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 41,
-                    "offset": 40
-                  },
-                  "indent": []
-                }
-              }
-            ],
-            "position": {
-              "start": {
-                "line": 1,
-                "column": 1,
-                "offset": 0
-              },
-              "end": {
-                "line": 1,
-                "column": 41,
-                "offset": 40
-              },
-              "indent": []
-            }
-          }
-        ],
-        "position": {
-          "start": {
-            "line": 1,
-            "column": 1,
-            "offset": 0
-          },
-          "end": {
-            "line": 1,
-            "column": 41,
-            "offset": 40
-          }
-        }
-      },
-      "tags": [
-        {
-          "title": "param",
-          "description": "Number of rows",
-          "lineNumber": 2,
-          "type": {
-            "type": "NameExpression",
-            "name": "number"
-          },
-          "name": "m"
-        },
-        {
-          "title": "param",
-          "description": "Number of columns",
-          "lineNumber": 3,
-          "type": {
-            "type": "NameExpression",
-            "name": "number"
-          },
-          "name": "n"
-        },
-        {
-          "title": "example",
-          "description": "return new eig.Matrix(2, 3);",
-          "lineNumber": 4
-        }
-      ],
-      "loc": {
-        "start": {
-          "line": 6,
-          "column": 2
-        },
-        "end": {
-          "line": 12,
-          "column": 5
-        }
-      },
-      "context": {
-        "loc": {
-          "start": {
-            "line": 13,
-            "column": 2
-          },
-          "end": {
-            "line": 13,
-            "column": 23
-          }
-        },
-        "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js",
-        "sortKey": "!/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js 00000013",
-        "code": "{\n  /**\n   * Creates a m * n matrix filled with zeros\n   * @param {number} m - Number of rows\n   * @param {number} n - Number of columns\n   * @example\n   * return new eig.Matrix(2, 3);\n   */\n  constructor(m, n) { }\n\n  /**\n   * Get the number of rows\n   * @returns {number} - The number of rows\n   */\n  rows() { }\n\n  /**\n   * Get the number of columns\n   * @returns {number} - The number of columns\n   * @example\n   * const m = new eig.Matrix(2, 3)\n   * return [m.rows(), m.cols()]\n   */\n  cols() { }\n\n  /**\n   * Get the value at (i, j)\n   * @param {number} i - Row\n   * @param {number} j - Col\n   * @returns {number} - M[i, j]\n   */\n  get(i, j) { }\n\n  /**\n   * Set the value at (i, j)\n   * @param {number} i - Row\n   * @param {number} j - Col\n   * @param {number} val - value\n   * @example\n   * const A = new eig.Matrix(2, 2)\n   * A.set(0, 1, 3 / 2)\n   * return A.get(0, 1)\n   */\n  set(i, j, val) { }\n\n  /**\n   * Get a vector length\n   * @warning The matrix must be a vector (either single row or column)\n   * @returns {number} - V.length\n   * @example\n   * return (new eig.Matrix(3, 1)).length()\n   */\n  length() { }\n\n  /**\n   * Get the value at idx\n   * @warning The matrix must be a vector (either single row or column)\n   * @param {number} idx - Index\n   * @returns {number} - V[idx]\n   */\n  vGet(idx) { }\n\n  /**\n   * Set the value at idx\n   * @warning The matrix must be a vector (either single row or column)\n   * @param {number} idx - Row\n   * @param {number} val - value\n   * @example\n   * const A = new eig.Matrix(2, 1)\n   * A.vSet(1, 3 / 2)\n   * return A.vGet(1)\n   */\n  vSet(i, val) { }\n\n  /**\n   * Take the dot product with another vector\n   * @warning The matrix must be a vector (either single row or column)\n   * @param {Matrix} B - Vector of interest\n   * @returns {number} - V.B\n   * @example\n   * const V = eig.Matrix.fromArray([1, 2])\n   * const B = eig.Matrix.fromArray([-1, 3])\n   * return V.dot(B)\n   */\n  dot(B) { }\n\n\n  /**\n   * Get the l2 (Frobenius) norm\n   * @returns {number} - The l2 norm\n   */\n  norm() { }\n\n  /**\n   * Get the squared l2 (Frobenius) norm\n   * @returns {number} - The l2 norm squared\n   */\n  normSqr() { }\n\n  /**\n   * Get the l1 norm\n   * @returns {number} - The l1 norm\n   */\n  l1Norm() { }\n\n  /**\n   * Get the l-Infinity norm\n   * @returns {number} - The l-Infinity norm\n   * @example\n   * const m = eig.Matrix.fromArray([[1, 2], [3, 4]])\n   * return [m.norm(), m.normSqr(), m.l1Norm(), m.lInfNorm()]\n   */\n  lInfNorm() { }\n\n  /**\n   * Get the rank\n   * @returns {number} - The rank\n   * @example\n   * const m = eig.Matrix.fromArray([[2, 1], [2, 1]]);\n   * return m.rank();\n   */\n  rank() { }\n\n  /**\n   * Get the determinant\n   * @return {number} - The determinant\n   * @example\n   * const m = eig.Matrix.fromArray([[2, 0], [0, 3]]);\n   * return m.det();\n   */\n  det() { }\n\n  /**\n   * Sum all the elements\n   * @returns {number} - The sum of all the elements\n   * @example\n   * const m = eig.Matrix.fromArray([1, 2])\n   * return m.sum();\n   */\n  sum() { }\n\n  /**\n   * Get a block\n   * @param {number} i - The block top left row\n   * @param {number} j - The block top left column\n   * @param {number} di - Block rows count\n   * @param {number} dj - Block columns count\n   * @returns {Matrix} - The resulting block\n   * @example\n   * const m = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\n   * return m.block(1, 0, 1, 2)\n   */\n  block(i, j, di, dj) { }\n\n  /**\n   * Set a block\n   * @param {number} i - The block top left row\n   * @param {number} j - The block top left column\n   * @param {Matrix} block - Block to be set\n   * @example\n   * const m = new eig.Matrix(3, 3);\n   * const b = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\n   * m.setBlock(1, 0, b);\n   * return m;\n   */\n  setBlock(i, j, block) { }\n\n  /**\n   * Multiply by a value\n   * @param {number} val - Value to multiply by\n   * @returns {Matrix} - M * val\n   * @example\n   * const m = eig.Matrix.fromArray([1, 2]);\n   * return m.mul(2);\n   */\n  mul(val) { }\n\n  /**\n   * Multiply by a value in place\n   * @param {number} val - Value to multiply by\n   * @returns {Matrix} - this (M * val)\n   * @example\n   * const m = eig.Matrix.fromArray([1, 2]);\n   * m.mulSelf(2);\n   * return m;\n   */\n  mulSelf(val) { }\n\n  /**\n   * Divide by a value\n   * @param {number} val - Value to divide by\n   * @returns {Matrix} - M / val\n   * @example\n   * const m = eig.Matrix.fromArray([2, 4]);\n   * return m.div(2);\n   */\n  div(val) { }\n\n  /**\n   * Divide by a value in place\n   * @param {number} val - Value to divide by\n   * @returns {Matrix} - this (M / val)\n   * @example\n   * const m = eig.Matrix.fromArray([2, 4]);\n   * m.divSelf(2);\n   * return m;\n   */\n  divSelf(val) { }\n\n  /**\n   * Add B\n   * @param {Matrix} B - Matrix to be added\n   * @returns {Matrix} M + B\n   * @example\n   * const M = eig.Matrix.fromArray([1, 2]);\n   * const B = eig.Matrix.fromArray([3, 4]);\n   * return M.matAdd(B);\n   */\n  matAdd(B) { }\n\n  /**\n   * Add B in place\n   * @param {Matrix} B - Matrix to be added\n   * @returns {Matrix} - this\n   * @example\n   * const M = eig.Matrix.fromArray([1, 2]);\n   * const B = eig.Matrix.fromArray([3, 4]);\n   * M.matAdd(B);\n   * return M;\n   */\n  matAdd(B) { }\n\n  /**\n   * Substract B\n   * @param {Matrix} B - Matrix to be substracted\n   * @returns {Matrix} - M - B\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([1, 2]);\n   * return M.matSub(B);\n   */\n  matSub(B) { }\n\n  /**\n   * Substract B in place\n   * @param {Matrix} B - Matrix to be substracted\n   * @returns {Matrix} - this (M - B)\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([1, 2]);\n   * M.matSub(B);\n   * return M;\n   */\n  matAdd(B) { }\n\n  /**\n   * Multiply by a matrix B\n   * @param {Matrix} B - Matrix to multiply M by\n   * @returns {Matrix} - M * B\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([[1, 2]]);\n   * return M.matMul(B);\n   */\n  matMul(B) { }\n\n  /**\n   * Multiplyby a matrix B in place\n   * @param {Matrix} B - Matrix to multiply M by\n   * @returns {Matrix} - this (M * B)\n   * @example\n   * const M = eig.Matrix.fromArray([3, 4]);\n   * const B = eig.Matrix.fromArray([[1, 2]]);\n   * M.matMulSelf(B);\n   * return M;\n   */\n  matMulSelf(B) { }\n\n  /**\n   * Concatenate B horizontally\n   * @param {Matrix} B - Matrix to be concatenated\n   * @returns {Matrix} - [M, B]\n   * @example\n   * const M = eig.Matrix.fromArray([[1], [2]]);\n   * const B = eig.Matrix.fromArray([[3], [4]]);\n   * return M.hcat(B);\n   */\n  hcat(B) { }\n\n  /**\n   * Concatenate B vertically\n   * @param {Matrix} B - Matrix to be concatenated\n   * @returns {Matrix} - [M; B]\n   * @example\n   * const M = eig.Matrix.fromArray([[1], [2]]);\n   * const B = eig.Matrix.fromArray([[3], [4]]);\n   * return M.vcat(B);\n   */\n  vcat(B) { }\n\n  /**\n   * Get the transpose\n   * @returns {Matrix} - M'\n   * @example\n   * const m = eig.Matrix.fromArray([[0, 1], [3, 0]]);\n   * return m.transpose();\n   */\n  tranpose() { }\n\n  /**\n   * Transpose in place\n   * @returns {Matrix} - this (M')\n   * @example\n   * const m = eig.Matrix.fromArray([[0, 1], [3, 0]]);\n   * m.transpose();\n   * return m;\n   */\n  transposeSelf() { }\n\n  /**\n   * Get the inverse of a square matrix\n   * The inverse is the matrix Minv such that M * Minv = In\n   * With In the n * n identity matrix\n   * @warning The matrix must be square and invertible (full rank)\n   * @returns {Matrix} - The inverse\n   * @example\n   * const m = eig.Matrix.fromArray([[4, 9], [3, 7]]);\n   * return m.inverse();\n   */\n  inverse() { }\n\n  /**\n   * Create a m * n identity matrix\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n identity matrix\n   * @example\n   * return eig.Matrix.identity(2, 2);\n   */\n  static identity(m, n) { }\n\n  /**\n   * Create a m * n matrix filled with ones\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n matrix filled with ones\n   * @example\n   * return eig.Matrix.ones(2, 3);\n   */\n  static ones(m, n) { }\n\n  /**\n   * Create a m * n matrix filled with some value\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @param {number} val - Value to fill the matrix with\n   * @returns {Matrix} - m * n matrix filled with val\n   * @example\n   * return eig.Matrix.constant(2, 3, 3 / 2);\n   */\n  static constant(m, n, val) { }\n\n  /**\n   * Create a m * n random matrix\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n random matrix\n   * @example\n   * return eig.Matrix.random(3, 2);\n   */\n  static random(m, n) { }\n\n  /**\n   * Create a diagonal matrix from a vector\n   * @param {Matrix} vec - Vector from which to populate the diagonal\n   * @returns {Matrix} - Diagonal matrix\n   * @example\n   * const vec = eig.Matrix.fromArray([1, 2, 3])\n   * return eig.Matrix.diagonal(vec);\n   */\n  static diagonal(vec) { }\n\n  /**\n   * Create a matrix from an array\n   * A 1D array will create a column vector\n   * A 2D array will create a matrix\n   * @param {Array} arr - 1D or 2D array to build matrix from\n   * @returns {Matrix} - Matrix initialized from the array\n   * @example\n   * return eig.Matrix.fromArray([[1, 2], [3, 4]]);\n   */\n  static fromArray(arr) { }\n}"
-      },
-      "augments": [],
-      "errors": [],
-      "examples": [
-        {
-          "description": "return new eig.Matrix(2, 3);"
-        }
-      ],
-      "implements": [],
-      "params": [
-        {
-          "title": "param",
-          "name": "m",
-          "lineNumber": 2,
-          "description": {
-            "type": "root",
-            "children": [
-              {
-                "type": "paragraph",
+                "type": "listItem",
+                "loose": false,
+                "checked": null,
                 "children": [
                   {
-                    "type": "text",
-                    "value": "Number of rows",
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Creates a m * n matrix filled with zeros",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 3,
+                            "offset": 2
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 43,
+                            "offset": 42
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
                     "position": {
                       "start": {
                         "line": 1,
-                        "column": 1,
-                        "offset": 0
+                        "column": 3,
+                        "offset": 2
                       },
                       "end": {
                         "line": 1,
-                        "column": 15,
-                        "offset": 14
+                        "column": 43,
+                        "offset": 42
                       },
                       "indent": []
                     }
@@ -1457,8 +1366,253 @@
                   },
                   "end": {
                     "line": 1,
-                    "column": 15,
-                    "offset": 14
+                    "column": 43,
+                    "offset": 42
+                  },
+                  "indent": []
+                }
+              },
+              {
+                "type": "listItem",
+                "loose": false,
+                "checked": null,
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Create a matrix from an array",
+                        "position": {
+                          "start": {
+                            "line": 2,
+                            "column": 3,
+                            "offset": 45
+                          },
+                          "end": {
+                            "line": 2,
+                            "column": 32,
+                            "offset": 74
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 2,
+                        "column": 3,
+                        "offset": 45
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 32,
+                        "offset": 74
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 2,
+                    "column": 1,
+                    "offset": 43
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 32,
+                    "offset": 74
+                  },
+                  "indent": []
+                }
+              },
+              {
+                "type": "listItem",
+                "loose": false,
+                "checked": null,
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Copy an existing matrix",
+                        "position": {
+                          "start": {
+                            "line": 3,
+                            "column": 3,
+                            "offset": 77
+                          },
+                          "end": {
+                            "line": 3,
+                            "column": 26,
+                            "offset": 100
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 3,
+                        "column": 3,
+                        "offset": 77
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 26,
+                        "offset": 100
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 3,
+                    "column": 1,
+                    "offset": 75
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 26,
+                    "offset": 100
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 3,
+                "column": 26,
+                "offset": 100
+              },
+              "indent": [
+                1,
+                1
+              ]
+            }
+          }
+        ],
+        "position": {
+          "start": {
+            "line": 1,
+            "column": 1,
+            "offset": 0
+          },
+          "end": {
+            "line": 3,
+            "column": 26,
+            "offset": 100
+          }
+        }
+      },
+      "tags": [
+        {
+          "title": "param",
+          "description": "Number of rows || 1D or 2D array to build matrix from || matrix to be copied",
+          "lineNumber": 4,
+          "type": {
+            "type": "NameExpression",
+            "name": "number"
+          },
+          "name": "arg0"
+        },
+        {
+          "title": "param",
+          "description": "Number of columns",
+          "lineNumber": 5,
+          "type": {
+            "type": "NameExpression",
+            "name": "number"
+          },
+          "name": "arg1"
+        },
+        {
+          "title": "example",
+          "description": "const m1 = new eig.Matrix(2, 2);\nconst m2 = new eig.Matrix(2);\nconst m3 = new eig.Matrix([[1, 2], [3, 4]]);\nconst m4 = new eig.Matrix(m2);\nreturn [m1, m2, m3, m4]",
+          "lineNumber": 6
+        }
+      ],
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 2
+        },
+        "end": {
+          "line": 18,
+          "column": 5
+        }
+      },
+      "context": {
+        "loc": {
+          "start": {
+            "line": 19,
+            "column": 2
+          },
+          "end": {
+            "line": 19,
+            "column": 29
+          }
+        },
+        "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js",
+        "sortKey": "!/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js 00000019",
+        "code": "{\n  /**\n   * - Creates a m * n matrix filled with zeros\n   * - Create a matrix from an array\n   * - Copy an existing matrix\n   * @param {number} arg0 - Number of rows || 1D or 2D array to build matrix from || matrix to be copied\n   * @param {number} arg1 - Number of columns\n   * @example\n   * const m1 = new eig.Matrix(2, 2);\n   * const m2 = new eig.Matrix(2);\n   * const m3 = new eig.Matrix([[1, 2], [3, 4]]);\n   * const m4 = new eig.Matrix(m2);\n   * return [m1, m2, m3, m4]\n   */\n  constructor(arg0, arg1) { }\n\n  /**\n   * Get the number of rows\n   * @returns {number} - The number of rows\n   * @example\n   * const m = new eig.Matrix([1, 2]);\n   * return m.rows();\n   */\n  rows() { }\n\n  /**\n   * Get the number of columns\n   * @returns {number} - The number of columns\n   * @example\n   * const m = new eig.Matrix([1, 2]);\n   * return m.cols();\n   */\n  cols() { }\n\n  /**\n   * Get the value at (i, j)\n   * @param {number} i - Row\n   * @param {number} j - Col\n   * @returns {number} - M[i, j]\n   * @example\n   * const m = new eig.Matrix([[1, 2], [3, 4]]);\n   * return m.get(1, 0);\n   */\n  get(i, j) { }\n\n  /**\n   * Get a vector value at (i)\n   * @param {number} i - Row\n   * @returns {number} - M[i, 0] or M[0, i]\n   * @example\n   * const m = new eig.Matrix([1, 2]);\n   * return m.get(1);\n   */\n  get(i) { }\n\n  /**\n   * Set the value at (i, j)\n   * @param {number} i - Row\n   * @param {number} j - Col\n   * @param {number} val - value\n   * @example\n   * const A = new eig.Matrix(2, 2);\n   * A.set(0, 1, 3 / 2);\n   * return A.get(0, 1);\n   */\n  set(i, j, val) { }\n\n  /**\n   * Set a vector value at (i)\n   * @param {number} i - Row\n   * @param {number} val - value\n   * @example\n   * const A = new eig.Matrix(2);\n   * A.set(1, 3 / 2);\n   * return A.get(1);\n   */\n  set(i, val) { }\n\n  /**\n   * Get a vector length\n   * @warning The matrix must be a vector (either single row or column)\n   * @returns {number} - V.length\n   * @example\n   * return (new eig.Matrix(3)).length();\n   */\n  length() { }\n\n  /**\n   * Take the dot product with another vector\n   * @warning The matrix must be a vector (either single row or column)\n   * @param {Matrix} B - Vector of interest\n   * @returns {number} - V.B\n   * @example\n   * const V = new eig.Matrix([1, 2]);\n   * const B = new eig.Matrix([-1, 3]);\n   * return V.dot(B);\n   */\n  dot(B) { }\n\n\n  /**\n   * Get the l2 (Frobenius) norm\n   * @returns {number} - The l2 norm\n   */\n  norm() { }\n\n  /**\n   * Get the squared l2 (Frobenius) norm\n   * @returns {number} - The l2 norm squared\n   */\n  normSqr() { }\n\n  /**\n   * Get the l1 norm\n   * @returns {number} - The l1 norm\n   */\n  l1Norm() { }\n\n  /**\n   * Get the l-Infinity norm\n   * @returns {number} - The l-Infinity norm\n   * @example\n   * const m = new eig.Matrix([[1, 2], [3, 4]]);\n   * return [m.norm(), m.normSqr(), m.l1Norm(), m.lInfNorm()];\n   */\n  lInfNorm() { }\n\n  /**\n   * Get the rank\n   * @returns {number} - The rank\n   * @example\n   * const m = new eig.Matrix([[2, 1], [2, 1]]);\n   * return m.rank();\n   */\n  rank() { }\n\n  /**\n   * Get the determinant\n   * @return {number} - The determinant\n   * @example\n   * const m = new eig.Matrix([[2, 0], [0, 3]]);\n   * return m.det();\n   */\n  det() { }\n\n  /**\n   * Sum all the elements\n   * @returns {number} - The sum of all the elements\n   * @example\n   * const m = new eig.Matrix([1, 2]);\n   * return m.sum();\n   */\n  sum() { }\n\n  /**\n   * Get a block\n   * @param {number} i - The block top left row\n   * @param {number} j - The block top left column\n   * @param {number} di - Block rows count\n   * @param {number} dj - Block columns count\n   * @returns {Matrix} - The resulting block\n   * @example\n   * const m = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\n   * return m.block(1, 0, 1, 2);\n   */\n  block(i, j, di, dj) { }\n\n  /**\n   * Set a block\n   * @param {number} i - The block top left row\n   * @param {number} j - The block top left column\n   * @param {Matrix} block - Block to be set\n   * @example\n   * const m = new eig.Matrix(3, 3);\n   * const b = new eig.Matrix([[1, 2, 3], [4, 5, 6]]);\n   * m.setBlock(1, 0, b);\n   * return m;\n   */\n  setBlock(i, j, block) { }\n\n  /**\n   * Multiply by a value\n   * @param {number} val - Value to multiply by\n   * @returns {Matrix} - M * val\n   * @example\n   * const m = new eig.Matrix([1, 2]);\n   * return m.mul(2);\n   */\n  mul(val) { }\n\n  /**\n   * Multiply by a value in place\n   * @param {number} val - Value to multiply by\n   * @returns {Matrix} - this (M * val)\n   * @example\n   * const m = new eig.Matrix([1, 2]);\n   * m.mulSelf(2);\n   * return m;\n   */\n  mulSelf(val) { }\n\n  /**\n   * Divide by a value\n   * @param {number} val - Value to divide by\n   * @returns {Matrix} - M / val\n   * @example\n   * const m = new eig.Matrix([2, 4]);\n   * return m.div(2);\n   */\n  div(val) { }\n\n  /**\n   * Divide by a value in place\n   * @param {number} val - Value to divide by\n   * @returns {Matrix} - this (M / val)\n   * @example\n   * const m = new eig.Matrix([2, 4]);\n   * m.divSelf(2);\n   * return m;\n   */\n  divSelf(val) { }\n\n  /**\n   * Add B\n   * @param {Matrix} B - Matrix to be added\n   * @returns {Matrix} M + B\n   * @example\n   * const M = new eig.Matrix([1, 2]);\n   * const B = new eig.Matrix([3, 4]);\n   * return M.matAdd(B);\n   */\n  matAdd(B) { }\n\n  /**\n   * Add B in place\n   * @param {Matrix} B - Matrix to be added\n   * @returns {Matrix} - this\n   * @example\n   * const M = new eig.Matrix([1, 2]);\n   * const B = new eig.Matrix([3, 4]);\n   * M.matAddSelf(B);\n   * return M;\n   */\n  matAddSelf(B) { }\n\n  /**\n   * Substract B\n   * @param {Matrix} B - Matrix to be substracted\n   * @returns {Matrix} - M - B\n   * @example\n   * const M = new eig.Matrix([3, 4]);\n   * const B = new eig.Matrix([1, 2]);\n   * return M.matSub(B);\n   */\n  matSub(B) { }\n\n  /**\n   * Substract B in place\n   * @param {Matrix} B - Matrix to be substracted\n   * @returns {Matrix} - this (M - B)\n   * @example\n   * const M = new eig.Matrix([3, 4]);\n   * const B = new eig.Matrix([1, 2]);\n   * M.matSubSelf(B);\n   * return M;\n   */\n  matSubSelf(B) { }\n\n  /**\n   * Multiply by a matrix B\n   * @param {Matrix} B - Matrix to multiply M by\n   * @returns {Matrix} - M * B\n   * @example\n   * const M = new eig.Matrix([3, 4]);\n   * const B = new eig.Matrix([[1, 2]]);\n   * return M.matMul(B);\n   */\n  matMul(B) { }\n\n  /**\n   * Multiplyby a matrix B in place\n   * @param {Matrix} B - Matrix to multiply M by\n   * @returns {Matrix} - this (M * B)\n   * @example\n   * const M = new eig.Matrix([3, 4]);\n   * const B = new eig.Matrix([[1, 2]]);\n   * M.matMulSelf(B);\n   * return M;\n   */\n  matMulSelf(B) { }\n\n  /**\n   * Concatenate B horizontally\n   * @param {Matrix} B - Matrix to be concatenated\n   * @returns {Matrix} - [M, B]\n   * @example\n   * const M = new eig.Matrix([[1], [2]]);\n   * const B = new eig.Matrix([[3], [4]]);\n   * return M.hcat(B);\n   */\n  hcat(B) { }\n\n  /**\n   * Concatenate B vertically\n   * @param {Matrix} B - Matrix to be concatenated\n   * @returns {Matrix} - [M; B]\n   * @example\n   * const M = new eig.Matrix([[1], [2]]);\n   * const B = new eig.Matrix([[3], [4]]);\n   * return M.vcat(B);\n   */\n  vcat(B) { }\n\n  /**\n   * Get the transpose\n   * @returns {Matrix} - M'\n   * @example\n   * const m = new eig.Matrix([[0, 1], [3, 0]]);\n   * return m.transpose();\n   */\n  tranpose() { }\n\n  /**\n   * Transpose in place\n   * @returns {Matrix} - this (M')\n   * @example\n   * const m = new eig.Matrix([[0, 1], [3, 0]]);\n   * m.transpose();\n   * return m;\n   */\n  transposeSelf() { }\n\n  /**\n   * Get the inverse of a square matrix\n   * The inverse is the matrix Minv such that M * Minv = In\n   * With In the n * n identity matrix\n   * @warning The matrix must be square and invertible (full rank)\n   * @returns {Matrix} - The inverse\n   * @example\n   * const m = new eig.Matrix([[4, 9], [3, 7]]);\n   * return m.inverse();\n   */\n  inverse() { }\n\n  /**\n   * Create a m * n identity matrix\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n identity matrix\n   * @example\n   * return eig.Matrix.identity(2, 2);\n   */\n  static identity(m, n) { }\n\n  /**\n   * Create a m * n matrix filled with ones\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n matrix filled with ones\n   * @example\n   * return eig.Matrix.ones(2, 3);\n   */\n  static ones(m, n) { }\n\n  /**\n   * Create a m * n matrix filled with some value\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @param {number} val - Value to fill the matrix with\n   * @returns {Matrix} - m * n matrix filled with val\n   * @example\n   * return eig.Matrix.constant(2, 3, 3 / 2);\n   */\n  static constant(m, n, val) { }\n\n  /**\n   * Create a m * n random matrix\n   * @param {number} m - Rows count\n   * @param {number} n - Columns count\n   * @returns {Matrix} - m * n random matrix\n   * @example\n   * return eig.Matrix.random(3, 2);\n   */\n  static random(m, n) { }\n\n  /**\n   * Create a diagonal matrix from a vector\n   * @param {Matrix} vec - Vector from which to populate the diagonal\n   * @returns {Matrix} - Diagonal matrix\n   * @example\n   * const vec = new eig.Matrix([1, 2, 3]);\n   * return eig.Matrix.diagonal(vec);\n   */\n  static diagonal(vec) { }\n\n  /**\n   * Create a matrix from an array\n   * A 1D array will create a column vector\n   * A 2D array will create a matrix\n   * @param {Array} arr - 1D or 2D array to build matrix from\n   * @returns {Matrix} - Matrix initialized from the array\n   * @example\n   * return new eig.Matrix([[1, 2], [3, 4]]);\n   */\n  static fromArray(arr) { }\n}"
+      },
+      "augments": [],
+      "errors": [],
+      "examples": [
+        {
+          "description": "const m1 = new eig.Matrix(2, 2);\nconst m2 = new eig.Matrix(2);\nconst m3 = new eig.Matrix([[1, 2], [3, 4]]);\nconst m4 = new eig.Matrix(m2);\nreturn [m1, m2, m3, m4]"
+        }
+      ],
+      "implements": [],
+      "params": [
+        {
+          "title": "param",
+          "name": "arg0",
+          "lineNumber": 4,
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Number of rows || 1D or 2D array to build matrix from || matrix to be copied",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 77,
+                        "offset": 76
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 77,
+                    "offset": 76
                   },
                   "indent": []
                 }
@@ -1472,8 +1626,8 @@
               },
               "end": {
                 "line": 1,
-                "column": 15,
-                "offset": 14
+                "column": 77,
+                "offset": 76
               }
             }
           },
@@ -1484,8 +1638,8 @@
         },
         {
           "title": "param",
-          "name": "n",
-          "lineNumber": 3,
+          "name": "arg1",
+          "lineNumber": 5,
           "description": {
             "type": "root",
             "children": [
@@ -1619,33 +1773,42 @@
                 "type": "NameExpression",
                 "name": "number"
               }
+            },
+            {
+              "title": "example",
+              "description": "const m = new eig.Matrix([1, 2]);\nreturn m.rows();",
+              "lineNumber": 3
             }
           ],
           "loc": {
             "start": {
-              "line": 15,
+              "line": 21,
               "column": 2
             },
             "end": {
-              "line": 18,
+              "line": 27,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 19,
+                "line": 28,
                 "column": 2
               },
               "end": {
-                "line": 19,
+                "line": 28,
                 "column": 12
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
-          "examples": [],
+          "examples": [
+            {
+              "description": "const m = new eig.Matrix([1, 2]);\nreturn m.rows();"
+            }
+          ],
           "implements": [],
           "params": [],
           "properties": [],
@@ -1803,37 +1966,37 @@
             },
             {
               "title": "example",
-              "description": "const m = new eig.Matrix(2, 3)\nreturn [m.rows(), m.cols()]",
+              "description": "const m = new eig.Matrix([1, 2]);\nreturn m.cols();",
               "lineNumber": 3
             }
           ],
           "loc": {
             "start": {
-              "line": 21,
+              "line": 30,
               "column": 2
             },
             "end": {
-              "line": 27,
+              "line": 36,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 28,
+                "line": 37,
                 "column": 2
               },
               "end": {
-                "line": 28,
+                "line": 37,
                 "column": 12
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = new eig.Matrix(2, 3)\nreturn [m.rows(), m.cols()]"
+              "description": "const m = new eig.Matrix([1, 2]);\nreturn m.cols();"
             }
           ],
           "implements": [],
@@ -2010,33 +2173,42 @@
                 "type": "NameExpression",
                 "name": "number"
               }
+            },
+            {
+              "title": "example",
+              "description": "const m = new eig.Matrix([[1, 2], [3, 4]]);\nreturn m.get(1, 0);",
+              "lineNumber": 5
             }
           ],
           "loc": {
             "start": {
-              "line": 30,
+              "line": 39,
               "column": 2
             },
             "end": {
-              "line": 35,
+              "line": 47,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 36,
+                "line": 48,
                 "column": 2
               },
               "end": {
-                "line": 36,
+                "line": 48,
                 "column": 15
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
-          "examples": [],
+          "examples": [
+            {
+              "description": "const m = new eig.Matrix([[1, 2], [3, 4]]);\nreturn m.get(1, 0);"
+            }
+          ],
           "implements": [],
           "params": [
             {
@@ -2298,6 +2470,359 @@
                 "children": [
                   {
                     "type": "text",
+                    "value": "Get a vector value at (i)",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 26,
+                        "offset": 25
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 26,
+                    "offset": 25
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 26,
+                "offset": 25
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "Row",
+              "lineNumber": 2,
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              },
+              "name": "i"
+            },
+            {
+              "title": "returns",
+              "description": "M[i, 0] or M[0, i]",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              }
+            },
+            {
+              "title": "example",
+              "description": "const m = new eig.Matrix([1, 2]);\nreturn m.get(1);",
+              "lineNumber": 4
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 50,
+              "column": 2
+            },
+            "end": {
+              "line": 57,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 58,
+                "column": 2
+              },
+              "end": {
+                "line": 58,
+                "column": 12
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const m = new eig.Matrix([1, 2]);\nreturn m.get(1);"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "i",
+              "lineNumber": 2,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Row",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 4,
+                            "offset": 3
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 4,
+                        "offset": 3
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4,
+                    "offset": 3
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "M",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 2,
+                            "offset": 1
+                          },
+                          "indent": []
+                        }
+                      },
+                      {
+                        "type": "linkReference",
+                        "identifier": "i, 0",
+                        "referenceType": "shortcut",
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "i, 0",
+                            "position": {
+                              "start": {
+                                "line": 1,
+                                "column": 3,
+                                "offset": 2
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 7,
+                                "offset": 6
+                              },
+                              "indent": []
+                            }
+                          }
+                        ],
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 2,
+                            "offset": 1
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 8,
+                            "offset": 7
+                          },
+                          "indent": []
+                        }
+                      },
+                      {
+                        "type": "text",
+                        "value": " or M",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 8,
+                            "offset": 7
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 13,
+                            "offset": 12
+                          },
+                          "indent": []
+                        }
+                      },
+                      {
+                        "type": "linkReference",
+                        "identifier": "0, i",
+                        "referenceType": "shortcut",
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "0, i",
+                            "position": {
+                              "start": {
+                                "line": 1,
+                                "column": 14,
+                                "offset": 13
+                              },
+                              "end": {
+                                "line": 1,
+                                "column": 18,
+                                "offset": 17
+                              },
+                              "indent": []
+                            }
+                          }
+                        ],
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 13,
+                            "offset": 12
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 19,
+                            "offset": 18
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 19,
+                        "offset": 18
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 19,
+                    "offset": 18
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "get",
+          "kind": "function",
+          "memberof": "Matrix",
+          "scope": "instance",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Matrix",
+              "kind": "class"
+            },
+            {
+              "name": "get",
+              "kind": "function",
+              "scope": "instance"
+            }
+          ],
+          "namespace": "Matrix#get"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
                     "value": "Set the value at (i, j)",
                     "position": {
                       "start": {
@@ -2375,37 +2900,37 @@
             },
             {
               "title": "example",
-              "description": "const A = new eig.Matrix(2, 2)\nA.set(0, 1, 3 / 2)\nreturn A.get(0, 1)",
+              "description": "const A = new eig.Matrix(2, 2);\nA.set(0, 1, 3 / 2);\nreturn A.get(0, 1);",
               "lineNumber": 5
             }
           ],
           "loc": {
             "start": {
-              "line": 38,
+              "line": 60,
               "column": 2
             },
             "end": {
-              "line": 47,
+              "line": 69,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 48,
+                "line": 70,
                 "column": 2
               },
               "end": {
-                "line": 48,
+                "line": 70,
                 "column": 20
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const A = new eig.Matrix(2, 2)\nA.set(0, 1, 3 / 2)\nreturn A.get(0, 1)"
+              "description": "const A = new eig.Matrix(2, 2);\nA.set(0, 1, 3 / 2);\nreturn A.get(0, 1);"
             }
           ],
           "implements": [],
@@ -2633,6 +3158,270 @@
                 "children": [
                   {
                     "type": "text",
+                    "value": "Set a vector value at (i)",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 26,
+                        "offset": 25
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 26,
+                    "offset": 25
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 26,
+                "offset": 25
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "Row",
+              "lineNumber": 2,
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              },
+              "name": "i"
+            },
+            {
+              "title": "param",
+              "description": "value",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              },
+              "name": "val"
+            },
+            {
+              "title": "example",
+              "description": "const A = new eig.Matrix(2);\nA.set(1, 3 / 2);\nreturn A.get(1);",
+              "lineNumber": 4
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 72,
+              "column": 2
+            },
+            "end": {
+              "line": 80,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 81,
+                "column": 2
+              },
+              "end": {
+                "line": 81,
+                "column": 17
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const A = new eig.Matrix(2);\nA.set(1, 3 / 2);\nreturn A.get(1);"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "i",
+              "lineNumber": 2,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Row",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 4,
+                            "offset": 3
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 4,
+                        "offset": 3
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 4,
+                    "offset": 3
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              }
+            },
+            {
+              "title": "param",
+              "name": "val",
+              "lineNumber": 3,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "value",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 6,
+                            "offset": 5
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 6,
+                        "offset": 5
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 6,
+                    "offset": 5
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "number"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "set",
+          "kind": "function",
+          "memberof": "Matrix",
+          "scope": "instance",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Matrix",
+              "kind": "class"
+            },
+            {
+              "name": "set",
+              "kind": "function",
+              "scope": "instance"
+            }
+          ],
+          "namespace": "Matrix#set"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
                     "value": "Get a vector length",
                     "position": {
                       "start": {
@@ -2694,37 +3483,37 @@
             },
             {
               "title": "example",
-              "description": "return (new eig.Matrix(3, 1)).length()",
+              "description": "return (new eig.Matrix(3)).length();",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 50,
+              "line": 83,
               "column": 2
             },
             "end": {
-              "line": 56,
+              "line": 89,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 57,
+                "line": 90,
                 "column": 2
               },
               "end": {
-                "line": 57,
+                "line": 90,
                 "column": 14
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "return (new eig.Matrix(3, 1)).length()"
+              "description": "return (new eig.Matrix(3)).length();"
             }
           ],
           "implements": [],
@@ -2828,575 +3617,6 @@
                 "children": [
                   {
                     "type": "text",
-                    "value": "Get the value at idx",
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 21,
-                        "offset": 20
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 21,
-                    "offset": 20
-                  },
-                  "indent": []
-                }
-              }
-            ],
-            "position": {
-              "start": {
-                "line": 1,
-                "column": 1,
-                "offset": 0
-              },
-              "end": {
-                "line": 1,
-                "column": 21,
-                "offset": 20
-              }
-            }
-          },
-          "tags": [
-            {
-              "title": "warning",
-              "description": "The matrix must be a vector (either single row or column)",
-              "lineNumber": 2
-            },
-            {
-              "title": "param",
-              "description": "Index",
-              "lineNumber": 3,
-              "type": {
-                "type": "NameExpression",
-                "name": "number"
-              },
-              "name": "idx"
-            },
-            {
-              "title": "returns",
-              "description": "V[idx]",
-              "lineNumber": 4,
-              "type": {
-                "type": "NameExpression",
-                "name": "number"
-              }
-            }
-          ],
-          "loc": {
-            "start": {
-              "line": 59,
-              "column": 2
-            },
-            "end": {
-              "line": 64,
-              "column": 5
-            }
-          },
-          "context": {
-            "loc": {
-              "start": {
-                "line": 65,
-                "column": 2
-              },
-              "end": {
-                "line": 65,
-                "column": 15
-              }
-            },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
-          },
-          "augments": [],
-          "examples": [],
-          "implements": [],
-          "params": [
-            {
-              "title": "param",
-              "name": "idx",
-              "lineNumber": 3,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Index",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 6,
-                            "offset": 5
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 6,
-                        "offset": 5
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 6,
-                    "offset": 5
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "number"
-              }
-            }
-          ],
-          "properties": [],
-          "returns": [
-            {
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "V",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 2,
-                            "offset": 1
-                          },
-                          "indent": []
-                        }
-                      },
-                      {
-                        "type": "linkReference",
-                        "identifier": "idx",
-                        "referenceType": "shortcut",
-                        "children": [
-                          {
-                            "type": "text",
-                            "value": "idx",
-                            "position": {
-                              "start": {
-                                "line": 1,
-                                "column": 3,
-                                "offset": 2
-                              },
-                              "end": {
-                                "line": 1,
-                                "column": 6,
-                                "offset": 5
-                              },
-                              "indent": []
-                            }
-                          }
-                        ],
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 2,
-                            "offset": 1
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 7,
-                            "offset": 6
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 7,
-                        "offset": 6
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 7,
-                    "offset": 6
-                  }
-                }
-              },
-              "title": "returns",
-              "type": {
-                "type": "NameExpression",
-                "name": "number"
-              }
-            }
-          ],
-          "sees": [],
-          "throws": [],
-          "todos": [],
-          "yields": [],
-          "name": "vGet",
-          "kind": "function",
-          "memberof": "Matrix",
-          "scope": "instance",
-          "members": {
-            "global": [],
-            "inner": [],
-            "instance": [],
-            "events": [],
-            "static": []
-          },
-          "path": [
-            {
-              "name": "Matrix",
-              "kind": "class"
-            },
-            {
-              "name": "vGet",
-              "kind": "function",
-              "scope": "instance"
-            }
-          ],
-          "namespace": "Matrix#vGet"
-        },
-        {
-          "description": {
-            "type": "root",
-            "children": [
-              {
-                "type": "paragraph",
-                "children": [
-                  {
-                    "type": "text",
-                    "value": "Set the value at idx",
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 21,
-                        "offset": 20
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 21,
-                    "offset": 20
-                  },
-                  "indent": []
-                }
-              }
-            ],
-            "position": {
-              "start": {
-                "line": 1,
-                "column": 1,
-                "offset": 0
-              },
-              "end": {
-                "line": 1,
-                "column": 21,
-                "offset": 20
-              }
-            }
-          },
-          "tags": [
-            {
-              "title": "warning",
-              "description": "The matrix must be a vector (either single row or column)",
-              "lineNumber": 2
-            },
-            {
-              "title": "param",
-              "description": "Row",
-              "lineNumber": 3,
-              "type": {
-                "type": "NameExpression",
-                "name": "number"
-              },
-              "name": "idx"
-            },
-            {
-              "title": "param",
-              "description": "value",
-              "lineNumber": 4,
-              "type": {
-                "type": "NameExpression",
-                "name": "number"
-              },
-              "name": "val"
-            },
-            {
-              "title": "example",
-              "description": "const A = new eig.Matrix(2, 1)\nA.vSet(1, 3 / 2)\nreturn A.vGet(1)",
-              "lineNumber": 5
-            }
-          ],
-          "loc": {
-            "start": {
-              "line": 67,
-              "column": 2
-            },
-            "end": {
-              "line": 76,
-              "column": 5
-            }
-          },
-          "context": {
-            "loc": {
-              "start": {
-                "line": 77,
-                "column": 2
-              },
-              "end": {
-                "line": 77,
-                "column": 18
-              }
-            },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
-          },
-          "augments": [],
-          "examples": [
-            {
-              "description": "const A = new eig.Matrix(2, 1)\nA.vSet(1, 3 / 2)\nreturn A.vGet(1)"
-            }
-          ],
-          "implements": [],
-          "params": [
-            {
-              "title": "param",
-              "name": "i",
-              "lineNumber": 77
-            },
-            {
-              "title": "param",
-              "name": "val",
-              "lineNumber": 4,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "value",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 6,
-                            "offset": 5
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 6,
-                        "offset": 5
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 6,
-                    "offset": 5
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "number"
-              }
-            },
-            {
-              "title": "param",
-              "name": "idx",
-              "lineNumber": 3,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Row",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 4,
-                            "offset": 3
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 4,
-                        "offset": 3
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 4,
-                    "offset": 3
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "number"
-              }
-            }
-          ],
-          "properties": [],
-          "returns": [],
-          "sees": [],
-          "throws": [],
-          "todos": [],
-          "yields": [],
-          "name": "vSet",
-          "kind": "function",
-          "memberof": "Matrix",
-          "scope": "instance",
-          "members": {
-            "global": [],
-            "inner": [],
-            "instance": [],
-            "events": [],
-            "static": []
-          },
-          "path": [
-            {
-              "name": "Matrix",
-              "kind": "class"
-            },
-            {
-              "name": "vSet",
-              "kind": "function",
-              "scope": "instance"
-            }
-          ],
-          "namespace": "Matrix#vSet"
-        },
-        {
-          "description": {
-            "type": "root",
-            "children": [
-              {
-                "type": "paragraph",
-                "children": [
-                  {
-                    "type": "text",
                     "value": "Take the dot product with another vector",
                     "position": {
                       "start": {
@@ -3468,37 +3688,37 @@
             },
             {
               "title": "example",
-              "description": "const V = eig.Matrix.fromArray([1, 2])\nconst B = eig.Matrix.fromArray([-1, 3])\nreturn V.dot(B)",
+              "description": "const V = new eig.Matrix([1, 2]);\nconst B = new eig.Matrix([-1, 3]);\nreturn V.dot(B);",
               "lineNumber": 5
             }
           ],
           "loc": {
             "start": {
-              "line": 79,
+              "line": 92,
               "column": 2
             },
             "end": {
-              "line": 88,
+              "line": 101,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 89,
+                "line": 102,
                 "column": 2
               },
               "end": {
-                "line": 89,
+                "line": 102,
                 "column": 12
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const V = eig.Matrix.fromArray([1, 2])\nconst B = eig.Matrix.fromArray([-1, 3])\nreturn V.dot(B)"
+              "description": "const V = new eig.Matrix([1, 2]);\nconst B = new eig.Matrix([-1, 3]);\nreturn V.dot(B);"
             }
           ],
           "implements": [],
@@ -3721,26 +3941,26 @@
           ],
           "loc": {
             "start": {
-              "line": 92,
+              "line": 105,
               "column": 2
             },
             "end": {
-              "line": 95,
+              "line": 108,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 96,
+                "line": 109,
                 "column": 2
               },
               "end": {
-                "line": 96,
+                "line": 109,
                 "column": 12
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [],
@@ -3902,26 +4122,26 @@
           ],
           "loc": {
             "start": {
-              "line": 98,
+              "line": 111,
               "column": 2
             },
             "end": {
-              "line": 101,
+              "line": 114,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 102,
+                "line": 115,
                 "column": 2
               },
               "end": {
-                "line": 102,
+                "line": 115,
                 "column": 15
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [],
@@ -4083,26 +4303,26 @@
           ],
           "loc": {
             "start": {
-              "line": 104,
+              "line": 117,
               "column": 2
             },
             "end": {
-              "line": 107,
+              "line": 120,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 108,
+                "line": 121,
                 "column": 2
               },
               "end": {
-                "line": 108,
+                "line": 121,
                 "column": 14
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [],
@@ -4263,37 +4483,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([[1, 2], [3, 4]])\nreturn [m.norm(), m.normSqr(), m.l1Norm(), m.lInfNorm()]",
+              "description": "const m = new eig.Matrix([[1, 2], [3, 4]]);\nreturn [m.norm(), m.normSqr(), m.l1Norm(), m.lInfNorm()];",
               "lineNumber": 3
             }
           ],
           "loc": {
             "start": {
-              "line": 110,
+              "line": 123,
               "column": 2
             },
             "end": {
-              "line": 116,
+              "line": 129,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 117,
+                "line": 130,
                 "column": 2
               },
               "end": {
-                "line": 117,
+                "line": 130,
                 "column": 16
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([[1, 2], [3, 4]])\nreturn [m.norm(), m.normSqr(), m.l1Norm(), m.lInfNorm()]"
+              "description": "const m = new eig.Matrix([[1, 2], [3, 4]]);\nreturn [m.norm(), m.normSqr(), m.l1Norm(), m.lInfNorm()];"
             }
           ],
           "implements": [],
@@ -4453,37 +4673,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([[2, 1], [2, 1]]);\nreturn m.rank();",
+              "description": "const m = new eig.Matrix([[2, 1], [2, 1]]);\nreturn m.rank();",
               "lineNumber": 3
             }
           ],
           "loc": {
             "start": {
-              "line": 119,
+              "line": 132,
               "column": 2
             },
             "end": {
-              "line": 125,
+              "line": 138,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 126,
+                "line": 139,
                 "column": 2
               },
               "end": {
-                "line": 126,
+                "line": 139,
                 "column": 12
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([[2, 1], [2, 1]]);\nreturn m.rank();"
+              "description": "const m = new eig.Matrix([[2, 1], [2, 1]]);\nreturn m.rank();"
             }
           ],
           "implements": [],
@@ -4643,37 +4863,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([[2, 0], [0, 3]]);\nreturn m.det();",
+              "description": "const m = new eig.Matrix([[2, 0], [0, 3]]);\nreturn m.det();",
               "lineNumber": 3
             }
           ],
           "loc": {
             "start": {
-              "line": 128,
+              "line": 141,
               "column": 2
             },
             "end": {
-              "line": 134,
+              "line": 147,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 135,
+                "line": 148,
                 "column": 2
               },
               "end": {
-                "line": 135,
+                "line": 148,
                 "column": 11
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([[2, 0], [0, 3]]);\nreturn m.det();"
+              "description": "const m = new eig.Matrix([[2, 0], [0, 3]]);\nreturn m.det();"
             }
           ],
           "implements": [],
@@ -4833,37 +5053,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([1, 2])\nreturn m.sum();",
+              "description": "const m = new eig.Matrix([1, 2]);\nreturn m.sum();",
               "lineNumber": 3
             }
           ],
           "loc": {
             "start": {
-              "line": 137,
+              "line": 150,
               "column": 2
             },
             "end": {
-              "line": 143,
+              "line": 156,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 144,
+                "line": 157,
                 "column": 2
               },
               "end": {
-                "line": 144,
+                "line": 157,
                 "column": 11
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([1, 2])\nreturn m.sum();"
+              "description": "const m = new eig.Matrix([1, 2]);\nreturn m.sum();"
             }
           ],
           "implements": [],
@@ -5063,37 +5283,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nreturn m.block(1, 0, 1, 2)",
+              "description": "const m = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nreturn m.block(1, 0, 1, 2);",
               "lineNumber": 7
             }
           ],
           "loc": {
             "start": {
-              "line": 146,
+              "line": 159,
               "column": 2
             },
             "end": {
-              "line": 156,
+              "line": 169,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 157,
+                "line": 170,
                 "column": 2
               },
               "end": {
-                "line": 157,
+                "line": 170,
                 "column": 25
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nreturn m.block(1, 0, 1, 2)"
+              "description": "const m = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nreturn m.block(1, 0, 1, 2);"
             }
           ],
           "implements": [],
@@ -5519,37 +5739,37 @@
             },
             {
               "title": "example",
-              "description": "const m = new eig.Matrix(3, 3);\nconst b = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\nm.setBlock(1, 0, b);\nreturn m;",
+              "description": "const m = new eig.Matrix(3, 3);\nconst b = new eig.Matrix([[1, 2, 3], [4, 5, 6]]);\nm.setBlock(1, 0, b);\nreturn m;",
               "lineNumber": 5
             }
           ],
           "loc": {
             "start": {
-              "line": 159,
+              "line": 172,
               "column": 2
             },
             "end": {
-              "line": 169,
+              "line": 182,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 170,
+                "line": 183,
                 "column": 2
               },
               "end": {
-                "line": 170,
+                "line": 183,
                 "column": 27
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = new eig.Matrix(3, 3);\nconst b = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);\nm.setBlock(1, 0, b);\nreturn m;"
+              "description": "const m = new eig.Matrix(3, 3);\nconst b = new eig.Matrix([[1, 2, 3], [4, 5, 6]]);\nm.setBlock(1, 0, b);\nreturn m;"
             }
           ],
           "implements": [],
@@ -5843,37 +6063,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([1, 2]);\nreturn m.mul(2);",
+              "description": "const m = new eig.Matrix([1, 2]);\nreturn m.mul(2);",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 172,
+              "line": 185,
               "column": 2
             },
             "end": {
-              "line": 179,
+              "line": 192,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 180,
+                "line": 193,
                 "column": 2
               },
               "end": {
-                "line": 180,
+                "line": 193,
                 "column": 14
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([1, 2]);\nreturn m.mul(2);"
+              "description": "const m = new eig.Matrix([1, 2]);\nreturn m.mul(2);"
             }
           ],
           "implements": [],
@@ -6105,37 +6325,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([1, 2]);\nm.mulSelf(2);\nreturn m;",
+              "description": "const m = new eig.Matrix([1, 2]);\nm.mulSelf(2);\nreturn m;",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 182,
+              "line": 195,
               "column": 2
             },
             "end": {
-              "line": 190,
+              "line": 203,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 191,
+                "line": 204,
                 "column": 2
               },
               "end": {
-                "line": 191,
+                "line": 204,
                 "column": 18
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([1, 2]);\nm.mulSelf(2);\nreturn m;"
+              "description": "const m = new eig.Matrix([1, 2]);\nm.mulSelf(2);\nreturn m;"
             }
           ],
           "implements": [],
@@ -6367,37 +6587,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([2, 4]);\nreturn m.div(2);",
+              "description": "const m = new eig.Matrix([2, 4]);\nreturn m.div(2);",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 193,
+              "line": 206,
               "column": 2
             },
             "end": {
-              "line": 200,
+              "line": 213,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 201,
+                "line": 214,
                 "column": 2
               },
               "end": {
-                "line": 201,
+                "line": 214,
                 "column": 14
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([2, 4]);\nreturn m.div(2);"
+              "description": "const m = new eig.Matrix([2, 4]);\nreturn m.div(2);"
             }
           ],
           "implements": [],
@@ -6629,37 +6849,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([2, 4]);\nm.divSelf(2);\nreturn m;",
+              "description": "const m = new eig.Matrix([2, 4]);\nm.divSelf(2);\nreturn m;",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 203,
+              "line": 216,
               "column": 2
             },
             "end": {
-              "line": 211,
+              "line": 224,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 212,
+                "line": 225,
                 "column": 2
               },
               "end": {
-                "line": 212,
+                "line": 225,
                 "column": 18
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([2, 4]);\nm.divSelf(2);\nreturn m;"
+              "description": "const m = new eig.Matrix([2, 4]);\nm.divSelf(2);\nreturn m;"
             }
           ],
           "implements": [],
@@ -6891,37 +7111,37 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([1, 2]);\nconst B = eig.Matrix.fromArray([3, 4]);\nreturn M.matAdd(B);",
+              "description": "const M = new eig.Matrix([1, 2]);\nconst B = new eig.Matrix([3, 4]);\nreturn M.matAdd(B);",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 214,
+              "line": 227,
               "column": 2
             },
             "end": {
-              "line": 222,
+              "line": 235,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 223,
+                "line": 236,
                 "column": 2
               },
               "end": {
-                "line": 223,
+                "line": 236,
                 "column": 15
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([1, 2]);\nconst B = eig.Matrix.fromArray([3, 4]);\nreturn M.matAdd(B);"
+              "description": "const M = new eig.Matrix([1, 2]);\nconst B = new eig.Matrix([3, 4]);\nreturn M.matAdd(B);"
             }
           ],
           "implements": [],
@@ -7153,37 +7373,37 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([1, 2]);\nconst B = eig.Matrix.fromArray([3, 4]);\nM.matAdd(B);\nreturn M;",
+              "description": "const M = new eig.Matrix([1, 2]);\nconst B = new eig.Matrix([3, 4]);\nM.matAddSelf(B);\nreturn M;",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 225,
+              "line": 238,
               "column": 2
             },
             "end": {
-              "line": 234,
+              "line": 247,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 235,
+                "line": 248,
                 "column": 2
               },
               "end": {
-                "line": 235,
-                "column": 15
+                "line": 248,
+                "column": 19
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([1, 2]);\nconst B = eig.Matrix.fromArray([3, 4]);\nM.matAdd(B);\nreturn M;"
+              "description": "const M = new eig.Matrix([1, 2]);\nconst B = new eig.Matrix([3, 4]);\nM.matAddSelf(B);\nreturn M;"
             }
           ],
           "implements": [],
@@ -7316,7 +7536,7 @@
           "throws": [],
           "todos": [],
           "yields": [],
-          "name": "matAdd",
+          "name": "matAddSelf",
           "kind": "function",
           "memberof": "Matrix",
           "scope": "instance",
@@ -7333,274 +7553,12 @@
               "kind": "class"
             },
             {
-              "name": "matAdd",
+              "name": "matAddSelf",
               "kind": "function",
               "scope": "instance"
             }
           ],
-          "namespace": "Matrix#matAdd"
-        },
-        {
-          "description": {
-            "type": "root",
-            "children": [
-              {
-                "type": "paragraph",
-                "children": [
-                  {
-                    "type": "text",
-                    "value": "Substract B in place",
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 21,
-                        "offset": 20
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 21,
-                    "offset": 20
-                  },
-                  "indent": []
-                }
-              }
-            ],
-            "position": {
-              "start": {
-                "line": 1,
-                "column": 1,
-                "offset": 0
-              },
-              "end": {
-                "line": 1,
-                "column": 21,
-                "offset": 20
-              }
-            }
-          },
-          "tags": [
-            {
-              "title": "param",
-              "description": "Matrix to be substracted",
-              "lineNumber": 2,
-              "type": {
-                "type": "NameExpression",
-                "name": "Matrix"
-              },
-              "name": "B"
-            },
-            {
-              "title": "returns",
-              "description": "this (M - B)",
-              "lineNumber": 3,
-              "type": {
-                "type": "NameExpression",
-                "name": "Matrix"
-              }
-            },
-            {
-              "title": "example",
-              "description": "const M = eig.Matrix.fromArray([3, 4]);\nconst B = eig.Matrix.fromArray([1, 2]);\nM.matSub(B);\nreturn M;",
-              "lineNumber": 4
-            }
-          ],
-          "loc": {
-            "start": {
-              "line": 248,
-              "column": 2
-            },
-            "end": {
-              "line": 257,
-              "column": 5
-            }
-          },
-          "context": {
-            "loc": {
-              "start": {
-                "line": 258,
-                "column": 2
-              },
-              "end": {
-                "line": 258,
-                "column": 15
-              }
-            },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
-          },
-          "augments": [],
-          "examples": [
-            {
-              "description": "const M = eig.Matrix.fromArray([3, 4]);\nconst B = eig.Matrix.fromArray([1, 2]);\nM.matSub(B);\nreturn M;"
-            }
-          ],
-          "implements": [],
-          "params": [
-            {
-              "title": "param",
-              "name": "B",
-              "lineNumber": 2,
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "Matrix to be substracted",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 25,
-                            "offset": 24
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 25,
-                        "offset": 24
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 25,
-                    "offset": 24
-                  }
-                }
-              },
-              "type": {
-                "type": "NameExpression",
-                "name": "Matrix"
-              }
-            }
-          ],
-          "properties": [],
-          "returns": [
-            {
-              "description": {
-                "type": "root",
-                "children": [
-                  {
-                    "type": "paragraph",
-                    "children": [
-                      {
-                        "type": "text",
-                        "value": "this (M - B)",
-                        "position": {
-                          "start": {
-                            "line": 1,
-                            "column": 1,
-                            "offset": 0
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 13,
-                            "offset": 12
-                          },
-                          "indent": []
-                        }
-                      }
-                    ],
-                    "position": {
-                      "start": {
-                        "line": 1,
-                        "column": 1,
-                        "offset": 0
-                      },
-                      "end": {
-                        "line": 1,
-                        "column": 13,
-                        "offset": 12
-                      },
-                      "indent": []
-                    }
-                  }
-                ],
-                "position": {
-                  "start": {
-                    "line": 1,
-                    "column": 1,
-                    "offset": 0
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 13,
-                    "offset": 12
-                  }
-                }
-              },
-              "title": "returns",
-              "type": {
-                "type": "NameExpression",
-                "name": "Matrix"
-              }
-            }
-          ],
-          "sees": [],
-          "throws": [],
-          "todos": [],
-          "yields": [],
-          "name": "matAdd",
-          "kind": "function",
-          "memberof": "Matrix",
-          "scope": "instance",
-          "members": {
-            "global": [],
-            "inner": [],
-            "instance": [],
-            "events": [],
-            "static": []
-          },
-          "path": [
-            {
-              "name": "Matrix",
-              "kind": "class"
-            },
-            {
-              "name": "matAdd",
-              "kind": "function",
-              "scope": "instance"
-            }
-          ],
-          "namespace": "Matrix#matAdd"
+          "namespace": "Matrix#matAddSelf"
         },
         {
           "description": {
@@ -7677,37 +7635,37 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([3, 4]);\nconst B = eig.Matrix.fromArray([1, 2]);\nreturn M.matSub(B);",
+              "description": "const M = new eig.Matrix([3, 4]);\nconst B = new eig.Matrix([1, 2]);\nreturn M.matSub(B);",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 237,
+              "line": 250,
               "column": 2
             },
             "end": {
-              "line": 245,
+              "line": 258,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 246,
+                "line": 259,
                 "column": 2
               },
               "end": {
-                "line": 246,
+                "line": 259,
                 "column": 15
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([3, 4]);\nconst B = eig.Matrix.fromArray([1, 2]);\nreturn M.matSub(B);"
+              "description": "const M = new eig.Matrix([3, 4]);\nconst B = new eig.Matrix([1, 2]);\nreturn M.matSub(B);"
             }
           ],
           "implements": [],
@@ -7873,6 +7831,268 @@
                 "children": [
                   {
                     "type": "text",
+                    "value": "Substract B in place",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 21,
+                        "offset": 20
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 21,
+                    "offset": 20
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 21,
+                "offset": 20
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "Matrix to be substracted",
+              "lineNumber": 2,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              },
+              "name": "B"
+            },
+            {
+              "title": "returns",
+              "description": "this (M - B)",
+              "lineNumber": 3,
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            },
+            {
+              "title": "example",
+              "description": "const M = new eig.Matrix([3, 4]);\nconst B = new eig.Matrix([1, 2]);\nM.matSubSelf(B);\nreturn M;",
+              "lineNumber": 4
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 261,
+              "column": 2
+            },
+            "end": {
+              "line": 270,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 271,
+                "column": 2
+              },
+              "end": {
+                "line": 271,
+                "column": 19
+              }
+            },
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
+          },
+          "augments": [],
+          "examples": [
+            {
+              "description": "const M = new eig.Matrix([3, 4]);\nconst B = new eig.Matrix([1, 2]);\nM.matSubSelf(B);\nreturn M;"
+            }
+          ],
+          "implements": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "B",
+              "lineNumber": 2,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Matrix to be substracted",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 25,
+                            "offset": 24
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 25,
+                        "offset": 24
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 25,
+                    "offset": 24
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [
+            {
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "this (M - B)",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 13,
+                            "offset": 12
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 13,
+                        "offset": 12
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 13,
+                    "offset": 12
+                  }
+                }
+              },
+              "title": "returns",
+              "type": {
+                "type": "NameExpression",
+                "name": "Matrix"
+              }
+            }
+          ],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "yields": [],
+          "name": "matSubSelf",
+          "kind": "function",
+          "memberof": "Matrix",
+          "scope": "instance",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "Matrix",
+              "kind": "class"
+            },
+            {
+              "name": "matSubSelf",
+              "kind": "function",
+              "scope": "instance"
+            }
+          ],
+          "namespace": "Matrix#matSubSelf"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
                     "value": "Multiply by a matrix B",
                     "position": {
                       "start": {
@@ -7939,37 +8159,37 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([3, 4]);\nconst B = eig.Matrix.fromArray([[1, 2]]);\nreturn M.matMul(B);",
+              "description": "const M = new eig.Matrix([3, 4]);\nconst B = new eig.Matrix([[1, 2]]);\nreturn M.matMul(B);",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 260,
+              "line": 273,
               "column": 2
             },
             "end": {
-              "line": 268,
+              "line": 281,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 269,
+                "line": 282,
                 "column": 2
               },
               "end": {
-                "line": 269,
+                "line": 282,
                 "column": 15
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([3, 4]);\nconst B = eig.Matrix.fromArray([[1, 2]]);\nreturn M.matMul(B);"
+              "description": "const M = new eig.Matrix([3, 4]);\nconst B = new eig.Matrix([[1, 2]]);\nreturn M.matMul(B);"
             }
           ],
           "implements": [],
@@ -8201,37 +8421,37 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([3, 4]);\nconst B = eig.Matrix.fromArray([[1, 2]]);\nM.matMulSelf(B);\nreturn M;",
+              "description": "const M = new eig.Matrix([3, 4]);\nconst B = new eig.Matrix([[1, 2]]);\nM.matMulSelf(B);\nreturn M;",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 271,
+              "line": 284,
               "column": 2
             },
             "end": {
-              "line": 280,
+              "line": 293,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 281,
+                "line": 294,
                 "column": 2
               },
               "end": {
-                "line": 281,
+                "line": 294,
                 "column": 19
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([3, 4]);\nconst B = eig.Matrix.fromArray([[1, 2]]);\nM.matMulSelf(B);\nreturn M;"
+              "description": "const M = new eig.Matrix([3, 4]);\nconst B = new eig.Matrix([[1, 2]]);\nM.matMulSelf(B);\nreturn M;"
             }
           ],
           "implements": [],
@@ -8463,37 +8683,37 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([[1], [2]]);\nconst B = eig.Matrix.fromArray([[3], [4]]);\nreturn M.hcat(B);",
+              "description": "const M = new eig.Matrix([[1], [2]]);\nconst B = new eig.Matrix([[3], [4]]);\nreturn M.hcat(B);",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 283,
+              "line": 296,
               "column": 2
             },
             "end": {
-              "line": 291,
+              "line": 304,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 292,
+                "line": 305,
                 "column": 2
               },
               "end": {
-                "line": 292,
+                "line": 305,
                 "column": 13
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([[1], [2]]);\nconst B = eig.Matrix.fromArray([[3], [4]]);\nreturn M.hcat(B);"
+              "description": "const M = new eig.Matrix([[1], [2]]);\nconst B = new eig.Matrix([[3], [4]]);\nreturn M.hcat(B);"
             }
           ],
           "implements": [],
@@ -8745,37 +8965,37 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([[1], [2]]);\nconst B = eig.Matrix.fromArray([[3], [4]]);\nreturn M.vcat(B);",
+              "description": "const M = new eig.Matrix([[1], [2]]);\nconst B = new eig.Matrix([[3], [4]]);\nreturn M.vcat(B);",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 294,
+              "line": 307,
               "column": 2
             },
             "end": {
-              "line": 302,
+              "line": 315,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 303,
+                "line": 316,
                 "column": 2
               },
               "end": {
-                "line": 303,
+                "line": 316,
                 "column": 13
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([[1], [2]]);\nconst B = eig.Matrix.fromArray([[3], [4]]);\nreturn M.vcat(B);"
+              "description": "const M = new eig.Matrix([[1], [2]]);\nconst B = new eig.Matrix([[3], [4]]);\nreturn M.vcat(B);"
             }
           ],
           "implements": [],
@@ -9017,37 +9237,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([[0, 1], [3, 0]]);\nreturn m.transpose();",
+              "description": "const m = new eig.Matrix([[0, 1], [3, 0]]);\nreturn m.transpose();",
               "lineNumber": 3
             }
           ],
           "loc": {
             "start": {
-              "line": 305,
+              "line": 318,
               "column": 2
             },
             "end": {
-              "line": 311,
+              "line": 324,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 312,
+                "line": 325,
                 "column": 2
               },
               "end": {
-                "line": 312,
+                "line": 325,
                 "column": 16
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([[0, 1], [3, 0]]);\nreturn m.transpose();"
+              "description": "const m = new eig.Matrix([[0, 1], [3, 0]]);\nreturn m.transpose();"
             }
           ],
           "implements": [],
@@ -9207,37 +9427,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([[0, 1], [3, 0]]);\nm.transpose();\nreturn m;",
+              "description": "const m = new eig.Matrix([[0, 1], [3, 0]]);\nm.transpose();\nreturn m;",
               "lineNumber": 3
             }
           ],
           "loc": {
             "start": {
-              "line": 314,
+              "line": 327,
               "column": 2
             },
             "end": {
-              "line": 321,
+              "line": 334,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 322,
+                "line": 335,
                 "column": 2
               },
               "end": {
-                "line": 322,
+                "line": 335,
                 "column": 21
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([[0, 1], [3, 0]]);\nm.transpose();\nreturn m;"
+              "description": "const m = new eig.Matrix([[0, 1], [3, 0]]);\nm.transpose();\nreturn m;"
             }
           ],
           "implements": [],
@@ -9463,37 +9683,37 @@
             },
             {
               "title": "example",
-              "description": "const m = eig.Matrix.fromArray([[4, 9], [3, 7]]);\nreturn m.inverse();",
+              "description": "const m = new eig.Matrix([[4, 9], [3, 7]]);\nreturn m.inverse();",
               "lineNumber": 6
             }
           ],
           "loc": {
             "start": {
-              "line": 324,
+              "line": 337,
               "column": 2
             },
             "end": {
-              "line": 333,
+              "line": 346,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 334,
+                "line": 347,
                 "column": 2
               },
               "end": {
-                "line": 334,
+                "line": 347,
                 "column": 15
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const m = eig.Matrix.fromArray([[4, 9], [3, 7]]);\nreturn m.inverse();"
+              "description": "const m = new eig.Matrix([[4, 9], [3, 7]]);\nreturn m.inverse();"
             }
           ],
           "implements": [],
@@ -9682,26 +9902,26 @@
           ],
           "loc": {
             "start": {
-              "line": 336,
+              "line": 349,
               "column": 2
             },
             "end": {
-              "line": 343,
+              "line": 356,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 344,
+                "line": 357,
                 "column": 2
               },
               "end": {
-                "line": 344,
+                "line": 357,
                 "column": 27
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
@@ -10015,26 +10235,26 @@
           ],
           "loc": {
             "start": {
-              "line": 346,
+              "line": 359,
               "column": 2
             },
             "end": {
-              "line": 353,
+              "line": 366,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 354,
+                "line": 367,
                 "column": 2
               },
               "end": {
-                "line": 354,
+                "line": 367,
                 "column": 23
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
@@ -10358,26 +10578,26 @@
           ],
           "loc": {
             "start": {
-              "line": 356,
+              "line": 369,
               "column": 2
             },
             "end": {
-              "line": 364,
+              "line": 377,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 365,
+                "line": 378,
                 "column": 2
               },
               "end": {
-                "line": 365,
+                "line": 378,
                 "column": 32
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
@@ -10752,26 +10972,26 @@
           ],
           "loc": {
             "start": {
-              "line": 367,
+              "line": 380,
               "column": 2
             },
             "end": {
-              "line": 374,
+              "line": 387,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 375,
+                "line": 388,
                 "column": 2
               },
               "end": {
-                "line": 375,
+                "line": 388,
                 "column": 25
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
@@ -11069,37 +11289,37 @@
             },
             {
               "title": "example",
-              "description": "const vec = eig.Matrix.fromArray([1, 2, 3])\nreturn eig.Matrix.diagonal(vec);",
+              "description": "const vec = new eig.Matrix([1, 2, 3]);\nreturn eig.Matrix.diagonal(vec);",
               "lineNumber": 4
             }
           ],
           "loc": {
             "start": {
-              "line": 377,
+              "line": 390,
               "column": 2
             },
             "end": {
-              "line": 384,
+              "line": 397,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 385,
+                "line": 398,
                 "column": 2
               },
               "end": {
-                "line": 385,
+                "line": 398,
                 "column": 26
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const vec = eig.Matrix.fromArray([1, 2, 3])\nreturn eig.Matrix.diagonal(vec);"
+              "description": "const vec = new eig.Matrix([1, 2, 3]);\nreturn eig.Matrix.diagonal(vec);"
             }
           ],
           "implements": [],
@@ -11337,37 +11557,37 @@
             },
             {
               "title": "example",
-              "description": "return eig.Matrix.fromArray([[1, 2], [3, 4]]);",
+              "description": "return new eig.Matrix([[1, 2], [3, 4]]);",
               "lineNumber": 6
             }
           ],
           "loc": {
             "start": {
-              "line": 387,
+              "line": 400,
               "column": 2
             },
             "end": {
-              "line": 395,
+              "line": 408,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 396,
+                "line": 409,
                 "column": 2
               },
               "end": {
-                "line": 396,
+                "line": 409,
                 "column": 27
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Matrix.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Matrix.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "return eig.Matrix.fromArray([[1, 2], [3, 4]]);"
+              "description": "return new eig.Matrix([[1, 2], [3, 4]]);"
             }
           ],
           "implements": [],
@@ -11609,7 +11829,7 @@
           "column": 1
         }
       },
-      "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Solvers.js"
+      "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Solvers.js"
     },
     "augments": [],
     "examples": [],
@@ -11718,7 +11938,7 @@
             },
             {
               "title": "example",
-              "description": "const M = eig.Matrix.fromArray([[8, 3], [2, 7]]);\nconst result = eig.Solvers.eigenSolve(M, true);\ndelete result.info\nreturn result",
+              "description": "const M = new eig.Matrix([[8, 3], [2, 7]]);\nconst result = eig.Solvers.eigenSolve(M, true);\ndelete result.info\nreturn result",
               "lineNumber": 6
             }
           ],
@@ -11743,12 +11963,12 @@
                 "column": 47
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Solvers.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Solvers.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "const M = eig.Matrix.fromArray([[8, 3], [2, 7]]);\nconst result = eig.Solvers.eigenSolve(M, true);\ndelete result.info\nreturn result"
+              "description": "const M = new eig.Matrix([[8, 3], [2, 7]]);\nconst result = eig.Solvers.eigenSolve(M, true);\ndelete result.info\nreturn result"
             }
           ],
           "implements": [],
@@ -12075,7 +12295,7 @@
             },
             {
               "title": "example",
-              "description": "// Finds the optimal linear quadratic regulator controller of an inverted pendulum \n// The state-space dynamic of the pendulum linearized about the upside down state is\n// xDot = A*x + B*u\n// With x = [theta, thetaDot]\n// And dThetaDot/dt = -(m*g*l*sin(theta) + u)/ml^2\n// Here, we take m = 1, l = 1, g = 10\nconst A = eig.Matrix.fromArray([[0, 1], [-10, 0]])\nconst B = eig.Matrix.fromArray([0, 1])\nconst Q = eig.Matrix.identity(2, 2).mul(10)\nconst R = eig.Matrix.identity(1, 1)\n\n// Solve the CARE equation\nconst result = eig.Solvers.careSolve(A, B, Q, R)\ndelete result.info\nreturn result",
+              "description": "// Finds the optimal linear quadratic regulator controller of an inverted pendulum \n// The state-space dynamic of the pendulum linearized about the upside down state is\n// xDot = A*x + B*u\n// With x = [theta, thetaDot]\n// And dThetaDot/dt = -(m*g*l*sin(theta) + u)/ml^2\n// Here, we take m = 1, l = 1, g = 10\nconst A = new eig.Matrix([[0, 1], [-10, 0]])\nconst B = new eig.Matrix([0, 1])\nconst Q = eig.Matrix.identity(2, 2).mul(10)\nconst R = eig.Matrix.identity(1, 1)\n\n// Solve the CARE equation\nconst result = eig.Solvers.careSolve(A, B, Q, R)\ndelete result.info\nreturn result",
               "lineNumber": 8
             }
           ],
@@ -12100,12 +12320,12 @@
                 "column": 34
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Solvers.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Solvers.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "// Finds the optimal linear quadratic regulator controller of an inverted pendulum \n// The state-space dynamic of the pendulum linearized about the upside down state is\n// xDot = A*x + B*u\n// With x = [theta, thetaDot]\n// And dThetaDot/dt = -(m*g*l*sin(theta) + u)/ml^2\n// Here, we take m = 1, l = 1, g = 10\nconst A = eig.Matrix.fromArray([[0, 1], [-10, 0]])\nconst B = eig.Matrix.fromArray([0, 1])\nconst Q = eig.Matrix.identity(2, 2).mul(10)\nconst R = eig.Matrix.identity(1, 1)\n\n// Solve the CARE equation\nconst result = eig.Solvers.careSolve(A, B, Q, R)\ndelete result.info\nreturn result"
+              "description": "// Finds the optimal linear quadratic regulator controller of an inverted pendulum \n// The state-space dynamic of the pendulum linearized about the upside down state is\n// xDot = A*x + B*u\n// With x = [theta, thetaDot]\n// And dThetaDot/dt = -(m*g*l*sin(theta) + u)/ml^2\n// Here, we take m = 1, l = 1, g = 10\nconst A = new eig.Matrix([[0, 1], [-10, 0]])\nconst B = new eig.Matrix([0, 1])\nconst Q = eig.Matrix.identity(2, 2).mul(10)\nconst R = eig.Matrix.identity(1, 1)\n\n// Solve the CARE equation\nconst result = eig.Solvers.careSolve(A, B, Q, R)\ndelete result.info\nreturn result"
             }
           ],
           "implements": [],
@@ -12601,7 +12821,7 @@
             },
             {
               "title": "example",
-              "description": "// Let's minimize 0.5 x' P x + q' x\n// Suject to l <= Ax <= u\n// With P = [[4, 1], [0, 2]]; q = [1, 1]\n// And A = [[1, 1], [1, 0], [0, 1]] \n// l = [1, 0, 0]; u = [1, 0.7, 0.7];\nconst P = eig.SparseMatrix.fromTriplets(2, 2, [\n [0, 0, 4], [0, 1, 1], [1, 1, 2]\n]);\nconst A = eig.SparseMatrix.fromTriplets(3, 2, [\n [0, 0, 1], [0, 1, 1], [1, 0, 1], [2, 1, 1]\n]);\nconst q = eig.Matrix.fromArray([1, 1])\nconst l = eig.Matrix.fromArray([1, 0, 0])\nconst u = eig.Matrix.fromArray([1, 0.7, 0.7])\nreturn eig.QuadProgSolver.solve(P, q, A, l, u);",
+              "description": "// Let's minimize 0.5 x' P x + q' x\n// Suject to l <= Ax <= u\n// With P = [[4, 1], [0, 2]]; q = [1, 1]\n// And A = [[1, 1], [1, 0], [0, 1]] \n// l = [1, 0, 0]; u = [1, 0.7, 0.7];\nconst P = eig.SparseMatrix.fromTriplets(2, 2, [\n [0, 0, 4], [0, 1, 1], [1, 1, 2]\n]);\nconst A = eig.SparseMatrix.fromTriplets(3, 2, [\n [0, 0, 1], [0, 1, 1], [1, 0, 1], [2, 1, 1]\n]);\nconst q = new eig.Matrix([1, 1])\nconst l = new eig.Matrix([1, 0, 0])\nconst u = new eig.Matrix([1, 0.7, 0.7])\nreturn eig.Solvers.quadProgSolve(P, q, A, l, u);",
               "lineNumber": 11
             }
           ],
@@ -12626,12 +12846,12 @@
                 "column": 41
               }
             },
-            "file": "/Users/bbevillard/Documents/Bev/Code/C++/eigen-js/src/classes/Solvers.js"
+            "file": "/Users/bbevillard/Documents/Bev/Code/Web/eigen-js/src/classes/Solvers.js"
           },
           "augments": [],
           "examples": [
             {
-              "description": "// Let's minimize 0.5 x' P x + q' x\n// Suject to l <= Ax <= u\n// With P = [[4, 1], [0, 2]]; q = [1, 1]\n// And A = [[1, 1], [1, 0], [0, 1]] \n// l = [1, 0, 0]; u = [1, 0.7, 0.7];\nconst P = eig.SparseMatrix.fromTriplets(2, 2, [\n [0, 0, 4], [0, 1, 1], [1, 1, 2]\n]);\nconst A = eig.SparseMatrix.fromTriplets(3, 2, [\n [0, 0, 1], [0, 1, 1], [1, 0, 1], [2, 1, 1]\n]);\nconst q = eig.Matrix.fromArray([1, 1])\nconst l = eig.Matrix.fromArray([1, 0, 0])\nconst u = eig.Matrix.fromArray([1, 0.7, 0.7])\nreturn eig.QuadProgSolver.solve(P, q, A, l, u);"
+              "description": "// Let's minimize 0.5 x' P x + q' x\n// Suject to l <= Ax <= u\n// With P = [[4, 1], [0, 2]]; q = [1, 1]\n// And A = [[1, 1], [1, 0], [0, 1]] \n// l = [1, 0, 0]; u = [1, 0.7, 0.7];\nconst P = eig.SparseMatrix.fromTriplets(2, 2, [\n [0, 0, 4], [0, 1, 1], [1, 1, 2]\n]);\nconst A = eig.SparseMatrix.fromTriplets(3, 2, [\n [0, 0, 1], [0, 1, 1], [1, 0, 1], [2, 1, 1]\n]);\nconst q = new eig.Matrix([1, 1])\nconst l = new eig.Matrix([1, 0, 0])\nconst u = new eig.Matrix([1, 0.7, 0.7])\nreturn eig.Solvers.quadProgSolve(P, q, A, l, u);"
             }
           ],
           "implements": [],

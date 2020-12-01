@@ -9,7 +9,7 @@ class Solvers {
    * @param {boolean} computeEigenvectors - Whether to compute eigenvectors
    * @returns {EigenSolverResult} - Result of the solver
    * @example
-   * const M = eig.Matrix.fromArray([[8, 3], [2, 7]]);
+   * const M = new eig.Matrix([[8, 3], [2, 7]]);
    * const result = eig.Solvers.eigenSolve(M, true);
    * delete result.info
    * return result
@@ -31,8 +31,8 @@ class Solvers {
    * // With x = [theta, thetaDot]
    * // And dThetaDot/dt = -(m*g*l*sin(theta) + u)/ml^2
    * // Here, we take m = 1, l = 1, g = 10
-   * const A = eig.Matrix.fromArray([[0, 1], [-10, 0]])
-   * const B = eig.Matrix.fromArray([0, 1])
+   * const A = new eig.Matrix([[0, 1], [-10, 0]])
+   * const B = new eig.Matrix([0, 1])
    * const Q = eig.Matrix.identity(2, 2).mul(10)
    * const R = eig.Matrix.identity(1, 1)
    * 
@@ -66,9 +66,9 @@ class Solvers {
    * const A = eig.SparseMatrix.fromTriplets(3, 2, [
    *  [0, 0, 1], [0, 1, 1], [1, 0, 1], [2, 1, 1]
    * ]);
-   * const q = eig.Matrix.fromArray([1, 1])
-   * const l = eig.Matrix.fromArray([1, 0, 0])
-   * const u = eig.Matrix.fromArray([1, 0.7, 0.7])
+   * const q = new eig.Matrix([1, 1])
+   * const l = new eig.Matrix([1, 0, 0])
+   * const u = new eig.Matrix([1, 0.7, 0.7])
    * return eig.Solvers.quadProgSolve(P, q, A, l, u);
    */
   static quadProgSolve(P, q, A, l, u) { }

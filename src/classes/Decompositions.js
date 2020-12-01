@@ -10,7 +10,7 @@ class Decompositions {
    * @returns {QRResult} - Result
    * @warning M must be positive definite
    * @example
-   * const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+   * const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
    * const cholesky = eig.Decompositions.cholesky(M);
    * return cholesky;
    */
@@ -23,7 +23,7 @@ class Decompositions {
    * @returns {QRResult} - Result
    * @warning M must be a square matrix
    * @example
-   * const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+   * const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
    * const lu = eig.Decompositions.lu(M);
    * return lu;
    */
@@ -35,7 +35,7 @@ class Decompositions {
    * @param {Matrix} M 
    * @returns {QRResult} - Result
    * @example
-   * const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+   * const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
    * const qr = eig.Decompositions.qr(M);
    * return qr;
    */
@@ -50,7 +50,7 @@ class Decompositions {
    * @param {boolean} thin - Only keep the non-zero singular values
    * @returns {SVDResult} - Result
    * @example
-   * const M = eig.Matrix.fromArray([[1, 2, 3], [4, 5, 6]]);
+   * const M = new eig.Matrix([[1, 2, 3], [4, 5, 6]]);
    * const svd = eig.Decompositions.svd(M, true);
    * return svd;
    */

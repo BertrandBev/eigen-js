@@ -51,7 +51,7 @@ class Benchmark {
     const array = Benchmark.getRandomArray2D(size)
     switch (type) {
       case 'eig':
-        return eig.Matrix.fromArray(array)
+        return new eig.Matrix(array)
       case 'mlmatrix':
         return new Matrix(array);
       case 'lalolib':

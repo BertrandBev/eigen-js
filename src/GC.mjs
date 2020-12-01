@@ -92,3 +92,4 @@ GarbageCollector.objects = new Set();
 GarbageCollector.whitelist = new HashMap(); // Reference count
 
 export default GarbageCollector
+export { getStaticMethods }
