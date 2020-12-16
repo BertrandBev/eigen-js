@@ -15,7 +15,7 @@ div(style='display: flex; flex-direction: column; align-items: center')
 import Demo from "@/components/home/Demo.vue";
 import markdown from "!raw-loader!../../../README.md";
 import MarkdownIt from "markdown-it";
-import hljs from "highlight.js/lib/highlight";
+import hljs from "highlight.js/lib/core";
 import javascript from "highlight.js/lib/languages/javascript"
 import bash from "highlight.js/lib/languages/bash"
 hljs.registerLanguage('javascript', javascript);

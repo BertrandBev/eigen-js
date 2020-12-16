@@ -1,22 +1,23 @@
 import eig from "@eigen";
 import { Matrix, inverse } from "ml-matrix";
-const mathjs = require('mathjs')
+const mathjs = require('mathjs');
 const linalg = require('linear-algebra')();
 const lalolib = window.lalolib;
-import _ from 'lodash'
+// import lalolib from '@assets/lalolib-noglpk-module.min'
+import _ from 'lodash';
 
 const mlmatrix = {
   Matrix,
   inverse
-}
+};
 
 const libraries = {
   eig: { name: 'Eigen JS', lib: eig },
   mlmatrix: { name: 'Ml Matrix', lib: mlmatrix },
   mathjs: { name: 'Math JS', lib: mathjs },
   linalg: { name: 'Linalg', lib: linalg },
-  // lalolib : { name: 'LaloLib, lib: lalolib },
-}
+  lalolib: { name: 'LaloLib', lib: lalolib },
+};
 
 
 class Random {
@@ -32,13 +33,13 @@ class Random {
 
 class Benchmark {
   constructor(data) {
-    this.data = data
-    this.functions = {}
-    this.libraries = libraries
+    this.data = data;
+    this.functions = {};
+    this.libraries = libraries;
     _.keys(libraries).filter(lib => _.has(data, lib)).forEach(lib => {
-      const body = data.body(lib, data[lib])
-      this.functions[lib] = body.replace(/^\s*[\r\n]/gm, "")
-    })
+      const body = data.body(lib, data[lib]);
+      this.functions[lib] = body.replace(/^\s*[\r\n]/gm, "");
+    });
   }
 
   static getRandomArray2D(size) {
@@ -48,10 +49,10 @@ class Benchmark {
   }
 
   static createMatrix(type, size) {
-    const array = Benchmark.getRandomArray2D(size)
+    const array = Benchmark.getRandomArray2D(size);
     switch (type) {
       case 'eig':
-        return new eig.Matrix(array)
+        return new eig.Matrix(array);
       case 'mlmatrix':
         return new Matrix(array);
       case 'lalolib':
@@ -68,26 +69,26 @@ class Benchmark {
     const libs = _.zipObject(
       _.keys(libraries),
       _.values(libraries).map(l => l.lib)
-    )
+    );
     const params = {
       createMatrix: Benchmark.createMatrix,
       ...libs,
       ...this.data.params,
-    }
+    };
     let fun = new Function(..._.keys(params), benchmarkFun);
     try {
       const result = fun(..._.values(params));
     } catch (e) {
-      console.error('Benchmark error', e)
+      console.error('Benchmark error', e);
     }
-    return Date.now() - startTime
+    return Date.now() - startTime;
   }
 }
 
 /**
  * Benchmark functions
  */
-const benchmarks = []
+const benchmarks = [];
 
 benchmarks.push(new Benchmark({
   name: 'Matrix multiplication',
@@ -109,7 +110,7 @@ ${fun}
   mathjs.multiply(A, B)`,
   linalg: `
   A.dot(B)`
-}))
+}));
 
 benchmarks.push(new Benchmark({
   name: 'Matrix inversion',
@@ -128,7 +129,7 @@ ${fun}
   mlmatrix.inverse(A)`,
   mathjs: `
   mathjs.inv(A)`
-}))
+}));
 
 benchmarks.push(new Benchmark({
   name: 'Singular value decomposition',
@@ -143,6 +144,6 @@ ${fun}
   eig.Decompositions.svd(A, true)`,
   lalolib: `
   lalolib.svd(A, "thin");`,
-}))
+}));
 
-export default benchmarks
+export default benchmarks;
