@@ -5,7 +5,6 @@
 #include <Eigen/Dense>
 #include "DenseMatrix.h"
 #include "CareSolver.h"
-#include "QuadProgSolver.h"
 #include "contrib/multivariateNormal.h"
 
 

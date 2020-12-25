@@ -7,7 +7,9 @@
 #include "CareSolver.h"
 #include "Solvers.h"
 #include "Decompositions.h"
+#ifndef NO_OSQP
 #include "QuadProgSolver.h"
+#endif
 #include "Random.h"
 
 using namespace std;
@@ -166,7 +168,10 @@ EMSCRIPTEN_BINDINGS(Module)
     class_<Solvers>("Solvers")
         .class_function("eigenSolve", &Solvers::eigenSolve)
         .class_function("careSolve", &Solvers::careSolve)
-        .class_function("quadProgSolve", &Solvers::quadProgSolve);
+        #ifndef NO_OSQP
+        .class_function("quadProgSolve", &Solvers::quadProgSolve)
+        #endif
+        ;
 
     // Decompositions
     value_object<Decompositions::CholeskyResult>("CholeskyResult")
@@ -194,10 +199,12 @@ EMSCRIPTEN_BINDINGS(Module)
         .class_function("svd", &Decompositions::svd);
 
     // Quad prog solver
+    #ifndef NO_OSQP
     class_<QuadProgSolver>("QuadProgSolver")
         .class_function("solve", &QuadProgSolver::solve)
         .class_function("solveSparse", &QuadProgSolver::solveSparse)
         .class_function("solveBasic", &QuadProgSolver::solveBasic);
+    #endif
 
     // Random
     class_<Random>("Random")
