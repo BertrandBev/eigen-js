@@ -58,7 +58,7 @@ source path/to/emsdk/emsdk_env.sh
 emcc -v
 ```
 
-Dowload the latest versions of [Eigen](https://gitlab.com/libeigen/eigen/-/releases/) and [OSPQ](https://github.com/oxfordcontrol/osqp/), and put then in the `lib` directory
+Dowload the latest versions of [Eigen](https://gitlab.com/libeigen/eigen/-/releases/) and [OSPQ](https://github.com/oxfordcontrol/osqp/) (optional, see below), and put then in the `lib` directory
 
 ```bash
 lib/eigen
@@ -80,6 +80,11 @@ Once done, eigen.js can be compile to a wasm binary
 # From the root directory
 mkdir build
 emcc -I lib/eigen -I lib/osqp/include -Isrc lib/osqp/build/out/libosqp.a -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0 -O3 -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1 --bind -o build/eigen_gen.js src/cpp/embind.cc 
+```
+
+If you are not interested in the OSQP functionality, you can build without installing it with
+```
+emcc -D NO_OSQP -I lib/eigen  -Isrc -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0 -O3 -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1 --bind -o build/eigen_gen.js src/cpp/embind.cc
 ```
 
 ### Generate the documentation

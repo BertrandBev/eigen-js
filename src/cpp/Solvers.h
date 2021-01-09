@@ -4,7 +4,9 @@
 #include <Eigen/Dense>
 #include "DenseMatrix.h"
 #include "CareSolver.h"
+#ifndef NO_OSQP
 #include "QuadProgSolver.h"
+#endif
 
 class Solvers
 {
@@ -43,12 +45,14 @@ public:
     return CareSolver::solve(A, B, Q, R);
   };
 
+  #ifndef NO_OSQP
   /**
    * Quadratic program solver
    */
   static DMD quadProgSolve(SMD &P, DMD &q, SMD &A, DMD &l, DMD &u) {
     return QuadProgSolver::solve(P, q, A, l, u);
   };
+  #endif
 };
 
 #endif // SOLVERS_H
