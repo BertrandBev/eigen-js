@@ -17,15 +17,18 @@ class Decompositions {
   static cholesky(M) { }
 
   /**
-   * LU decomposition consists in decomposing a square matrix A as a product A = L U
-   * Where U is upper triangular L lower triangular
+   * LU decomposition consists in decomposing a square matrix A as a product A = P^-1 * (L + I) * U * Q^-1
+   * Where U is upper triangular L lower triangular, I is the identity matrix, and P & Q are two permutation matrices
    * @param {Matrix} M 
    * @returns {QRResult} - Result
    * @warning M must be a square matrix
    * @example
    * const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
    * const lu = eig.Decompositions.lu(M);
-   * return lu;
+   * // Reconstruct M from its LU decomposition
+   * const I = eig.Matrix.identity(3, 3);
+   * const M2 = lu.P.inverse().matMul(lu.L.matAdd(I)).matMul(lu.U).matMul(lu.Q.inverse());
+   * return { ...lu, M2 };
    */
   static lu(M) { }
 
@@ -52,7 +55,11 @@ class Decompositions {
    * @example
    * const M = new eig.Matrix([[1, 2, 3], [4, 5, 6]]);
    * const svd = eig.Decompositions.svd(M, true);
-   * return svd;
+   * // Reconstruct M from its SVD decomposition
+   * let sigma = new eig.Matrix(svd.U.cols(), svd.V.cols());
+   * sigma.setBlock(0, 0, eig.Matrix.diagonal(svd.sv));
+   * const M2 = svd.U.matMul(sigma.transpose()).matMul(svd.V.transpose());
+   * return {...svd, M2} 
    */
   static svd(M, thin) { }
 }

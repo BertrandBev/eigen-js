@@ -6,7 +6,7 @@
 //-         min-width='100%'
 //-         icon='mdi-chevron-right'
 //-         color='green')
-div.grey--text.text--darken-2(v-katex='expression')
+.grey--text.text--darken-2(v-katex="expression")
 </template>
 
 <script>
@@ -17,17 +17,17 @@ export default {
   name: "TexDisplay",
 
   props: {
-    value: [Object, String, Number, Array]
+    value: [Object, String, Number, Array],
   },
 
   data: () => ({
-    visible: true
+    visible: true,
   }),
 
   computed: {
     expression() {
       return getTex(this.value);
-    }
+    },
   },
 
   watch: {
@@ -39,14 +39,14 @@ export default {
       if (!this.visible) {
         this.$emit("clear");
       }
-    }
+    },
   },
 
   methods: {
-    parse(object) {}
+    parse(object) {},
   },
 
-  mounted() {}
+  mounted() {},
 };
 </script>
 

@@ -13,7 +13,9 @@ Eigen.js is a port of the [Eigen](https://eigen.tuxfamily.org/) C++ linear algeb
 
 It uses a WebAssembly compiled subset of the [Eigen](https://eigen.tuxfamily.org/) library, and implements a garbage collection mechanism to manage memory
 
-[Home](https://bertrandbev.github.io/eigen-js/#/) • [Documentation](https://bertrandbev.github.io/eigen-js/#/matrix) • [Benchmarks](https://bertrandbev.github.io/eigen-js/#/benchmark)
+# Live demo & documentation
+
+An interactive documentation is available at [eigen-js](https://bertrandbev.github.io/eigen-js/#/). Stress benchmarks can be found [here](https://bertrandbev.github.io/eigen-js/#/benchmark)
 
 ## Usage
 
@@ -31,11 +33,11 @@ In a node (v14) application or in the browser (using [webpack](https://webpack.j
 
 ```js
 // test.mjs
-import eig from 'eigen'
+import eig from 'eigen';
 
 (async () => {
-  await eig.ready
-  const M = new eig.Matrix([[1, 2], [3, 4]])
+  await eig.ready;
+  const M = new eig.Matrix([[1, 2], [3, 4]]);
   M.print("M");
   M.inverse();
   M.print("Minv");
@@ -44,6 +46,44 @@ import eig from 'eigen'
 ```
 
 This minimal example can be found under ``./example``
+
+## Allocation
+
+The WebAssembly binary requires a manual memory management for objects allocated on the heap. Every time a matrix is created, it will be allocated on the heap and its memory won't be freed until its `delete()` method is invoked
+
+```js
+// test.mjs
+import eig from 'eigen';
+
+(async () => {
+  await eig.ready;
+  const M = new eig.Matrix([[1, 2], [3, 4]]); // Memory is allocated for M
+  M.print("M");
+  M.delete(); // Memory is freed here
+  M.print("M"); // This will trigger an error
+})();
+```
+
+It can be annoying to call `delete()` on every object, expecially for chained computations. Take for example `const I2 = eig.Matrix.identity(2, 2).matAdd(eig.Matrix.identity(2, 2))`. The identity matrix passed as an argument to `matAdd(...)` will be allocated but never freed, which will leak memory. To make things easier to manage, `eig.GC` keeps tracks of all the allocated objects on the heap and frees them all upon calling `eig.GC.flush()`.
+
+There could be instances where one would want to keep some matrices in memory while freeing a bunch of temporary ones used for computations. The method `eig.GC.pushException(...matrices)` whitelists its arguments to prevent `eig.GC.flush()` from flushing them. `eig.GC.popException(...matrices)` cancels any previous whitelisting.
+
+```js
+// test.mjs
+import eig from 'eigen';
+
+(async () => {
+  await eig.ready;
+  const x = new eig.Matrix([[1, 2], [3, 4]]);
+  eig.GC.pushException(x); // Whitelist x
+  // Perform some computations
+  const R = new eig.Matrix([[.1, 0], [.5, .1]]);
+  x.matAddSelf(R.matMul(eig.Matrix.ones(2, 2)));
+  // Free memory
+  eig.GC.flush();
+  x.print("x"); // x is still around!
+})();
+```
 
 ## Documentation
 

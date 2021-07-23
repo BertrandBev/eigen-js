@@ -58,9 +58,10 @@ export default {
     },
 
     divStyle() {
+      const toolbarHeight = this.$vuetify.application.top;
       return {
-        width: `${this.$store.windowSize.x}px`,
-        height: `${this.$store.windowSize.y}px`,
+        width: `100%`,
+        height: `calc(100vh - ${toolbarHeight}px)`,
         display: "flex",
         "flex-direction": "row",
         "justify-content": "center",

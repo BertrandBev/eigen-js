@@ -44,10 +44,10 @@ export default {
 
   methods: {
     onResize() {
-      this.$store.windowSize.x =
-        window.innerWidth - this.$vuetify.application.left;
+      // this.$store.windowSize.x =
+      //   window.innerWidth;
       this.$store.windowSize.y =
-        window.innerHeight - this.$vuetify.application.top;
+        window.innerHeight; - this.$vuetify.application.top;
     },
 
     toggleDrawer() {
