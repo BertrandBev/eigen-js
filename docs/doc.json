@@ -32,7 +32,7 @@
           "column": 0
         },
         "end": {
-          "line": 60,
+          "line": 65,
           "column": 1
         }
       },
@@ -237,7 +237,7 @@
             },
             {
               "title": "example",
-              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst lu = eig.Decompositions.lu(M);\nconst I = eig.Matrix.identity(3, 3);\nconst M2 = lu.P.inverse().matMul(lu.L.matAdd(I)).matMul(lu.U).matMul(lu.Q.inverse());\nreturn { ...lu, M2 };",
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst lu = eig.Decompositions.lu(M);\n// Reconstruct M from its LU decomposition\nconst I = eig.Matrix.identity(3, 3);\nconst M2 = lu.P.inverse().matMul(lu.L.matAdd(I)).matMul(lu.U).matMul(lu.Q.inverse());\nreturn { ...lu, M2 };",
               "lineNumber": 6
             }
           ],
@@ -247,18 +247,18 @@
               "column": 2
             },
             "end": {
-              "line": 31,
+              "line": 32,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 32,
+                "line": 33,
                 "column": 2
               },
               "end": {
-                "line": 32,
+                "line": 33,
                 "column": 18
               }
             },
@@ -267,7 +267,7 @@
           "augments": [],
           "examples": [
             {
-              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst lu = eig.Decompositions.lu(M);\nconst I = eig.Matrix.identity(3, 3);\nconst M2 = lu.P.inverse().matMul(lu.L.matAdd(I)).matMul(lu.U).matMul(lu.Q.inverse());\nreturn { ...lu, M2 };"
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);\nconst lu = eig.Decompositions.lu(M);\n// Reconstruct M from its LU decomposition\nconst I = eig.Matrix.identity(3, 3);\nconst M2 = lu.P.inverse().matMul(lu.L.matAdd(I)).matMul(lu.U).matMul(lu.Q.inverse());\nreturn { ...lu, M2 };"
             }
           ],
           "implements": [],
@@ -377,22 +377,22 @@
           ],
           "loc": {
             "start": {
-              "line": 34,
+              "line": 35,
               "column": 2
             },
             "end": {
-              "line": 43,
+              "line": 44,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 44,
+                "line": 45,
                 "column": 2
               },
               "end": {
-                "line": 44,
+                "line": 45,
                 "column": 18
               }
             },
@@ -515,28 +515,28 @@
             },
             {
               "title": "example",
-              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Decompositions.svd(M, true);\nreturn svd;",
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Decompositions.svd(M, true);\n// Reconstruct M from its SVD decomposition\nlet sigma = new eig.Matrix(svd.U.cols(), svd.V.cols());\nsigma.setBlock(0, 0, eig.Matrix.diagonal(svd.sv));\nconst M2 = svd.U.matMul(sigma.transpose()).matMul(svd.V.transpose());\nreturn {...svd, M2}",
               "lineNumber": 8
             }
           ],
           "loc": {
             "start": {
-              "line": 46,
+              "line": 47,
               "column": 2
             },
             "end": {
-              "line": 58,
+              "line": 63,
               "column": 5
             }
           },
           "context": {
             "loc": {
               "start": {
-                "line": 59,
+                "line": 64,
                 "column": 2
               },
               "end": {
-                "line": 59,
+                "line": 64,
                 "column": 25
               }
             },
@@ -545,7 +545,7 @@
           "augments": [],
           "examples": [
             {
-              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Decompositions.svd(M, true);\nreturn svd;"
+              "description": "const M = new eig.Matrix([[1, 2, 3], [4, 5, 6]]);\nconst svd = eig.Decompositions.svd(M, true);\n// Reconstruct M from its SVD decomposition\nlet sigma = new eig.Matrix(svd.U.cols(), svd.V.cols());\nsigma.setBlock(0, 0, eig.Matrix.diagonal(svd.sv));\nconst M2 = svd.U.matMul(sigma.transpose()).matMul(svd.V.transpose());\nreturn {...svd, M2}"
             }
           ],
           "implements": [],
