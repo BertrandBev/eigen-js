@@ -98,17 +98,17 @@ source path/to/emsdk/emsdk_env.sh
 emcc -v
 ```
 
-Dowload the latest versions of [Eigen](https://gitlab.com/libeigen/eigen/-/releases/) and [OSPQ](https://github.com/oxfordcontrol/osqp/) (optional, see below), and put then in the `lib` directory
+Dowload the latest versions of [Eigen](https://gitlab.com/libeigen/eigen/-/releases/) and [OSQP](https://github.com/oxfordcontrol/osqp/) (optional, see below), and put then in the `lib` directory
 
 ```bash
 lib/eigen
-lib/ospq
+lib/osqp
 ```
 
 Now compile osqp for a Webassembly target
 
 ```bash
-cd lib/ospq
+cd lib/osqp
 mkdir build; cd build
 emcmake cmake ..
 emmake make
