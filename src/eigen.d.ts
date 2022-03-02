@@ -1,9 +1,9 @@
 interface GarbageCollector {
-  add(...addList: any[]): void; // TODO
-  pushException(...exceptionList: any[]): void; // TODO
+  add(...addList: unknown[]): void;
+  pushException(...exceptionList: unknown[]): void;
   flush(): number;
-  set(ref: any, name: any, newObj: any): void; // TODO
-  initClass(classes: any, Class: any): object; // TODO
+  set(ref: unknown, name: unknown, newObj: unknown): void;
+  initClass(classes: unknown, Class: unknown): unknown;
 }
 
 declare namespace eig {
@@ -29,26 +29,25 @@ declare namespace eig {
   }
 
   class Complex {
-    // TODO
+    constructor(re: number, im: number);
+    real(): number;
+    imag(): number;
   }
 
   class Matrix {
-    // TODO: correct these
     constructor(arg0: number, arg1?: number);
     constructor(arg0: number[] | number[][] | Matrix);
     static identity(m: number, n: number): Matrix;
     static ones(m: number, n: number): Matrix;
-    static constant(m: number, n: number, value: number): Matrix;
+    static constant(m: number, n: number, x: number): Matrix;
     static random(m: number, n: number): Matrix;
-    static diagonal(vec: Matrix): Matrix;
-    static fromVector(arr: number[] | number[][]): Matrix;
+    static diagonal(vector: Matrix): Matrix;
+    static fromVector(v: Vector2d): Matrix;
+    transpose(): Matrix;
+    transposeSelf(): Matrix;
+    inverse(): Matrix;
     rows(): number;
     cols(): number;
-    get(i: number, j?: number): number;
-    set(i: number, j: number, val: number): void;
-    set(i: number, val: number): void;
-    length(): number;
-    dot(B: Matrix): number;
     norm(): number;
     normSqr(): number;
     l1Norm(): number;
@@ -58,21 +57,28 @@ declare namespace eig {
     sum(): number;
     block(i: number, j: number, di: number, dj: number): Matrix;
     setBlock(i: number, j: number, block: Matrix): void;
-    mul(val: number): Matrix;
-    mulSelf(val: number): Matrix;
-    div(val: number): Matrix;
-    divSelf(val: number): Matrix;
+    mul(s: number): Matrix;
+    mulSelf(s: number): Matrix;
+    div(s: number): Matrix;
+    divSelf(s: number): Matrix;
     matAdd(B: Matrix): Matrix;
     matAddSelf(B: Matrix): Matrix;
     matSub(B: Matrix): Matrix;
     matSubSelf(B: Matrix): Matrix;
     matMul(B: Matrix): Matrix;
     matMulSelf(B: Matrix): Matrix;
+    get(i: number, j?: number): number;
+    set(i: number, j: number, s: number): void;
+    set(i: number, s: number): void;
     hcat(B: Matrix): Matrix;
     vcat(B: Matrix): Matrix;
-    transpose(): Matrix;
-    transposeSelf(): Matrix;
-    inverse(): Matrix;
+    print(title: string): void;
+    clamp(lo: number, hi: number): Matrix;
+    clampSelf(lo: number, hi: number): Matrix;
+    length(): number;
+    vGet(i: number): number;
+    vSet(i: number, s: number): void;
+    dot(B: Matrix): number;
   }
 
   class SparseMatrix {
