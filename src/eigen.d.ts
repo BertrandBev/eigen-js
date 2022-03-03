@@ -109,8 +109,9 @@ declare namespace eig {
   }
 
   class Solvers {
-    static eigenSolve(M: Matrix, computeEigenvectors: boolean): EigenSolverResult;
-    static careSolve(M: Matrix, computeEigenvectors: boolean): CareSolverResult;
+    static eigenSolve(matrix: Matrix, computeEigenvectors: boolean): EigenSolverResult;
+    static careSolve(A: Matrix, B: Matrix, Q: Matrix, R: Matrix): CareSolverResult;
+    static solve(P: SparseMatrix, q: Matrix, A: SparseMatrix, l: Matrix, u: Matrix): Matrix;
   }
 
   interface CholeskyResult {
