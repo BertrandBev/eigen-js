@@ -3,8 +3,10 @@
   "version": "0.2.0",
   "description": "Eigen-js is a port of the [Eigen](https://eigen.tuxfamily.org/) C++ linear algebra library",
   "main": "dist/index.js",
+  "types": "src/eigen.d.ts",
   "files": [
-    "dist/index.js"
+    "dist/index.js",
+    "src/eigen.d.ts"
   ],
   "repository": "https://github.com/BertrandBev/eigen-js.git",
   "author": "Bertrand <bertrand.bevillard.dev@gmail.com>",
@@ -33,6 +35,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "@types/hashmap": "^2.3.1",
     "hashmap": "^2.4.0"
   }
 }
