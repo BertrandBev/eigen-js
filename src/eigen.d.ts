@@ -1,6 +1,7 @@
 interface GarbageCollector {
   add(...addList: unknown[]): void;
   pushException(...exceptionList: unknown[]): void;
+  popException(...exceptionList: unknown[]): void;
   flush(): number;
   set(ref: unknown, name: unknown, newObj: unknown): void;
   initClass(classes: unknown, Class: unknown): unknown;
@@ -81,7 +82,7 @@ declare namespace eig {
     dot(B: Matrix): number;
   }
 
-  class SparseMatrix {
+  class ComplexDenseMatrix {
     // TODO
   }
 
@@ -89,25 +90,66 @@ declare namespace eig {
     // TODO
   }
 
-  class ComplexDenseMatrix {
+  class SparseMatrix {
     // TODO
+  }
+
+  type ComputationInfo = unknown; // TODO
+
+  interface EigenSolverResult {
+    info: ComputationInfo;
+    eigenvalues: ComplexDenseMatrix;
+    eigenvectors: ComplexDenseMatrix;
+  }
+
+  interface CareSolverResult {
+    info: ComputationInfo;
+    K: Matrix;
+    S: Matrix;
   }
 
   class Solvers {
     static eigenSolve(M: Matrix, computeEigenvectors: boolean): EigenSolverResult;
-    // TODO
+    static careSolve(M: Matrix, computeEigenvectors: boolean): CareSolverResult;
+  }
+
+  interface CholeskyResult {
+    L: Matrix;
+  }
+
+  interface LUResult {
+    L: Matrix;
+    U: Matrix;
+    P: Matrix;
+    Q: Matrix;
+  }
+
+  interface QRResult {
+    Q: Matrix;
+    R: Matrix;
+  }
+
+  interface SVDResult {
+    sv: Matrix;
+    U: Matrix;
+    V: Matrix;
   }
 
   class Decompositions {
-    // TODO
+    static cholesky(M: Matrix): CholeskyResult;
+    static lu(M: Matrix): LUResult;
+    static qr(M: Matrix): QRResult;
+    static svd(M: Matrix, thin: boolean): SVDResult;
   }
 
   class QuadProgSolver {
-    // TODO
+    static solve(P: SparseMatrix, q: Matrix, A: SparseMatrix, l: Matrix, u: Matrix): Matrix;
+    static solveSparse(): void;
+    static solveBasic(): void;
   }
 
   class Random {
-    // TODO
+    static normal(mean: Matrix, cov: Matrix, samples: number): Matrix;
   }
 }
 
