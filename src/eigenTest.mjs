@@ -1,4 +1,5 @@
-import eig from './eigen'
+// import eig from '../dist/index.js'
+import eig from './eigen.mjs'
 
 
 function refTest() {
