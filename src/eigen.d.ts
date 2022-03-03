@@ -1,14 +1,17 @@
-interface GarbageCollector {
-  add(...addList: unknown[]): void;
-  pushException(...exceptionList: unknown[]): void;
-  popException(...exceptionList: unknown[]): void;
-  flush(): number;
-  set(ref: unknown, name: unknown, newObj: unknown): void;
-  initClass(classes: unknown, Class: unknown): unknown;
-}
+import HashMap from "hashmap";
 
 declare namespace eig {
-  const GC: GarbageCollector;
+  class GC {
+    static add(...addList: unknown[]): void;
+    static pushException(...exceptionList: unknown[]): void;
+    static popException(...exceptionList: unknown[]): void;
+    static flush(): number;
+    static set(ref: unknown, name: string, newObj: unknown): void;
+    static initClass(classes: Set<unknown>, Class: unknown): unknown;
+    static objects: Set<unknown>;
+    static whitelist: HashMap<unknown, number>;
+  }
+
   const ready: Promise<void>;
 
   class Vector {
@@ -83,18 +86,69 @@ declare namespace eig {
   }
 
   class ComplexDenseMatrix {
-    // TODO
+    constructor(m: number, n: number);
+    constructor(B: ComplexDenseMatrix);
+    static identity(m: number, n: number): ComplexDenseMatrix;
+    static ones(m: number, n: number): ComplexDenseMatrix;
+    static constant(m: number, n: number, x: number): ComplexDenseMatrix;
+    static random(m: number, n: number): ComplexDenseMatrix;
+    transpose(): ComplexDenseMatrix;
+    inverse(): ComplexDenseMatrix;
+    conjugate(): ComplexDenseMatrix;
+    rows(): number;
+    cols(): number;
+    norm(): number;
+    rank(): number;
+    sum(): Complex;
+    block(i: number, j: number, di: number, dj: number): ComplexDenseMatrix;
+    mul(s: Complex): ComplexDenseMatrix;
+    div(s: Complex): ComplexDenseMatrix;
+    matAdd(B: ComplexDenseMatrix): ComplexDenseMatrix;
+    matSub(B: ComplexDenseMatrix): ComplexDenseMatrix;
+    matMul(B: ComplexDenseMatrix): ComplexDenseMatrix;
+    get(i: number, j: number): Complex;
+    set(i: number, j: number, s: Complex): void;
+    hcat(B: ComplexDenseMatrix): ComplexDenseMatrix;
+    vcat(B: ComplexDenseMatrix): ComplexDenseMatrix;
+    print(title: string): void;
   }
 
   class TripletVector {
-    // TODO
+    constructor(capacity: number);
+    add(i: number, j: number, x: number): void;
+    addBlock(i: number, j: number, mat: Matrix): void;
+    addDiag(i: number, j: number, diag: Matrix): void;
   }
 
   class SparseMatrix {
-    // TODO
+    constructor(m: number, n: number);
+    constructor(m: number, n: number, tripletVector: TripletVector);
+    constructor(B: SparseMatrix);
+    static identity(m: number, n: number): SparseMatrix;
+    static diag(d: Matrix): SparseMatrix;
+    static fromTriplets(m: number, n: number, array: [number, number, number][]): SparseMatrix;
+    transpose(): SparseMatrix;
+    rows(): number;
+    cols(): number;
+    nonZeros(): number;
+    frobeniusNorm(): number;
+    block(r0: number, r1: number, c0: number, c1: number): SparseMatrix;
+    toDense(): Matrix;
+    mul(s: number): SparseMatrix;
+    mulSelf(s: number): void;
+    div(s: number): SparseMatrix;
+    divSelf(s: number): void;
+    matAdd(B: SparseMatrix): SparseMatrix;
+    matAddSelf(B: SparseMatrix): void;
+    matSub(B: SparseMatrix): SparseMatrix;
+    matSubSelf(B: SparseMatrix): void;
+    matMul(B: SparseMatrix): SparseMatrix;
+    get(i: number, j: number): number;
+    set(i: number, j: number, s: number): void;
+    print(title: string): void;
   }
 
-  type ComputationInfo = unknown; // TODO
+  type ComputationInfo = unknown;
 
   interface EigenSolverResult {
     info: ComputationInfo;

@@ -37,6 +37,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "@types/hashmap": "^2.3.1",
     "hashmap": "^2.4.0"
   }
 }
