@@ -5,7 +5,7 @@
 [![npm version](https://badge.fury.io/js/eigen.svg)](https://badge.fury.io/js/eigen)
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://bertrandbev.github.io/eigen-js/#/)
 [![Made with emscripten](https://img.shields.io/badge/Made%20width-emscripten-blue.svg)](https://github.com/emscripten-core/emscripten)
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Eigen.js
 
