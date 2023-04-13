@@ -1,3 +1,10 @@
 [submodule "demo/lib"]
 	path = demo/lib
 	url = https://github.com/BertrandBev/vue-live-docs
+[submodule "lib/eigen"]
+	path = lib/eigen
+	url = https://gitlab.com/libeigen/eigen
+	branch = 0fd6b4f7
+[submodule "lib/osqp"]
+	path = lib/osqp
+	url = https://github.com/osqp/osqp.git

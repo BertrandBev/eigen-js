@@ -39,13 +39,31 @@ import eig from 'eigen';
   await eig.ready;
   const M = new eig.Matrix([[1, 2], [3, 4]]);
   M.print("M");
-  M.inverse();
+  M = M.inverse();
   M.print("Minv");
   eig.GC.flush();
 })();
 ```
 
 This minimal example can be found under ``./example``
+To run it, execute
+
+```bash
+cd example
+node test.mjs
+```
+
+Which results in
+
+```bash
+M
+[[1.00, 2.00]
+ [3.00, 4.00]]
+Minv
+[[-2.00, 1.00]
+ [1.50, -0.50]]
+ ```
+
 
 ## Allocation
 
@@ -64,7 +82,7 @@ import eig from 'eigen';
 })();
 ```
 
-It can be annoying to call `delete()` on every object, expecially for chained computations. Take for example `const I2 = eig.Matrix.identity(2, 2).matAdd(eig.Matrix.identity(2, 2))`. The identity matrix passed as an argument to `matAdd(...)` will be allocated but never freed, which will leak memory. To make things easier to manage, `eig.GC` keeps tracks of all the allocated objects on the heap and frees them all upon calling `eig.GC.flush()`.
+It can be cumbersome to call `delete()` on every object, especially for chained computations. Take for example `const I2 = eig.Matrix.identity(2, 2).matAdd(eig.Matrix.identity(2, 2))`. The identity matrix passed as an argument to `matAdd(...)` will be allocated but never freed, which will leak memory. To make things easier to manage, `eig.GC` keeps tracks of all the allocated objects on the heap and frees them all upon calling `eig.GC.flush()`.
 
 There could be instances where one would want to keep some matrices in memory while freeing a bunch of temporary ones used for computations. The method `eig.GC.pushException(...matrices)` whitelists its arguments to prevent `eig.GC.flush()` from flushing them. `eig.GC.popException(...matrices)` cancels any previous whitelisting.
 
@@ -98,11 +116,11 @@ source path/to/emsdk/emsdk_env.sh
 emcc -v
 ```
 
-Dowload the latest versions of [Eigen](https://gitlab.com/libeigen/eigen/-/releases/) and [OSQP](https://github.com/oxfordcontrol/osqp/) (optional, see below), and put then in the `lib` directory
+Install dependencies
+[Eigen](https://gitlab.com/libeigen/eigen/-/releases/) 3.3.9 and [OSQP](https://github.com/oxfordcontrol/osqp/) (optional, see below)
 
 ```bash
-lib/eigen
-lib/osqp
+git submodule update --init --recursive
 ```
 
 Now compile osqp for a Webassembly target
@@ -123,7 +141,7 @@ emcc -I lib/eigen -I lib/osqp/include -Isrc lib/osqp/build/out/libosqp.a -s DISA
 ```
 
 If you are not interested in the OSQP functionality, you can build without installing it with
-```
+```bash
 emcc -D NO_OSQP -I lib/eigen  -Isrc -s DISABLE_EXCEPTION_CATCHING=0 -s ASSERTIONS=0 -O3 -s ALLOW_MEMORY_GROWTH=1 -s MODULARIZE=1 --bind -o build/eigen_gen.js src/cpp/embind.cc
 ```
 
