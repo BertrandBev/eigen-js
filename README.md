@@ -37,7 +37,7 @@ import eig from 'eigen';
 
 (async () => {
   await eig.ready;
-  const M = new eig.Matrix([[1, 2], [3, 4]]);
+  let M = new eig.Matrix([[1, 2], [3, 4]]);
   M.print("M");
   M = M.inverse();
   M.print("Minv");
@@ -75,7 +75,7 @@ import eig from 'eigen';
 
 (async () => {
   await eig.ready;
-  const M = new eig.Matrix([[1, 2], [3, 4]]); // Memory is allocated for M
+  let M = new eig.Matrix([[1, 2], [3, 4]]); // Memory is allocated for M
   M.print("M");
   M.delete(); // Memory is freed here
   M.print("M"); // This will trigger an error
