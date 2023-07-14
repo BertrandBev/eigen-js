@@ -7,6 +7,7 @@
 #include "CareSolver.h"
 #include "Solvers.h"
 #include "Decompositions.h"
+#include "SimplicialCholesky.h"
 #ifndef NO_OSQP
 #include "QuadProgSolver.h"
 #endif
@@ -18,6 +19,7 @@ using namespace emscripten;
 using DDM = DenseMatrix<double>;
 using CDM = DenseMatrix<complex<double>>;
 using SDM = SparseMatrix<double>;
+using SDMSCholesky = SimplicialCholesky<SDM, Eigen::SparseMatrix<double>>;
 
 EMSCRIPTEN_BINDINGS(Module)
 {
@@ -138,9 +140,14 @@ EMSCRIPTEN_BINDINGS(Module)
         .function("matSub", &SDM::matSub, allow_raw_pointers())
         .function("matSubSelf", &SDM::matSubSelf, allow_raw_pointers())
         .function("matMul", &SDM::matMul, allow_raw_pointers())
+        .function("vecMul", &SDM::vecMul, allow_raw_pointers())
         .function("get", &SDM::get)
         .function("set", &SDM::set)
         .function("print", &SDM::print);
+
+    class_<SDMSCholesky>("SimplicialCholesky")
+      .constructor<SDM>()
+      .function("solve", &SDMSCholesky::solve);
 
     // .function("matMulSelf", &SDM::matMulSelf, allow_raw_pointers());
     // .function("chol", &SDM::chol, allow_raw_pointers())
@@ -168,6 +175,7 @@ EMSCRIPTEN_BINDINGS(Module)
     class_<Solvers>("Solvers")
         .class_function("eigenSolve", &Solvers::eigenSolve)
         .class_function("careSolve", &Solvers::careSolve)
+        .class_function("createSimplicialCholeskySolver", &Solvers::createSimplicialCholeskySolver)
         #ifndef NO_OSQP
         .class_function("quadProgSolve", &Solvers::quadProgSolve)
         #endif

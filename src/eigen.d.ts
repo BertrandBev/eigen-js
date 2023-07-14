@@ -1,3 +1,8 @@
+/* eslint-disable sort-class-members/sort-class-members */
+/* eslint-disable lines-between-class-members */
+/* eslint-disable semi */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable prettier/prettier */
 import HashMap from "hashmap";
 
 declare namespace eig {
@@ -136,6 +141,7 @@ declare namespace eig {
     toDense(): Matrix;
     mul(s: number): SparseMatrix;
     mulSelf(s: number): void;
+    vecMul(v: Matrix): Matrix
     div(s: number): SparseMatrix;
     divSelf(s: number): void;
     matAdd(B: SparseMatrix): SparseMatrix;
@@ -162,7 +168,14 @@ declare namespace eig {
     S: Matrix;
   }
 
+  class SimplicialCholesky {
+    constructor(m: SparseMatrix);
+
+    solve(vec: Matrix): Matrix
+  }
+
   class Solvers {
+    static createSimplicialCholeskyCholeskySolver(matrix: SparseMatrix): SimplicialCholesky
     static eigenSolve(matrix: Matrix, computeEigenvectors: boolean): EigenSolverResult;
     static careSolve(A: Matrix, B: Matrix, Q: Matrix, R: Matrix): CareSolverResult;
     static solve(P: SparseMatrix, q: Matrix, A: SparseMatrix, l: Matrix, u: Matrix): Matrix;

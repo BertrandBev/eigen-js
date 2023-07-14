@@ -111,6 +111,7 @@ eig.ready = Module.then(module => {
     "Decompositions",
     "QuadProgSolver",
     "Random",
+    "SimplicialCholesky",
   ]);
   classes.forEach(className => {
     eig[className] = GC.initClass(classes, module[className])

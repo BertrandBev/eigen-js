@@ -2,11 +2,12 @@
 #define SPARSE_MATRIX_H
 
 #include <Eigen/Sparse>
-// #include<Eigen/SparseCholesky>	
+// #include <Eigen/SparseCholesky>	
 // #include<Eigen/SparseLU>	
 // #include<Eigen/SparseQR>	
 // #include <Eigen/Dense>
 #include "DenseMatrix.h"
+#include "SimplicialCholesky.h"
 
 template <typename T>
 class TripletVector;
@@ -186,6 +187,11 @@ public:
     return SparseMatrix<T>(data * B->data);
   }
 
+  DenseMatrix<T> vecMul(DenseMatrix<T> *B)
+  {
+    return DenseMatrix<T>(data * B->data);
+  }
+
   T get(int i, int j)
   {
     return data.coeffRef(i, j);
@@ -241,6 +247,9 @@ public:
 protected:
   // members
   // Eigen::SparseFactorization<T> factorization;
+  
+  friend class SimplicialCholesky<SparseMatrix<T>, Eigen::SparseMatrix<T>>;
+
   Eigen::SparseMatrix<T> data;
 };
 
