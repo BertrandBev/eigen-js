@@ -175,7 +175,7 @@ declare namespace eig {
   }
 
   class Solvers {
-    static createSimplicialCholeskyCholeskySolver(matrix: SparseMatrix): SimplicialCholesky
+    static createSimplicialCholeskySolver(matrix: SparseMatrix): SimplicialCholesky
     static eigenSolve(matrix: Matrix, computeEigenvectors: boolean): EigenSolverResult;
     static careSolve(A: Matrix, B: Matrix, Q: Matrix, R: Matrix): CareSolverResult;
     static solve(P: SparseMatrix, q: Matrix, A: SparseMatrix, l: Matrix, u: Matrix): Matrix;

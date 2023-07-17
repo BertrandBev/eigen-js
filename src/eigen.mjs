@@ -109,12 +109,17 @@ eig.ready = Module.then(module => {
     "ComplexDenseMatrix",
     "Solvers",
     "Decompositions",
-    "QuadProgSolver",
+    "QuadProgSolver", // should be commented if libeigen built without OSQP
     "Random",
     "SimplicialCholesky",
   ]);
   classes.forEach(className => {
-    eig[className] = GC.initClass(classes, module[className])
+    try {
+      eig[className] = GC.initClass(classes, module[className])
+    }
+    catch (e) {
+      console.log('Error in eig.ready: no class ' + className)
+    }
   })
   addHelpers(eig);
 })
