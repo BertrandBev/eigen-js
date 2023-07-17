@@ -4,6 +4,7 @@
 #include <Eigen/Dense>
 #include "DenseMatrix.h"
 #include "CareSolver.h"
+#include "SimplicialCholesky.h"
 #ifndef NO_OSQP
 #include "QuadProgSolver.h"
 #endif
@@ -16,6 +17,13 @@ class Solvers
   using SMD = SparseMatrix<double>;
 
 public:
+  /** 
+   * SimplicialCholesky solver
+   */
+  static SimplicialCholesky<SMD, Eigen::SparseMatrix<double>> createSimplicialCholeskySolver(SMD &matrix) {
+    return SimplicialCholesky<SMD, Eigen::SparseMatrix<double>>(matrix);
+  }
+
   /**
    * Eigen solver
    */

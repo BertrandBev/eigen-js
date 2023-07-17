@@ -1,0 +1,15 @@
+{
+  "module": "ESNext",
+  "moduleResolution": "node",
+
+  "compilerOptions": {
+    "allowJs": true,
+    "esModuleInterop": true, 
+    "declaration": false
+  },
+
+  "types": ["react", "jest", "src/eigen.d.ts"],
+  "typeRoots": ["./src"],
+  "exclude": ["node_modules"],
+  "include": ["src/**/*", "../dist/index.js"]
+}
